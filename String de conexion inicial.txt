@@ -1,0 +1,1 @@
+Scaffold-DbContext "Data Source=LAPTOP-LUISHQ\SQLSERVERDEV2022;Initial Catalog=Proyecto;trustservercertificate=True;Integrated Security=True;" -Provider Microsoft.EntityFrameworkCore.SqlServer -Project "Models"-Force

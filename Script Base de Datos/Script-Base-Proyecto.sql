@@ -9,7 +9,11 @@ CREATE TABLE Rol (
 	CONSTRAINT PK_Rol PRIMARY KEY (ID_Rol)
 );
 
-INSERT INTO Rol (Nombre) VALUES ('admin'), ('vendedor'), ('cliente');
+INSERT INTO Rol (Nombre) 
+VALUES 
+	 ('admin')
+	,('vendedor')
+	,('cliente');
 
 CREATE TABLE Usuario (
     ID_Usuario INT IDENTITY(1,1)
@@ -56,7 +60,6 @@ CREATE TABLE Orden (
     ID_Usuario INT NOT NULL,
     Fecha DATETIME NOT NULL DEFAULT GETDATE(),
     Estado NVARCHAR(20) CHECK (Estado IN ('en proceso', 'enviado')) NOT NULL,
-    Total DECIMAL(10, 2) NOT NULL,
 	CONSTRAINT PK_Orden PRIMARY KEY (ID_Orden),
     CONSTRAINT FK_ID_Usuario_Orden FOREIGN KEY (ID_Usuario) REFERENCES Usuario(ID_Usuario)
 );
