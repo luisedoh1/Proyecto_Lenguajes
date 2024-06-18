@@ -75,7 +75,7 @@ namespace DA
             catch (Exception error)
             {
                 Console.WriteLine(error.Message);
-                throw new Exception("Error al intentar obtener los productos por caracteristica 1");
+                throw new Exception("Error al intentar obtener los productos por caracteristica");
             }
         }
 
@@ -90,6 +90,29 @@ namespace DA
             {
                 Console.WriteLine(error.Message);
                 throw new Exception("Error al añadir el producto " + producto.ToString());
+            }
+        }
+
+        public async Task<int> editProduct(int productID, Producto product)
+        {
+            try
+            {
+                Producto existingProduct = await getProductById(productID);
+                existingProduct.Codigo = product.Codigo;
+                existingProduct.Nombre = product.Nombre;
+                existingProduct.Descripcion = product.Descripcion;
+                existingProduct.Precio = product.Precio;
+                existingProduct.CategoriaId = product.CategoriaId;
+                existingProduct.Cantidad = product.Cantidad;
+                existingProduct.CaracteristicaId1 = product.CaracteristicaId1;
+                existingProduct.CaracteristicaId2 = product.CaracteristicaId2;
+                existingProduct.Imagen = product.Imagen;
+                return await _context.SaveChangesAsync();
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error.Message);
+                throw new Exception("Error encontrado al intentar actualizar el producto:" + productID);
             }
         }
 

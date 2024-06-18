@@ -129,3 +129,17 @@ CREATE TABLE Detalle_Lista_Deseo (
     CONSTRAINT FK_ID_Lista_Deseo FOREIGN KEY (ID_Lista_Deseo) REFERENCES Lista_Deseo(ID_Lista_Deseo),
     CONSTRAINT FK_ID_Producto_ListaD FOREIGN KEY (ID_Producto) REFERENCES Producto(ID_Producto)
 );
+
+
+--Poblacion de Datos
+
+-- Insertar Categorías
+INSERT INTO Categoria (Nombre, Descripcion) VALUES ('Smartphones y accesorios', 'Dispositivos móviles y sus accesorios');
+
+-- Insertar Características
+INSERT INTO Caracteristica (Nombre) VALUES ('Color');
+INSERT INTO Caracteristica (Nombre) VALUES ('Almacenamiento');
+
+-- Insertar Productos
+INSERT INTO Producto (Codigo, Nombre, Descripcion, Cantidad, Categoria_ID, Precio, Caracteristica_ID1, Caracteristica_ID2) 
+VALUES ('IP13P-128', 'iPhone 13 Pro 128GB', 'Smartphone de alta gama con 128GB de almacenamiento', 50, (SELECT ID_Categoria FROM Categoria WHERE Nombre = 'Smartphones y accesorios'), 999.00, (SELECT ID_Caracteristica FROM Caracteristica WHERE Nombre = 'Color'), (SELECT ID_Caracteristica FROM Caracteristica WHERE Nombre = 'Almacenamiento'));

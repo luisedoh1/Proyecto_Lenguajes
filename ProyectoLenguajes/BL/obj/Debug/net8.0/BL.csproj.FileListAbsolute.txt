@@ -13,3 +13,8 @@ C:\Users\luise\Desktop\UCR\Lenguajes\Proyecto Lenguajes\Proyecto_Lenguajes\Proye
 C:\Users\luise\Desktop\UCR\Lenguajes\Proyecto Lenguajes\Proyecto_Lenguajes\ProyectoLenguajes\BL\obj\Debug\net8.0\BL.pdb
 C:\Users\luise\Desktop\UCR\Lenguajes\Proyecto Lenguajes\Proyecto_Lenguajes\ProyectoLenguajes\BL\obj\Debug\net8.0\BL.genruntimeconfig.cache
 C:\Users\luise\Desktop\UCR\Lenguajes\Proyecto Lenguajes\Proyecto_Lenguajes\ProyectoLenguajes\BL\obj\Debug\net8.0\ref\BL.dll
+C:\Users\luise\Desktop\UCR\Lenguajes\Proyecto Lenguajes\Proyecto_Lenguajes\ProyectoLenguajes\BL\bin\Debug\net8.0\DA.dll
+C:\Users\luise\Desktop\UCR\Lenguajes\Proyecto Lenguajes\Proyecto_Lenguajes\ProyectoLenguajes\BL\bin\Debug\net8.0\Models.dll
+C:\Users\luise\Desktop\UCR\Lenguajes\Proyecto Lenguajes\Proyecto_Lenguajes\ProyectoLenguajes\BL\bin\Debug\net8.0\DA.pdb
+C:\Users\luise\Desktop\UCR\Lenguajes\Proyecto Lenguajes\Proyecto_Lenguajes\ProyectoLenguajes\BL\bin\Debug\net8.0\Models.pdb
+C:\Users\luise\Desktop\UCR\Lenguajes\Proyecto Lenguajes\Proyecto_Lenguajes\ProyectoLenguajes\BL\obj\Debug\net8.0\BL.csproj.Up2Date
