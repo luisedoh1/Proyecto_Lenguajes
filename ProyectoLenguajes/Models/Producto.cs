@@ -29,7 +29,7 @@ public partial class Producto
 
     public virtual Caracteristica? CaracteristicaId2Navigation { get; set; }
 
-    public virtual Categorium Categoria { get; set; } = null!;
+    public virtual Categoria Categoria { get; set; } = null!;
 
     public virtual ICollection<DetalleCarrito> DetalleCarritos { get; set; } = new List<DetalleCarrito>();
 

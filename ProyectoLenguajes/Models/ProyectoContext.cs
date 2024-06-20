@@ -19,7 +19,7 @@ public partial class ProyectoContext : DbContext
 
     public virtual DbSet<CarritoCompra> CarritoCompras { get; set; }
 
-    public virtual DbSet<Categorium> Categoria { get; set; }
+    public virtual DbSet<Categoria> Categoria { get; set; }
 
     public virtual DbSet<DetalleCarrito> DetalleCarritos { get; set; }
 
@@ -73,7 +73,7 @@ public partial class ProyectoContext : DbContext
                 .HasConstraintName("FK_ID_Usuario_Carrito");
         });
 
-        modelBuilder.Entity<Categorium>(entity =>
+        modelBuilder.Entity<Categoria>(entity =>
         {
             entity.HasKey(e => e.IdCategoria);
 
