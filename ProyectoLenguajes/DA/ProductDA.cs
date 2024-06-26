@@ -13,6 +13,7 @@ namespace DA
             _context = context;
         }
 
+        // Obtener productos
         public async Task<List<Producto>> getAllProducts(string orderBy)
         {
             try
@@ -26,9 +27,10 @@ namespace DA
             }
         }
 
+        // Obtener producto especifico
         public async Task<Producto> getProductById(int idProduct)
         {
-            
+
             try
             {
                 return await _context.Productos.Where(p => p.IdProducto == idProduct).FirstOrDefaultAsync();
@@ -40,11 +42,12 @@ namespace DA
             }
         }
 
+        // Obtener productos de una categoria
         public async Task<List<Producto>> getAllProductsByCategory(int idCategory, string orderBy)
         {
             try
             {
-                return await _context.Productos.Where(p=> p.CategoriaId == idCategory).OrderBy(orderBy).ToListAsync();
+                return await _context.Productos.Where(p => p.CategoriaId == idCategory).OrderBy(orderBy).ToListAsync();
             }
             catch (Exception error)
             {
@@ -53,6 +56,7 @@ namespace DA
             }
         }
 
+        // Obtener producto por una caracteristica
         public async Task<List<Producto>> getAllProductsByOneCharacteristic(int idCharacteristic1, string orderBy)
         {
             try
@@ -66,6 +70,7 @@ namespace DA
             }
         }
 
+        // Obtener producto por ambas caracteristicas
         public async Task<List<Producto>> getAllProductsByTwoCharacteristic(int idCharacteristic1, int idCharacteristic2, string orderBy)
         {
             try
@@ -79,6 +84,7 @@ namespace DA
             }
         }
 
+        // Agregar producto
         public async Task<int> createProducto(Producto producto)
         {
             try
@@ -93,6 +99,7 @@ namespace DA
             }
         }
 
+        // Editar producto
         public async Task<int> editProduct(int productID, Producto product)
         {
             try
@@ -116,6 +123,7 @@ namespace DA
             }
         }
 
+        // Eliminar producto
         public async Task<int> deleteProductById(int id)
         {
             try
