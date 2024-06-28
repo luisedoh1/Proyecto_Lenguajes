@@ -13,11 +13,21 @@ namespace BL
         }
 
         // Obtener categorias
-        public async Task<List<Categoria>> getAllCategorias(string orderBy)
+        public async Task<List<Categoria>> getAllCategorias(string orderBy, string orderType)
         {
             try
             {
-                return await categoriaDA.getAllCategories(orderBy);
+                string orderByQuery = "IdCategoria";
+                if (orderBy != null)
+                {
+                    orderByQuery = orderBy;
+                }
+                string orderTypeQuery = "asc";
+                if (orderType != null)
+                {
+                    orderTypeQuery = orderType;
+                }
+                return await categoriaDA.getAllCategories(orderByQuery + " " + orderTypeQuery);
             }
             catch (Exception error)
             {

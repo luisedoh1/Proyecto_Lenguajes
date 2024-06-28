@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\ProyectoLenguajes\\ProyectoLenguajes.csproj": {}
+    "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\ProyectoLenguajes\\ProyectoLenguajes.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\BL\\BL.csproj": {
+    "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\BL\\BL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\BL\\BL.csproj",
+        "projectUniqueName": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\BL\\BL.csproj",
         "projectName": "BL",
-        "projectPath": "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\BL\\BL.csproj",
-        "packagesPath": "C:\\Users\\Joshu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\BL\\obj\\",
+        "projectPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\BL\\BL.csproj",
+        "packagesPath": "C:\\Users\\luise\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\BL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Joshu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\luise\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,11 +28,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\DA\\DA.csproj": {
-                "projectPath": "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\DA\\DA.csproj"
+              "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\DA\\DA.csproj": {
+                "projectPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\DA\\DA.csproj"
               },
-              "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\Models\\Models.csproj": {
-                "projectPath": "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\Models\\Models.csproj"
+              "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\Models\\Models.csproj"
               }
             }
           }
@@ -79,21 +79,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\DA\\DA.csproj": {
+    "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\DA\\DA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\DA\\DA.csproj",
+        "projectUniqueName": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\DA\\DA.csproj",
         "projectName": "DA",
-        "projectPath": "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\DA\\DA.csproj",
-        "packagesPath": "C:\\Users\\Joshu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\DA\\obj\\",
+        "projectPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\DA\\DA.csproj",
+        "packagesPath": "C:\\Users\\luise\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\DA\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Joshu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\luise\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -107,8 +107,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\Models\\Models.csproj": {
-                "projectPath": "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\Models\\Models.csproj"
+              "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\Models\\Models.csproj"
               }
             }
           }
@@ -159,21 +159,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\Models\\Models.csproj": {
+    "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\Models\\Models.csproj",
+        "projectUniqueName": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\Models\\Models.csproj",
-        "packagesPath": "C:\\Users\\Joshu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\Models\\obj\\",
+        "projectPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\Models\\Models.csproj",
+        "packagesPath": "C:\\Users\\luise\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Joshu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\luise\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -231,21 +231,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\ProyectoLenguajes\\ProyectoLenguajes.csproj": {
+    "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\ProyectoLenguajes\\ProyectoLenguajes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\ProyectoLenguajes\\ProyectoLenguajes.csproj",
+        "projectUniqueName": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\ProyectoLenguajes\\ProyectoLenguajes.csproj",
         "projectName": "ProyectoLenguajes",
-        "projectPath": "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\ProyectoLenguajes\\ProyectoLenguajes.csproj",
-        "packagesPath": "C:\\Users\\Joshu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\ProyectoLenguajes\\obj\\",
+        "projectPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\ProyectoLenguajes\\ProyectoLenguajes.csproj",
+        "packagesPath": "C:\\Users\\luise\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\ProyectoLenguajes\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Joshu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\luise\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -259,11 +259,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\BL\\BL.csproj": {
-                "projectPath": "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\BL\\BL.csproj"
+              "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\BL\\BL.csproj": {
+                "projectPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\BL\\BL.csproj"
               },
-              "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\Models\\Models.csproj": {
-                "projectPath": "C:\\Users\\Joshu\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes\\Models\\Models.csproj"
+              "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes\\Models\\Models.csproj"
               }
             }
           }
@@ -287,6 +287,10 @@
               "target": "Package",
               "version": "[8.0.6, )"
             },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[8.0.6, )"
@@ -296,6 +300,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.6, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[8.0.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -321,7 +329,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

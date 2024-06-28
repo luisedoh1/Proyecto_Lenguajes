@@ -11,7 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // SQL Server Connection
-builder.Services.AddDbContext<ProyectoContext>(options =>
+builder.Services.AddDbContext<ProyectoContext>(options => 
     options.UseSqlServer(builder.Configuration.GetConnectionString("SQLServerConnection")
     ));
 

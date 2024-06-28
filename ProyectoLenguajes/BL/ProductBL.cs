@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    internal class ProductBL
+    public class ProductBL
     {
         private ProductDA productDA;
 
@@ -18,11 +18,21 @@ namespace BL
         }
 
         // Obtener productos
-        public async Task<List<Producto>> getAllProducts(string orderBy)
+        public async Task<List<Producto>> getAllProducts(string orderBy, string orderType)
         {
             try
             {
-                return await productDA.getAllProducts(orderBy);
+                string orderByQuery = "Codigo";
+                if (orderBy != null)
+                {
+                    orderByQuery = orderBy;
+                }
+                string orderTypeQuery = "asc";
+                if (orderType != null)
+                {
+                    orderTypeQuery = orderType;
+                }
+                return await productDA.getAllProducts(orderByQuery + " " + orderTypeQuery);
             }
             catch (Exception error)
             {
@@ -30,8 +40,8 @@ namespace BL
             }
         }
 
-        // Obtener producto especifico
-        public async Task<Producto> GetProductById(int id)
+        // Obtener producto específico
+        public async Task<Producto> getProductById(int id)
         {
             try
             {
@@ -70,7 +80,7 @@ namespace BL
         }
 
         // Eliminar producto
-        public async Task<int> deleteAlbumById(int id)
+        public async Task<int> deleteProductById(int id)
         {
             try
             {
@@ -82,7 +92,7 @@ namespace BL
             }
         }
 
-        // Obtener productos de una categoria
+        // Obtener productos de una categoría
         public async Task<List<Producto>> getAllProductsByCategory(int categoryId, string orderBy)
         {
             try
