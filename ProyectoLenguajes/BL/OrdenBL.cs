@@ -107,5 +107,38 @@ namespace BL
                 throw new Exception(error.Message);
             }
         }
+
+        public async Task<ReporteVentasDto> GenerarReporteVentasAsync()
+        {
+            var ordenes = await ordenDA.ObtenerOrdenesAsync();
+            var reporte = new ReporteVentasDto();
+
+            foreach (var orden in ordenes)
+            {
+                var totalOrden = orden.DetalleOrdens.Sum(d => d.Cantidad * d.PrecioUnitario);
+                reporte.TotalVentas += totalOrden;
+                reporte.DetalleVentas.Add(new DetalleVentaDto
+                {
+                    ID_Orden = orden.IdOrden,
+                    Fecha = orden.Fecha,
+                    Total = totalOrden
+                });
+            }
+
+            return reporte;
+        }
+    }
+
+    public class ReporteVentasDto
+    {
+        public decimal TotalVentas { get; set; }
+        public List<DetalleVentaDto> DetalleVentas { get; set; } = new List<DetalleVentaDto>();
+    }
+
+    public class DetalleVentaDto
+    {
+        public int ID_Orden { get; set; }
+        public DateTime Fecha { get; set; }
+        public decimal Total { get; set; }
     }
 }

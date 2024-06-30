@@ -54,6 +54,27 @@ namespace ProyectoLenguajes.Controllers
             }
         }
 
+        //GET: Products/1
+        [HttpGet("{name}")]
+        public async Task<ActionResult<Producto>> Index(string name)
+        {
+            try
+            {
+                Producto product = await productBL.getProductByName(name);
+
+                if (product == null)
+                {
+                    return NotFound("Producto no encontrado para este nombre");
+                }
+                return product;
+
+            }
+            catch (Exception error)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, error.Message);
+            }
+        }
+
 
         //POST: Product/
         [HttpPost]

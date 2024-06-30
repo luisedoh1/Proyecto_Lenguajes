@@ -8,7 +8,7 @@ namespace ProyectoLenguajes.Controllers
     [ApiController]
     public class OrdersController : ControllerBase
     {
-        private ProductoBL productoBL();
-        public OrdersController() { }
+        
+        
     }
 }

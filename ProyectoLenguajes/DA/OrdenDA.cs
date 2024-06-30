@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Models;
 using System.Linq.Dynamic.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DA
 {
@@ -23,9 +18,7 @@ namespace DA
         {
             try
             {
-                return await _context.Ordens
-                    .OrderBy(orderBy)
-                    .ToListAsync();
+                return await _context.Ordens.OrderBy(orderBy).ToListAsync();
             }
             catch (Exception error)
             {
@@ -34,14 +27,12 @@ namespace DA
             }
         }
 
-        // Obtener orden especifica
+        // Obtener orden especifica por id
         public async Task<Orden> GetOrderById(int idOrden)
         {
             try
             {
-                return await _context.Ordens
-                    .Where(o => o.IdOrden == idOrden)
-                    .FirstOrDefaultAsync();
+                return await _context.Ordens.Where(o => o.IdOrden == idOrden).FirstOrDefaultAsync();
             }
             catch (Exception error)
             {
@@ -50,15 +41,13 @@ namespace DA
             }
         }
 
+
         // Obtener ordenes por usuario
         public async Task<List<Orden>> GetAllOrdersByUser(int idUsuario, string orderBy)
         {
             try
             {
-                return await _context.Ordens
-                    .Where(o => o.IdUsuario == idUsuario)
-                    .OrderBy(orderBy)
-                    .ToListAsync();
+                return await _context.Ordens.Where(o => o.IdUsuario == idUsuario).OrderBy(orderBy).ToListAsync();
             }
             catch (Exception error)
             {
@@ -143,6 +132,12 @@ namespace DA
                 Console.WriteLine(error.Message);
                 throw new Exception("Error al intentar eliminar la orden " + id);
             }
+        }
+
+        //Obtener todas las ordenes con sus detalles(Se utiliza para el reporte de ventas)
+        public async Task<List<Orden>> ObtenerOrdenesAsync()
+        {
+            return await _context.Ordens.Include(o => o.DetalleOrdens).ToListAsync();
         }
     }
 }

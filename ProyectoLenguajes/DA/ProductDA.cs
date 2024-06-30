@@ -28,7 +28,7 @@ namespace DA
         }
 
 
-        // Obtener producto especifico
+        // Obtener producto específico por id
         public async Task<Producto> getProductById(int idProduct)
         {
 
@@ -40,6 +40,21 @@ namespace DA
             {
                 Console.WriteLine(error.Message);
                 throw new Exception("Error al buscar el producto " + idProduct);
+            }
+        }
+
+        // Obtener producto específico por nombre
+        public async Task<Producto> getProductByName(string name)
+        {
+
+            try
+            {
+                return await _context.Productos.Where(p => p.Nombre == name).FirstOrDefaultAsync();
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error.Message);
+                throw new Exception("Error al buscar el producto " + name);
             }
         }
 

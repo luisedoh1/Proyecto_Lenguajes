@@ -40,12 +40,25 @@ namespace BL
             }
         }
 
-        // Obtener producto específico
+        // Obtener producto específico por id
         public async Task<Producto> getProductById(int id)
         {
             try
             {
                 return await productDA.getProductById(id);
+            }
+            catch (Exception error)
+            {
+                throw new Exception(error.Message);
+            }
+        }
+
+        // Obtener producto específico por nombre
+        public async Task<Producto> getProductByName(string name)
+        {
+            try
+            {
+                return await productDA.getProductByName(name);
             }
             catch (Exception error)
             {
