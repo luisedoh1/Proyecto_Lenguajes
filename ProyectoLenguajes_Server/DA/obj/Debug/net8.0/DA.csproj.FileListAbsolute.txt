@@ -1,0 +1,5 @@
+C:\Users\luise\Desktop\UCR\Lenguajes\Proyecto Lenguajes\ProyectoLenguajes_Server\DA\obj\Debug\net8.0\DA.csproj.AssemblyReference.cache
+C:\Users\luise\Desktop\UCR\Lenguajes\Proyecto Lenguajes\ProyectoLenguajes_Server\DA\obj\Debug\net8.0\DA.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\luise\Desktop\UCR\Lenguajes\Proyecto Lenguajes\ProyectoLenguajes_Server\DA\obj\Debug\net8.0\DA.AssemblyInfoInputs.cache
+C:\Users\luise\Desktop\UCR\Lenguajes\Proyecto Lenguajes\ProyectoLenguajes_Server\DA\obj\Debug\net8.0\DA.AssemblyInfo.cs
+C:\Users\luise\Desktop\UCR\Lenguajes\Proyecto Lenguajes\ProyectoLenguajes_Server\DA\obj\Debug\net8.0\DA.csproj.CoreCompileInputs.cache

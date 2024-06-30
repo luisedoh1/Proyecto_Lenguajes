@@ -27,10 +27,18 @@ CREATE TABLE Categoria (
 	CONSTRAINT PK_Categoria PRIMARY KEY (ID_Categoria)
 );
 
+CREATE TABLE Tipo_Caracteristica(
+	ID_Tipo INT IDENTITY(1,1)
+	,Nombre NVARCHAR(50) NOT NULL
+	CONSTRAINT PK_TipoCaracteristica PRIMARY KEY (ID_Tipo)
+);
+
 CREATE TABLE Caracteristica (
     ID_Caracteristica INT IDENTITY(1,1)
+	,ID_Tipo INT
     ,Nombre NVARCHAR(100) NOT NULL
-	CONSTRAINT PK_Caracteristica PRIMARY KEY (ID_Caracteristica)
+ 	CONSTRAINT PK_Caracteristica PRIMARY KEY (ID_Caracteristica),
+	CONSTRAINT FK_TipoCaracteristica FOREIGN KEY (ID_Tipo) REFERENCES Tipo_Caracteristica(ID_Tipo)
 );
 
 CREATE TABLE Producto (
@@ -99,14 +107,22 @@ CREATE TABLE Direccion_Entrega (
     ,CONSTRAINT FK_ID_Usuario_Direccion FOREIGN KEY (ID_Usuario) REFERENCES Usuario(ID_Usuario)
 );
 
-CREATE TABLE Tarjeta_Credito (
-    ID_Tarjeta INT IDENTITY(1,1)
+CREATE TABLE Tipo_Metodo_Pago(
+	ID_Tipo_Metodo INT IDENTITY(1,1)
+	,Descripcion NVARCHAR(50) NOT NULL
+	,CONSTRAINT PK_TipoMetodo PRIMARY KEY (ID_Tipo_Metodo)
+);
+
+CREATE TABLE Metodo_Pago (
+    ID_Metodo INT IDENTITY(1,1)
     ,ID_Usuario INT NOT NULL
+	,ID_Tipo INT NOT NULL
     ,Numero_Tarjeta NVARCHAR(20) NOT NULL
     ,Fecha_Expiracion DATE NOT NULL
     ,Token NVARCHAR(255) NOT NULL
-	,CONSTRAINT PK_Tarjeta PRIMARY KEY (ID_Tarjeta)
+	,CONSTRAINT PK_Metodo PRIMARY KEY (ID_Metodo)
     ,CONSTRAINT FK_ID_Usuario_Tarjeta FOREIGN KEY (ID_Usuario) REFERENCES Usuario(ID_Usuario)
+	,CONSTRAINT FK_ID_Tipo_Metodo FOREIGN KEY (ID_Tipo) REFERENCES Tipo_Metodo_Pago(ID_Tipo_Metodo)
 );
 
 CREATE TABLE Lista_Deseo (
@@ -131,14 +147,27 @@ VALUES
 	,('vendedor')
 	,('cliente');
 
-INSERT INTO Categoria (Nombre, Descripcion) VALUES ('Smartphones y accesorios', 'Dispositivos móviles y sus accesorios');
+INSERT INTO Categoria (Nombre, Descripcion) VALUES ('Smartphones', 'Dispositivos móviles');
+INSERT INTO Categoria (Nombre, Descripcion) VALUES ('Accesorios Electrónicos', 'Accesorios para dispositivos electronicos');
 
-INSERT INTO Caracteristica (Nombre) VALUES ('Color');
-INSERT INTO Caracteristica (Nombre) VALUES ('Almacenamiento');
+INSERT INTO Tipo_Caracteristica(Nombre) VALUES ('Color');
+INSERT INTO Tipo_Caracteristica(Nombre) VALUES ('Almacenamiento');
+
+INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('Negro', 1);
+INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('Blanco', 1);
+INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('Rojo', 1);
+INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('Azul', 1);
+
+INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('64 GB', 2);
+INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('128 GB', 2);
+INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('256 GB', 2);
+INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('512 GB', 2);
+
+
 
 INSERT INTO Producto (Codigo, Nombre, Descripcion, Cantidad, Categoria_ID, Precio, Caracteristica_ID1, Caracteristica_ID2) 
 VALUES ('IP13P-128', 'iPhone 13 Pro 128GB', 'Smartphone de alta gama con 128GB de almacenamiento', 50, 
 (SELECT ID_Categoria FROM Categoria WHERE Nombre = 'Smartphones y accesorios'), 999.00, 
-(SELECT ID_Caracteristica FROM Caracteristica WHERE Nombre = 'Color'), 
-(SELECT ID_Caracteristica FROM Caracteristica WHERE Nombre = 'Almacenamiento'));
+(SELECT ID_Caracteristica FROM Caracteristica WHERE Nombre = 'Negro'), 
+(SELECT ID_Caracteristica FROM Caracteristica WHERE Nombre = '128 GB'));
 GO
