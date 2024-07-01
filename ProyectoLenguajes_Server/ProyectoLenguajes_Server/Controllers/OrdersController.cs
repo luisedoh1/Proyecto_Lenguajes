@@ -18,7 +18,7 @@ namespace ProyectoLenguajes.Controllers
             orderBl = new OrderBL(apiContext);
         }
 
-        //GET: Categories/
+        //GET: Orders/
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Orden>>> Index(
             [FromQuery] string orderBy
@@ -34,6 +34,45 @@ namespace ProyectoLenguajes.Controllers
             }
         }
 
+        //PUT: Orders/
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> Dispatch(int id)
+        {
+            
+            Orden existingOrder = await orderBl.GetOrderById(id);
+            if (existingOrder == null)
+            {
+                return NotFound("La orden no existe");
+            }
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    int numberOfAffectedRows = await orderBl.EditOrderStatusToDispatched(id);
+                    if (numberOfAffectedRows > 0)
+                    {
+                        return NoContent();
+                    }
+                    return Conflict("La orden ya fue despachada");
+                }
+                catch (Exception error)
+                {
+                    return StatusCode(StatusCodes.Status500InternalServerError, error.Message);
+                }
 
+            }
+            else
+            {
+                return BadRequest(ModelState);
+            }
+        }
+
+        //GET: Orders/
+        [HttpGet("reporte-ventas")]
+        public async Task<IActionResult> ObtenerReporteVentas()
+        {
+            var reporte = await orderBl.GenerarReporteVentasAsync();
+            return Ok(reporte);
+        }
     }
 }

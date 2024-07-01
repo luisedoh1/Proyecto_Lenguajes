@@ -56,18 +56,19 @@ namespace BL
             }
         }
 
-        // Editar orden
-        public async Task<int> EditOrder(int id, Orden orden)
+        //Editar estado de orden a despachado
+        public async Task<int> EditOrderStatusToDispatched(int id)
         {
             try
             {
-                return await _orderDa.EditOrder(id, orden);
+                return await _orderDa.EditOrderStatusToDispatched(id);
             }
             catch (Exception error)
             {
                 throw new Exception(error.Message);
             }
         }
+
 
         // Eliminar orden
         public async Task<int> DeleteOrderById(int id)

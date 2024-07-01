@@ -10,7 +10,6 @@ C:\Users\luise\Desktop\UCR\Lenguajes\Proyecto Lenguajes\Proyecto_Lenguajes\Proye
 C:\Users\luise\Desktop\UCR\Lenguajes\Proyecto Lenguajes\Proyecto_Lenguajes\ProyectoLenguajes_Server\ProyectoLenguajes_Server\obj\Debug\net8.0\ProyectoLenguajes_Server.AssemblyInfoInputs.cache
 C:\Users\luise\Desktop\UCR\Lenguajes\Proyecto Lenguajes\Proyecto_Lenguajes\ProyectoLenguajes_Server\ProyectoLenguajes_Server\obj\Debug\net8.0\ProyectoLenguajes_Server.AssemblyInfo.cs
 C:\Users\luise\Desktop\UCR\Lenguajes\Proyecto Lenguajes\Proyecto_Lenguajes\ProyectoLenguajes_Server\ProyectoLenguajes_Server\obj\Debug\net8.0\ProyectoLenguajes_Server.csproj.CoreCompileInputs.cache
-C:\Users\luise\Desktop\UCR\Lenguajes\Proyecto Lenguajes\Proyecto_Lenguajes\ProyectoLenguajes_Server\ProyectoLenguajes_Server\obj\Debug\net8.0\ProyectoLenguajes_Server.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\luise\Desktop\UCR\Lenguajes\Proyecto Lenguajes\Proyecto_Lenguajes\ProyectoLenguajes_Server\ProyectoLenguajes_Server\obj\Debug\net8.0\ProyectoLenguajes_Server.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\luise\Desktop\UCR\Lenguajes\Proyecto Lenguajes\Proyecto_Lenguajes\ProyectoLenguajes_Server\ProyectoLenguajes_Server\obj\Debug\net8.0\ProyectoLenguajes_Server.sourcelink.json
 C:\Users\luise\Desktop\UCR\Lenguajes\Proyecto Lenguajes\Proyecto_Lenguajes\ProyectoLenguajes_Server\ProyectoLenguajes_Server\bin\Debug\net8.0\appsettings.Development.json
