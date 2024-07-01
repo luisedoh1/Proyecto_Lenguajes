@@ -1,0 +1,119 @@
+.product-list-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.product-list-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.product-list-scroll {
+    max-height: 400px;
+    overflow-y: auto;
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.product-list-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.product-list-table th,
+.product-list-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.product-list-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+/* Loading and Error Modals */
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+.modal {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 1001;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.modal h2 {
+    margin-bottom: 1em;
+    color: #333;
+}
+
+.modal p {
+    color: #666;
+}
+
+.modal button {
+    padding: 0.75em 1.5em;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modal button:hover {
+    background-color: #0056b3;
+}
+
+.spinner {
+    margin: 20px auto;
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #007BFF;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
