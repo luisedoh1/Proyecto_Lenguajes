@@ -57,11 +57,11 @@ namespace BL
         }
 
         // Editar orden
-        public async Task<int> EditOrder(int id, Orden orden)
+        public async Task<int> EditOrder(int id)
         {
             try
             {
-                return await ordenDA.EditOrder(id, orden);
+                return await ordenDA.EditOrderStatusToDispatched(id);
             }
             catch (Exception error)
             {

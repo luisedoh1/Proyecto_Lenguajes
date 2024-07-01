@@ -88,8 +88,8 @@ namespace DA
             }
         }
 
-        // Editar orden
-        public async Task<int> EditOrder(int orderId, Orden orden)
+        // Editar orden para despacharla
+        public async Task<int> EditOrderStatusToDispatched(int orderId)
         {
             try
             {
@@ -99,17 +99,14 @@ namespace DA
                     throw new Exception("Orden no encontrada");
                 }
 
-                existingOrder.IdUsuario = orden.IdUsuario;
-                existingOrder.Fecha = orden.Fecha;
-                existingOrder.Estado = orden.Estado;
-                existingOrder.DetalleOrdens = orden.DetalleOrdens;
+                existingOrder.Estado = "Despachado";
 
                 return await _context.SaveChangesAsync();
             }
             catch (Exception error)
             {
                 Console.WriteLine(error.Message);
-                throw new Exception("Error encontrado al intentar actualizar la orden: " + orderId);
+                throw new Exception("Error encontrado al intentar actualizar el estado de la orden: " + orderId);
             }
         }
 
@@ -139,5 +136,26 @@ namespace DA
         {
             return await _context.Ordens.Include(o => o.DetalleOrdens).ToListAsync();
         }
+
+        public async Task<List<Orden>> GetOrdersByDate(string order)
+        {
+            string orderBy;
+
+            if (order.ToLower() == "asc")
+            {
+                orderBy = "Fecha";
+            }
+            else if (order.ToLower() == "desc")
+            {
+                orderBy = "Fecha desc";
+            }
+            else
+            {
+                throw new ArgumentException("Parámetro de orden no válido");
+            }
+
+            return await GetAllOrders(orderBy);
+        }
+
     }
 }
