@@ -1,26 +1,42 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\",
+  "WorkspaceRootPath": "C:\\Users\\jdvcb\\OneDrive\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{99C714FD-A578-406E-B127-4A1170306AD3}|ProyectoLenguajes_Server\\ProyectoLenguajes_Server.csproj|c:\\users\\luise\\desktop\\ucr\\lenguajes\\proyecto lenguajes\\proyecto_lenguajes\\proyectolenguajes_server\\proyectolenguajes_server\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99C714FD-A578-406E-B127-4A1170306AD3}|ProyectoLenguajes_Server\\ProyectoLenguajes_Server.csproj|solutionrelative:proyectolenguajes_server\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6101696-983E-41BE-9D05-F07BBF945AF2}|DA\\DA.csproj|c:\\users\\jdvcb\\onedrive\\documents\\github\\proyecto_lenguajes\\proyectolenguajes_server\\da\\ordenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6101696-983E-41BE-9D05-F07BBF945AF2}|DA\\DA.csproj|solutionrelative:da\\ordenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ED98FC08-560B-4444-8D36-9F8A734B3637}|Models\\Models.csproj|c:\\users\\luise\\desktop\\ucr\\lenguajes\\proyecto lenguajes\\proyecto_lenguajes\\proyectolenguajes_server\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED98FC08-560B-4444-8D36-9F8A734B3637}|Models\\Models.csproj|solutionrelative:models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2195D9EB-57A6-4D73-B9A4-37191AEA9EA7}|BL\\BL.csproj|c:\\users\\jdvcb\\onedrive\\documents\\github\\proyecto_lenguajes\\proyectolenguajes_server\\bl\\ordenbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2195D9EB-57A6-4D73-B9A4-37191AEA9EA7}|BL\\BL.csproj|solutionrelative:bl\\ordenbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2195D9EB-57A6-4D73-B9A4-37191AEA9EA7}|BL\\BL.csproj|c:\\users\\luise\\desktop\\ucr\\lenguajes\\proyecto lenguajes\\proyecto_lenguajes\\proyectolenguajes_server\\bl\\orderbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2195D9EB-57A6-4D73-B9A4-37191AEA9EA7}|BL\\BL.csproj|solutionrelative:bl\\orderbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{99C714FD-A578-406E-B127-4A1170306AD3}|ProyectoLenguajes_Server\\ProyectoLenguajes_Server.csproj|c:\\users\\luise\\desktop\\ucr\\lenguajes\\proyecto lenguajes\\proyecto_lenguajes\\proyectolenguajes_server\\proyectolenguajes_server\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99C714FD-A578-406E-B127-4A1170306AD3}|ProyectoLenguajes_Server\\ProyectoLenguajes_Server.csproj|solutionrelative:proyectolenguajes_server\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED98FC08-560B-4444-8D36-9F8A734B3637}|Models\\Models.csproj|c:\\users\\luise\\desktop\\ucr\\lenguajes\\proyecto lenguajes\\proyecto_lenguajes\\proyectolenguajes_server\\models\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{ED98FC08-560B-4444-8D36-9F8A734B3637}|Models\\Models.csproj|c:\\users\\jdvcb\\onedrive\\documents\\github\\proyecto_lenguajes\\proyectolenguajes_server\\models\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ED98FC08-560B-4444-8D36-9F8A734B3637}|Models\\Models.csproj|solutionrelative:models\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6101696-983E-41BE-9D05-F07BBF945AF2}|DA\\DA.csproj|c:\\users\\jdvcb\\onedrive\\documents\\github\\proyecto_lenguajes\\proyectolenguajes_server\\da\\orderdetailda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6101696-983E-41BE-9D05-F07BBF945AF2}|DA\\DA.csproj|solutionrelative:da\\orderdetailda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED98FC08-560B-4444-8D36-9F8A734B3637}|Models\\Models.csproj|c:\\users\\jdvcb\\onedrive\\documents\\github\\proyecto_lenguajes\\proyectolenguajes_server\\models\\carritocompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED98FC08-560B-4444-8D36-9F8A734B3637}|Models\\Models.csproj|solutionrelative:models\\carritocompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6101696-983E-41BE-9D05-F07BBF945AF2}|DA\\DA.csproj|c:\\users\\jdvcb\\onedrive\\documents\\github\\proyecto_lenguajes\\proyectolenguajes_server\\da\\productda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6101696-983E-41BE-9D05-F07BBF945AF2}|DA\\DA.csproj|solutionrelative:da\\productda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2195D9EB-57A6-4D73-B9A4-37191AEA9EA7}|BL\\BL.csproj|c:\\users\\jdvcb\\onedrive\\documents\\github\\proyecto_lenguajes\\proyectolenguajes_server\\bl\\productbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2195D9EB-57A6-4D73-B9A4-37191AEA9EA7}|BL\\BL.csproj|solutionrelative:bl\\productbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2195D9EB-57A6-4D73-B9A4-37191AEA9EA7}|BL\\BL.csproj|c:\\users\\jdvcb\\onedrive\\documents\\github\\proyecto_lenguajes\\proyectolenguajes_server\\bl\\orderdetailbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2195D9EB-57A6-4D73-B9A4-37191AEA9EA7}|BL\\BL.csproj|solutionrelative:bl\\orderdetailbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2195D9EB-57A6-4D73-B9A4-37191AEA9EA7}|BL\\BL.csproj|c:\\users\\jdvcb\\onedrive\\documents\\github\\proyecto_lenguajes\\proyectolenguajes_server\\bl\\categoriabl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2195D9EB-57A6-4D73-B9A4-37191AEA9EA7}|BL\\BL.csproj|solutionrelative:bl\\categoriabl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,75 +46,127 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 8,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OrderDetailDA.cs",
+              "DocumentMoniker": "C:\\Users\\jdvcb\\OneDrive\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\DA\\OrderDetailDA.cs",
+              "RelativeDocumentMoniker": "DA\\OrderDetailDA.cs",
+              "ToolTip": "C:\\Users\\jdvcb\\OneDrive\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\DA\\OrderDetailDA.cs",
+              "RelativeToolTip": "DA\\OrderDetailDA.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-01T00:14:03.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CarritoCompra.cs",
+              "DocumentMoniker": "C:\\Users\\jdvcb\\OneDrive\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\Models\\CarritoCompra.cs",
+              "RelativeDocumentMoniker": "Models\\CarritoCompra.cs",
+              "ToolTip": "C:\\Users\\jdvcb\\OneDrive\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\Models\\CarritoCompra.cs",
+              "RelativeToolTip": "Models\\CarritoCompra.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-01T00:11:02.007Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Rol.cs",
+              "DocumentMoniker": "C:\\Users\\jdvcb\\OneDrive\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\Models\\Rol.cs",
+              "RelativeDocumentMoniker": "Models\\Rol.cs",
+              "ToolTip": "C:\\Users\\jdvcb\\OneDrive\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\Models\\Rol.cs",
+              "RelativeToolTip": "Models\\Rol.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-01T00:07:40.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProductDA.cs",
+              "DocumentMoniker": "C:\\Users\\jdvcb\\OneDrive\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\DA\\ProductDA.cs",
+              "RelativeDocumentMoniker": "DA\\ProductDA.cs",
+              "ToolTip": "C:\\Users\\jdvcb\\OneDrive\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\DA\\ProductDA.cs",
+              "RelativeToolTip": "DA\\ProductDA.cs",
+              "ViewState": "AQIAAGgAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-01T00:00:35.245Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ProductBL.cs",
+              "DocumentMoniker": "C:\\Users\\jdvcb\\OneDrive\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\BL\\ProductBL.cs",
+              "RelativeDocumentMoniker": "BL\\ProductBL.cs",
+              "ToolTip": "C:\\Users\\jdvcb\\OneDrive\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\BL\\ProductBL.cs",
+              "RelativeToolTip": "BL\\ProductBL.cs",
+              "ViewState": "AQIAAC8AAAAAAAAAAAAwwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-01T00:00:11.969Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "OrderDetailBL.cs",
+              "DocumentMoniker": "C:\\Users\\jdvcb\\OneDrive\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\BL\\OrderDetailBL.cs",
+              "RelativeDocumentMoniker": "BL\\OrderDetailBL.cs",
+              "ToolTip": "C:\\Users\\jdvcb\\OneDrive\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\BL\\OrderDetailBL.cs",
+              "RelativeToolTip": "BL\\OrderDetailBL.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T23:59:50.439Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrdenBL.cs",
+              "DocumentMoniker": "C:\\Users\\jdvcb\\OneDrive\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\BL\\OrdenBL.cs",
+              "RelativeDocumentMoniker": "BL\\OrdenBL.cs",
+              "ToolTip": "C:\\Users\\jdvcb\\OneDrive\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\BL\\OrdenBL.cs",
+              "RelativeToolTip": "BL\\OrdenBL.cs",
+              "ViewState": "AQIAAGIAAAAAAAAAAAAuwDsAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T23:59:49.156Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Categoria.cs",
-              "DocumentMoniker": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\Models\\Categoria.cs",
-              "RelativeDocumentMoniker": "Models\\Categoria.cs",
-              "ToolTip": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\Models\\Categoria.cs",
-              "RelativeToolTip": "Models\\Categoria.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T23:55:55.473Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CategoriesController.cs",
-              "DocumentMoniker": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\ProyectoLenguajes_Server\\Controllers\\CategoriesController.cs",
-              "RelativeDocumentMoniker": "ProyectoLenguajes_Server\\Controllers\\CategoriesController.cs",
-              "ToolTip": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\ProyectoLenguajes_Server\\Controllers\\CategoriesController.cs",
-              "RelativeToolTip": "ProyectoLenguajes_Server\\Controllers\\CategoriesController.cs",
-              "ViewState": "AQIAAG0AAAAAAAAAAAAcwHoAAAAAAAAA",
+              "Title": "OrdenDA.cs",
+              "DocumentMoniker": "C:\\Users\\jdvcb\\OneDrive\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\DA\\OrdenDA.cs",
+              "RelativeDocumentMoniker": "DA\\OrdenDA.cs",
+              "ToolTip": "C:\\Users\\jdvcb\\OneDrive\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\DA\\OrdenDA.cs",
+              "RelativeToolTip": "DA\\OrdenDA.cs",
+              "ViewState": "AQIAAIMAAAAAAAAAAAAAwIkAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T22:58:15.686Z",
+              "WhenOpened": "2024-06-30T22:12:13.029Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "OrderBL.cs",
-              "DocumentMoniker": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\BL\\OrderBL.cs",
-              "RelativeDocumentMoniker": "BL\\OrderBL.cs",
-              "ToolTip": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\BL\\OrderBL.cs",
-              "RelativeToolTip": "BL\\OrderBL.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 8,
+              "Title": "CategoriaBL.cs",
+              "DocumentMoniker": "C:\\Users\\jdvcb\\OneDrive\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\BL\\CategoriaBL.cs",
+              "RelativeDocumentMoniker": "BL\\CategoriaBL.cs",
+              "ToolTip": "C:\\Users\\jdvcb\\OneDrive\\Documents\\GitHub\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\BL\\CategoriaBL.cs",
+              "RelativeToolTip": "BL\\CategoriaBL.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAqwA8AAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T22:08:47.209Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "OrdersController.cs",
-              "DocumentMoniker": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\ProyectoLenguajes_Server\\Controllers\\OrdersController.cs",
-              "RelativeDocumentMoniker": "ProyectoLenguajes_Server\\Controllers\\OrdersController.cs",
-              "ToolTip": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\ProyectoLenguajes_Server\\Controllers\\OrdersController.cs",
-              "RelativeToolTip": "ProyectoLenguajes_Server\\Controllers\\OrdersController.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAA1wCQAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T22:05:09.312Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Rol.cs",
-              "DocumentMoniker": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\Models\\Rol.cs",
-              "RelativeDocumentMoniker": "Models\\Rol.cs",
-              "ToolTip": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\Models\\Rol.cs",
-              "RelativeToolTip": "Models\\Rol.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T21:40:17.68Z",
+              "WhenOpened": "2024-06-30T21:29:22.634Z",
               "EditorCaption": ""
             }
           ]
