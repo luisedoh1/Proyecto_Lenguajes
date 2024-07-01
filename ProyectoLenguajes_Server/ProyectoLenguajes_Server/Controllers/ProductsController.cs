@@ -78,16 +78,16 @@ namespace ProyectoLenguajes.Controllers
 
         //POST: Product/
         [HttpPost]
-        public async Task<ActionResult> Index(Producto product)
+        public async Task<ActionResult> Index([FromForm] Producto product, [FromForm] IFormFile file)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    int numberOfAffectedRows = await productBL.createProduct(product);
+                    int numberOfAffectedRows = await productBL.createProduct(product, file);
                     if (numberOfAffectedRows > 0)
                     {
-                        return Created();
+                        return Created("api/products", new { id = product.IdProducto });
                     }
 
                     return Conflict("El producto ya existe en la base de datos");

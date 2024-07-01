@@ -17,12 +17,22 @@ namespace BL
             _orderDa = new OrderDA(context);
         }
 
-        // Obtener ordenes
-        public async Task<List<Orden>> GetAllOrders(string orderBy)
+        // Obtener productos
+        public async Task<List<Orden>> getAllOrders(string orderBy, string orderType)
         {
             try
             {
-                return await _orderDa.GetAllOrders(orderBy);
+                string orderByQuery = "IdOrden";
+                if (orderBy != null)
+                {
+                    orderByQuery = orderBy;
+                }
+                string orderTypeQuery = "desc";
+                if (orderType != null)
+                {
+                    orderTypeQuery = orderType;
+                }
+                return await _orderDa.getAllOrders(orderByQuery + " " + orderTypeQuery);
             }
             catch (Exception error)
             {
@@ -58,7 +68,7 @@ namespace BL
                 {
                     orderTypeQuery = orderType;
                 }
-                return await _orderDa.GetAllOrders(orderByQuery + " " + orderTypeQuery);
+                return await _orderDa.getAllOrders(orderByQuery + " " + orderTypeQuery);
             }
             catch (Exception error)
             {

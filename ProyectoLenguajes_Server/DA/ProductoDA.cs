@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Models;
 using System.Linq.Dynamic.Core;
 
@@ -101,18 +102,20 @@ namespace DA
         }
 
         // Agregar producto
-        public async Task<int> createProducto(Producto producto)
+        public async Task<int> createProducto(Producto producto, IFormFile file)
         {
-            try
+            if (file != null && file.Length > 0)
             {
-                _context.Productos.Add(producto);
-                return await _context.SaveChangesAsync();
+                var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "product/images", file.FileName);
+                using (var stream = new FileStream(imagePath, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+                producto.Imagen = imagePath;  // Guarda la ruta de la imagen en la propiedad Imagen
             }
-            catch (Exception error)
-            {
-                Console.WriteLine(error.Message);
-                throw new Exception("Error al añadir el producto " + producto.ToString());
-            }
+
+            _context.Productos.Add(producto);
+            return await _context.SaveChangesAsync();
         }
 
         // Editar producto

@@ -1,4 +1,5 @@
 ﻿using DA;
+using Microsoft.AspNetCore.Http;
 using Models;
 using System;
 using System.Collections.Generic;
@@ -67,16 +68,9 @@ namespace BL
         }
 
         // Agregar producto
-        public async Task<int> createProduct(Producto producto)
+        public async Task<int> createProduct(Producto producto, IFormFile file)
         {
-            try
-            {
-                return await _productoDa.createProducto(producto);
-            }
-            catch (Exception error)
-            {
-                throw new Exception(error.Message);
-            }
+            return await _productoDa.createProducto(producto, file);
         }
 
         // Editar producto
