@@ -7,7 +7,7 @@ namespace Models;
 
 public partial class Categoria
 {
-    [Required]
+    [JsonIgnore]
     public int IdCategoria { get; set; }
 
     [Required]

@@ -10,11 +10,11 @@ namespace BL
 {
     public class ProductBL
     {
-        private ProductDA productDA;
+        private ProductoDA _productoDa;
 
         public ProductBL(ProyectoContext context)
         {
-            productDA = new ProductDA(context);
+            _productoDa = new ProductoDA(context);
         }
 
         // Obtener productos
@@ -32,7 +32,7 @@ namespace BL
                 {
                     orderTypeQuery = orderType;
                 }
-                return await productDA.getAllProducts(orderByQuery + " " + orderTypeQuery);
+                return await _productoDa.getAllProducts(orderByQuery + " " + orderTypeQuery);
             }
             catch (Exception error)
             {
@@ -45,7 +45,7 @@ namespace BL
         {
             try
             {
-                return await productDA.getProductById(id);
+                return await _productoDa.getProductById(id);
             }
             catch (Exception error)
             {
@@ -58,7 +58,7 @@ namespace BL
         {
             try
             {
-                return await productDA.getProductByName(name);
+                return await _productoDa.getProductByName(name);
             }
             catch (Exception error)
             {
@@ -71,7 +71,7 @@ namespace BL
         {
             try
             {
-                return await productDA.createProducto(producto);
+                return await _productoDa.createProducto(producto);
             }
             catch (Exception error)
             {
@@ -84,7 +84,7 @@ namespace BL
         {
             try
             {
-                return await productDA.editProduct(id, producto);
+                return await _productoDa.editProduct(id, producto);
             }
             catch (Exception error)
             {
@@ -97,7 +97,7 @@ namespace BL
         {
             try
             {
-                return await productDA.deleteProductById(id);
+                return await _productoDa.deleteProductById(id);
             }
             catch (Exception error)
             {
@@ -110,7 +110,7 @@ namespace BL
         {
             try
             {
-                return await productDA.getAllProductsByCategory(categoryId, orderBy);
+                return await _productoDa.getAllProductsByCategory(categoryId, orderBy);
             }
             catch (Exception error)
             {
@@ -123,7 +123,7 @@ namespace BL
         {
             try
             {
-                return await productDA.getAllProductsByOneCharacteristic(idCharacteristic1, orderBy);
+                return await _productoDa.getAllProductsByOneCharacteristic(idCharacteristic1, orderBy);
             }
             catch (Exception error)
             {
@@ -136,7 +136,7 @@ namespace BL
         {
             try
             {
-                return await productDA.getAllProductsByTwoCharacteristic(idCharacteristic1, idCharacteristic2, orderBy);
+                return await _productoDa.getAllProductsByTwoCharacteristic(idCharacteristic1, idCharacteristic2, orderBy);
             }
             catch (Exception error)
             {

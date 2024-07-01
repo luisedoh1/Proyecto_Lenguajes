@@ -30,6 +30,9 @@ public partial class Producto
     [Required]
     public decimal Precio { get; set; }
 
+    [JsonIgnore]
+    public DateTime FechaAñadido { get; set; }
+
     [Required]
     public int CaracteristicaId1 { get; set; }
 

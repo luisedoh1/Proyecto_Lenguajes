@@ -52,11 +52,13 @@ CREATE TABLE Producto (
     ,Precio DECIMAL(10, 2) NOT NULL
     ,Caracteristica_ID1 INT NOT NULL
     ,Caracteristica_ID2 INT NULL
+	,FechaAñadido DATETIME NOT NULL DEFAULT GETDATE()
 	,CONSTRAINT PK_Producto PRIMARY KEY (ID_Producto)
     ,CONSTRAINT FK_Categoria FOREIGN KEY (Categoria_ID) REFERENCES Categoria(ID_Categoria)
     ,CONSTRAINT FK_Caracteristica_ID1 FOREIGN KEY (Caracteristica_ID1) REFERENCES Caracteristica(ID_Caracteristica)
     ,CONSTRAINT FK_Caracteristica_ID2 FOREIGN KEY (Caracteristica_ID2) REFERENCES Caracteristica(ID_Caracteristica)
 );
+
 
 CREATE TABLE Orden (
     ID_Orden INT IDENTITY(1,1)

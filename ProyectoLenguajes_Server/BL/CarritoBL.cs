@@ -46,5 +46,10 @@ namespace BL
             int result = await _carritoDA.ActualizarCantidadProductoCarrito(detalleCarritoId, nuevaCantidad);
             return result > 0;
         }
+
+        public async Task<bool> ProcesarCompra(int carritoId)
+        {
+            return await _carritoDA.ProcesarCompra(carritoId);
+        }
     }
 }

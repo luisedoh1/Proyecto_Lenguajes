@@ -4,11 +4,11 @@ using System.Linq.Dynamic.Core;
 
 namespace DA
 {
-    public class ProductDA
+    public class ProductoDA
     {
         private ProyectoContext _context;
 
-        public ProductDA(ProyectoContext context)
+        public ProductoDA(ProyectoContext context)
         {
             _context = context;
         }
@@ -130,6 +130,7 @@ namespace DA
                 existingProduct.CaracteristicaId1 = product.CaracteristicaId1;
                 existingProduct.CaracteristicaId2 = product.CaracteristicaId2;
                 existingProduct.Imagen = product.Imagen;
+                existingProduct.FechaAñadido = DateTime.Now;
                 return await _context.SaveChangesAsync();
             }
             catch (Exception error)

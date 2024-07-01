@@ -249,6 +249,7 @@ public partial class ProyectoContext : DbContext
             entity.Property(e => e.Imagen).HasMaxLength(255);
             entity.Property(e => e.Nombre).HasMaxLength(100);
             entity.Property(e => e.Precio).HasColumnType("decimal(10, 2)");
+            entity.Property(e => e.FechaAñadido).HasColumnName("FechaAñadido").HasColumnType("datetime").HasDefaultValueSql("GETDATE()");
 
             entity.HasOne(d => d.CaracteristicaId1Navigation).WithMany(p => p.ProductoCaracteristicaId1Navigations)
                 .HasForeignKey(d => d.CaracteristicaId1)

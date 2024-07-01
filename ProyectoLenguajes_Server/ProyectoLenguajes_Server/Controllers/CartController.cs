@@ -9,11 +9,11 @@ namespace ProyectoLenguajes_Server.Controllers
     [ApiController]
     public class CartController : ControllerBase
     {
-        private CarritoBL carritoBl;
+        private CarritoBL _carritoBl;
 
         public CartController(ProyectoContext apiContext)
         {
-            carritoBl = new CarritoBL(apiContext);
+            _carritoBl = new CarritoBL(apiContext);
         }
 
         [HttpPost("/{userId}/add")]
@@ -24,7 +24,7 @@ namespace ProyectoLenguajes_Server.Controllers
                 return BadRequest(ModelState);
             }
 
-            bool isAdded = await _carritoBL.AñadirProductoAlCarrito(userId, detalle);
+            bool isAdded = await _carritoBl.AñadirProductoAlCarrito(userId, detalle);
             if (isAdded)
             {
                 return NoContent();
@@ -36,7 +36,7 @@ namespace ProyectoLenguajes_Server.Controllers
         [HttpDelete("/detalle/{detalleCarritoId}")]
         public async Task<IActionResult> EliminarProductoDelCarrito(int detalleCarritoId)
         {
-            bool isDeleted = await _carritoBL.EliminarProductoDelCarrito(detalleCarritoId);
+            bool isDeleted = await _carritoBl.EliminarProductoDelCarrito(detalleCarritoId);
             if (isDeleted)
             {
                 return NoContent();
@@ -47,12 +47,29 @@ namespace ProyectoLenguajes_Server.Controllers
         [HttpPut("/detalle/{detalleCarritoId}")]
         public async Task<IActionResult> ActualizarCantidadProducto(int detalleCarritoId, [FromBody] int nuevaCantidad)
         {
-            bool isUpdated = await _carritoBL.ActualizarCantidadProductoCarrito(detalleCarritoId, nuevaCantidad);
+            bool isUpdated = await _carritoBl.ActualizarCantidadProductoCarrito(detalleCarritoId, nuevaCantidad);
             if (isUpdated)
             {
                 return Ok();
             }
             return BadRequest("Unable to update quantity");
+        }
+
+        [HttpPost("/{carritoId}/procesar-compra")]
+        public async Task<IActionResult> FinalizarCompra(int carritoId)
+        {
+            try
+            {
+                bool success = await _carritoBl.ProcesarCompra(carritoId);
+                if (success)
+                    return Ok("Compra finalizada y stock actualizado correctamente");
+                else
+                    return BadRequest("No se pudo completar la compra");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
         }
     }
 }
