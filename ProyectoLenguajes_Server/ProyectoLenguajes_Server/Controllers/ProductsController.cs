@@ -104,7 +104,7 @@ namespace ProyectoLenguajes.Controllers
         }
 
         // PUT: Products/1
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         public async Task<IActionResult> Index(int id, Producto product)
         {
             if (id != product.IdProducto)
@@ -142,7 +142,7 @@ namespace ProyectoLenguajes.Controllers
 
 
         // Delete: Products/1
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:int}")]
         public async Task<ActionResult> Delete(int id)
         {
             try

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aNEhSx21fUXJWmc7ag2/S+Bnx4tbB+9HIXmnes9kVqPSdMqvwR7zEeZ55kcYxUSs4fdiOaYqy60iWgbK5zcjIA==",
+  "dgSpecHash": "9uUQjcKWFpkkW2AZlh1DkIwbvR+J3qNXVsw7T6D6vCri3qNtgqPvLZDEU5mtLl7oQ2zXakCv0vW2rrk242bSqQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\ProyectoLenguajes_Server\\ProyectoLenguajes_Server\\ProyectoLenguajes_Server.csproj",
+  "projectFilePath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\ProyectoLenguajes_Server\\ProyectoLenguajes_Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\luise\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\luise\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
@@ -67,6 +67,7 @@
     "C:\\Users\\luise\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.35.0\\system.identitymodel.tokens.jwt.6.35.0.nupkg.sha512",
     "C:\\Users\\luise\\.nuget\\packages\\system.io.filesystem.accesscontrol\\5.0.0\\system.io.filesystem.accesscontrol.5.0.0.nupkg.sha512",
     "C:\\Users\\luise\\.nuget\\packages\\system.io.pipelines\\6.0.3\\system.io.pipelines.6.0.3.nupkg.sha512",
+    "C:\\Users\\luise\\.nuget\\packages\\system.linq.dynamic.core\\1.4.2\\system.linq.dynamic.core.1.4.2.nupkg.sha512",
     "C:\\Users\\luise\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\luise\\.nuget\\packages\\system.memory.data\\1.0.2\\system.memory.data.1.0.2.nupkg.sha512",
     "C:\\Users\\luise\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",

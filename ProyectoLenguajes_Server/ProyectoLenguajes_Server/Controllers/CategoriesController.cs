@@ -34,8 +34,8 @@ namespace ProyectoLenguajes.Controllers
         }
 
         //GET: Categories/1
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Categoria>> Index(int id)
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<Categoria>> GetCategoria(int id)
         {
             try
             {
@@ -56,7 +56,7 @@ namespace ProyectoLenguajes.Controllers
 
         //POST: Categories/
         [HttpPost]
-        public async Task<ActionResult> Index(Categoria category)
+        public async Task<ActionResult> CreateCategoria([FromBody] Categoria category)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace ProyectoLenguajes.Controllers
                     int numberOfAffectedRows = await categoriaBL.createCategory(category);
                     if (numberOfAffectedRows > 0)
                     {
-                        return Created();
+                        return CreatedAtAction(nameof(GetCategoria), new { id = category.IdCategoria }, category);
                     }
 
                     return Conflict("Product already exists in database");
@@ -83,8 +83,8 @@ namespace ProyectoLenguajes.Controllers
 
 
         // PUT: Products/1
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Index(int id, Categoria category)
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> Editar(int id, Categoria category)
         {
             
             if (id != category.IdCategoria)
@@ -104,7 +104,7 @@ namespace ProyectoLenguajes.Controllers
                     int numberOfAffectedRows = await categoriaBL.editCategoria(id, category);
                     if (numberOfAffectedRows > 0)
                     {
-                        return NoContent();
+                        return Ok(category);
                     }
                     return Conflict("Product already exist in this database");
                 }
@@ -122,7 +122,7 @@ namespace ProyectoLenguajes.Controllers
 
 
         // Delete: Products/1
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:int}")]
         public async Task<ActionResult> Delete(int id)
         {
             try

@@ -4225,11 +4225,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\ProyectoLenguajes_Server\\BL\\BL.csproj",
+      "projectUniqueName": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\BL\\BL.csproj",
       "projectName": "BL",
-      "projectPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\ProyectoLenguajes_Server\\BL\\BL.csproj",
+      "projectPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\BL\\BL.csproj",
       "packagesPath": "C:\\Users\\luise\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\ProyectoLenguajes_Server\\BL\\obj\\",
+      "outputPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\BL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\luise\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4246,11 +4246,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\ProyectoLenguajes_Server\\DA\\DA.csproj": {
-              "projectPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\ProyectoLenguajes_Server\\DA\\DA.csproj"
+            "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\DA\\DA.csproj": {
+              "projectPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\DA\\DA.csproj"
             },
-            "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\ProyectoLenguajes_Server\\Models\\Models.csproj": {
-              "projectPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\ProyectoLenguajes_Server\\Models\\Models.csproj"
+            "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\Models\\Models.csproj"
             }
           }
         }

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ProyectoLenguajes_Server.props" />
+</Project>

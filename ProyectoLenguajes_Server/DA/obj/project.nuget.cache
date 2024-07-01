@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mT8XT2fg9EifrgmUDSadEBb/oZiFd42WFu+fpwcZSE+XUCihMA13xOYRgGC0jodYNPtA7XumYLYhaakctA4ZWw==",
+  "dgSpecHash": "v59F6PduBeFq8YXfxhwYaCYVArXm3yKmZxQoScQDG4IwSNkcQPY/Dqk/rgMRBCyA0hvwLelX2xQLiynH02Mf8A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\ProyectoLenguajes_Server\\DA\\DA.csproj",
+  "projectFilePath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\DA\\DA.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\luise\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\luise\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
