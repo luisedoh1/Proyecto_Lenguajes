@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProyectoLenguajes_Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+563525551f952e25dbf5b1479fafd1e77e7d5d0b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+38dd86b276246a376afbb5273d88515ae9cc3830")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProyectoLenguajes_Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProyectoLenguajes_Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
