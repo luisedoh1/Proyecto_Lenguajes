@@ -166,8 +166,54 @@ INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('512 GB', 2);
 
 
 INSERT INTO Producto (Codigo, Nombre, Descripcion, Cantidad, Categoria_ID, Precio, Caracteristica_ID1, Caracteristica_ID2) 
-VALUES ('IP13P-128', 'iPhone 13 Pro 128GB', 'Smartphone de alta gama con 128GB de almacenamiento', 50, 
-(SELECT ID_Categoria FROM Categoria WHERE Nombre = 'Smartphones y accesorios'), 999.00, 
+VALUES ('IP13P-128', 'iPhone 13 Pro', 'iPhone 13 Pro 128GB', 50, 
+(SELECT ID_Categoria FROM Categoria WHERE Nombre = 'Smartphones'), 999.00, 
 (SELECT ID_Caracteristica FROM Caracteristica WHERE Nombre = 'Negro'), 
 (SELECT ID_Caracteristica FROM Caracteristica WHERE Nombre = '128 GB'));
+GO
+
+INSERT INTO Usuario
+           ([Nombre]
+           ,[Email]
+           ,[Contraseña]
+           ,[ID_Rol])
+     VALUES
+           (N'Luis Hodgson'
+           ,N'test@mail.com'
+           ,N'Test'
+           ,1);
+GO
+
+INSERT INTO Usuario
+           ([Nombre]
+           ,[Email]
+           ,[Contraseña]
+           ,[ID_Rol])
+     VALUES
+           (N'Comprador'
+           ,N'testcomprador@mail.com'
+           ,N'test'
+           ,3);
+GO
+
+INSERT INTO Orden
+           ([ID_Usuario]
+           ,[Fecha]
+           ,[Estado])
+     VALUES
+           (2
+           ,GETDATE()
+           ,'En Proceso')
+GO
+
+INSERT INTO Detalle_Orden
+           ([ID_Orden]
+           ,[ID_Producto]
+           ,[Cantidad]
+           ,[Precio_Unitario])
+     VALUES
+           (1
+           ,4
+           ,2
+           ,(SELECT Precio FROM Producto WHERE ID_Producto = 4));
 GO

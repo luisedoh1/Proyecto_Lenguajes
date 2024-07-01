@@ -27,7 +27,7 @@ namespace BL
                 {
                     orderByQuery = orderBy;
                 }
-                string orderTypeQuery = "asc";
+                string orderTypeQuery = "desc";
                 if (orderType != null)
                 {
                     orderTypeQuery = orderType;

@@ -138,25 +138,6 @@ namespace DA
             return await _context.Ordens.Include(o => o.DetalleOrdens).ToListAsync();
         }
 
-        public async Task<List<Orden>> GetOrdersByDate(string order)
-        {
-            string orderBy;
-
-            if (order.ToLower() == "asc")
-            {
-                orderBy = "Fecha";
-            }
-            else if (order.ToLower() == "desc")
-            {
-                orderBy = "Fecha desc";
-            }
-            else
-            {
-                throw new ArgumentException("Parámetro de orden no válido");
-            }
-
-            return await GetAllOrders(orderBy);
-        }
 
     }
 }

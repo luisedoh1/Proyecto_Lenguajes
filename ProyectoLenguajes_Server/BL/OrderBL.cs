@@ -43,6 +43,29 @@ namespace BL
             }
         }
 
+        //Obtener ventas por fecha
+        public async Task<List<Orden>> GetOrdersByDate(string orderBy, string orderType)
+        {
+            try
+            {
+                string orderByQuery = "Fecha";
+                if (orderBy != null)
+                {
+                    orderByQuery = orderBy;
+                }
+                string orderTypeQuery = "asc";
+                if (orderType != null)
+                {
+                    orderTypeQuery = orderType;
+                }
+                return await _orderDa.GetAllOrders(orderByQuery + " " + orderTypeQuery);
+            }
+            catch (Exception error)
+            {
+                throw new Exception(error.Message);
+            }
+        }
+
         // Agregar orden
         public async Task<int> CreateOrder(Orden orden)
         {

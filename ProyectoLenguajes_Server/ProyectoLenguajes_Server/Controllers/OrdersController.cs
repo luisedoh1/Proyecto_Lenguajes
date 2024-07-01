@@ -21,12 +21,13 @@ namespace ProyectoLenguajes.Controllers
         //GET: Orders/
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Orden>>> Index(
-            [FromQuery] string orderBy
+            [FromQuery] string orderBy,
+            [FromQuery] string orderType
         )
         {
             try
             {
-                return await orderBl.GetAllOrders(orderBy);
+                return await orderBl.GetOrdersByDate(orderBy, orderType);
             }
             catch (Exception error)
             {
@@ -34,11 +35,11 @@ namespace ProyectoLenguajes.Controllers
             }
         }
 
+
         //PUT: Orders/
         [HttpPut("{id:int}")]
         public async Task<IActionResult> Dispatch(int id)
         {
-            
             Orden existingOrder = await orderBl.GetOrderById(id);
             if (existingOrder == null)
             {
