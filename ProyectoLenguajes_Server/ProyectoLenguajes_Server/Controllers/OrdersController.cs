@@ -49,7 +49,7 @@ namespace ProyectoLenguajes.Controllers
             {
                 try
                 {
-                    int numberOfAffectedRows = await orderBl.EditOrderStatusToDispatched(id);
+                    int numberOfAffectedRows = await orderBl.EnviarOrden(id);
                     if (numberOfAffectedRows > 0)
                     {
                         return NoContent();

@@ -85,20 +85,20 @@ const ProductList = () => {
                         <tbody>
                             {filteredProducts.length > 0
                                 ? filteredProducts.map((product) => (
-                                    <tr key={product.id} className="product-list-item">
-                                        <td>{product.title}</td>
-                                        <td>{product.description}</td>
+                                    <tr key={product.idProducto} className="product-list-item">
+                                        <td>{product.nombre}</td>
+                                        <td>{product.descripcion}</td>
                                         <td>
                                             <img
-                                                src={product.image}
+                                                src={product.imagen}
                                                 alt={product.title}
                                                 className="product-list-image"
                                             />
                                         </td>
-                                        <td>${product.price}</td>
-                                        <td>{product.category}</td>
+                                        <td>${product.precio}</td>
+                                        <td>{product.categoriaId}</td>
                                         <td>
-                                            <DeleteProduct id={product.id} />
+                                            <DeleteProduct id={product.idProducto} />
                                         </td>
                                         <td>
                                             <EditProduct product={product} />
@@ -106,20 +106,20 @@ const ProductList = () => {
                                     </tr>
                                 ))
                                 : products.map((product) => (
-                                    <tr key={product.id} className="product-list-item">
-                                        <td>{product.title}</td>
-                                        <td>{product.description}</td>
+                                    <tr key={product.idProducto} className="product-list-item">
+                                        <td>{product.nombre}</td>
+                                        <td>{product.descripcion}</td>
                                         <td>
                                             <img
-                                                src={product.image}
+                                                src={product.imagen}
                                                 alt={product.title}
                                                 className="product-list-image"
                                             />
                                         </td>
-                                        <td>${product.price}</td>
-                                        <td>{product.category}</td>
+                                        <td>${product.precio}</td>
+                                        <td>{product.categoriaId}</td>
                                         <td>
-                                            <DeleteProduct id={product.id} />
+                                            <DeleteProduct id={product.idProducto} />
                                         </td>
                                         <td>
                                             <EditProduct product={product} />

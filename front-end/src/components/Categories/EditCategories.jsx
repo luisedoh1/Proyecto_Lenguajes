@@ -2,27 +2,27 @@
 import { useState } from "react";
 import axios from "axios";
 import edit from '../imgs/editar.gif'
-import './EditProduct.css';
+import './EditCategories.css';
 
-const EditProduct = ({ product }) => {
+const EditCategories = ({ category }) => {
     const [showModal, setShowModal] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [productData, setProductData] = useState(product);
+    const [categoryData, setCategoryData] = useState(category);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setProductData({ ...productData, [name]: value });
+        setCategoryData({ ...categoryData, [name]: value });
     };
 
     const handleEdit = async () => {
         setLoading(true);
         try {
-            const response = await axios.put(`https://localhost:7105/products/${product.id}`, productData);
+            const response = await axios.put(`https://localhost:7105/categories/${id}`, categoryData);
             if (response.status !== 200) {
-                throw new Error('Error editing the product');
+                throw new Error('Error editing the category');
             }
-            alert('Producto editado');
+            alert('Categoria editada');
             window.location.reload();
         } catch (error) {
             setError(error.message);
@@ -33,21 +33,21 @@ const EditProduct = ({ product }) => {
     };
 
     return (
-        <div className="edit-product-container">
+        <div className="edit-category-container">
             <button className="edit-button" onClick={() => setShowModal(true)}>
-                <img className= "edit-icon" src= {edit} alt="" />
+                <img className="edit-icon" src={edit} alt="" />
             </button>
 
             {showModal && (
                 <div className="modal">
                     <div className="modal-content">
-                        <h2>Update Product</h2>
+                        <h2>Update Category</h2>
                         <label>
                             Title:
                             <input
                                 type="text"
                                 name="nombre"
-                                value={productData.nombre}
+                                value={categoryData.nombre}
                                 onChange={handleInputChange}
                             />
                         </label>
@@ -55,34 +55,7 @@ const EditProduct = ({ product }) => {
                             Description:
                             <textarea
                                 name="descripcion"
-                                value={productData.descripcion}
-                                onChange={handleInputChange}
-                            />
-                        </label>
-                        <label>
-                            Price:
-                            <input
-                                type="number"
-                                name="precio"
-                                value={productData.precio}
-                                onChange={handleInputChange}
-                            />
-                        </label>
-                        <label>
-                            Category:
-                            <input
-                                type="text"
-                                name="categoriaId"
-                                value={productData.categoriaId}
-                                onChange={handleInputChange}
-                            />
-                        </label>
-                        <label>
-                            Img URL:
-                            <input
-                                type="text"
-                                name="imagen"
-                                value={productData.imagen}
+                                value={categoryData.descripcion}
                                 onChange={handleInputChange}
                             />
                         </label>
@@ -100,4 +73,4 @@ const EditProduct = ({ product }) => {
     );
 };
 
-export default EditProduct;
+export default EditCategories;

@@ -74,6 +74,7 @@ const Categories = () => {
                         </thead>
                         <tbody>
                             {categories.map((category, index) => (
+<<<<<<< Updated upstream
                                 <tr key={index} className="product-list-item">
                                     <td>{category}</td>
                                     <td>
@@ -81,6 +82,15 @@ const Categories = () => {
                                     </td>
                                     <td>
                                         <EditProduct product={category} />
+=======
+                                <tr key={index} className="category-list-item">
+                                    <td>{category.nombre}</td>
+                                    <td>
+                                        <DeleteCategory id={category.idCategoria} />
+                                    </td>
+                                    <td>
+                                        <EditCategories category={category.idCategoria} />
+>>>>>>> Stashed changes
                                     </td>
                                 </tr>
                             ))}
