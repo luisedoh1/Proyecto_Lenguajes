@@ -22,7 +22,7 @@ const Navbar = () => {
             <ul className="navbar-links">
                 <li className="navbar-link"><Link to="/admin/list" className="navbar__link">Products</Link></li>
                 <li className="navbar-link"><Link to="/admin/categories" className="navbar__link">Categories</Link></li>
-                <li className="navbar-link"><Link to="/cart" className="navbar__link">Reports</Link></li>
+                <li className="navbar-link"><Link to="/admin/reports" className="navbar__link">Reports</Link></li>
                 {isLoggedIn ? (
                     <li className="navbar__link"><button onClick={handleLogout} className="navbar__link">Logout</button></li>
                 ) : (

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import './HorizontalScroll.css';
-import { fetchProducts } from '../Product/api';
-import Product from '../Product/Product';
+import './ProductsPage.css';
+import { fetchProducts } from '../components/Product/api';
+import Product from '../components/Product/Product';
 
-const HorizontalScroll = () => {
+export const ProductsPage = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -24,7 +24,7 @@ const HorizontalScroll = () => {
     }, []);
 
     return (
-        <div className="scroll-container">
+        <div className="products-container">
             <h1 className="products-title">Products</h1>
             {loading && (
                 <div className="modal">
@@ -40,7 +40,7 @@ const HorizontalScroll = () => {
                     <button onClick={() => window.location.reload()}>Retry</button>
                 </div>
             )}
-            <div className="scroll-list">
+            <div className="products-list">
                 {products.map(product => (
                     <Product key={product.id} id={product.id} name={product.title} price={product.price} image={product.image} />
                 ))}
@@ -49,4 +49,3 @@ const HorizontalScroll = () => {
     );
 };
 
-export default HorizontalScroll;
