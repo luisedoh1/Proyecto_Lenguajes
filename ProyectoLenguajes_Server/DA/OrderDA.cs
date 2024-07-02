@@ -89,8 +89,8 @@ namespace DA
             }
         }
 
-        // Editar orden para despacharla
-        public async Task<int> EditOrderStatusToDispatched(int orderId)
+        // Editar orden para enviarla
+        public async Task<int> EnviarOrden(int orderId)
         {
             try
             {
@@ -100,7 +100,7 @@ namespace DA
                     throw new Exception("Orden no encontrada");
                 }
 
-                existingOrder.Estado = "Despachado";
+                existingOrder.Estado = "Enviado";
 
                 return await _context.SaveChangesAsync();
             }

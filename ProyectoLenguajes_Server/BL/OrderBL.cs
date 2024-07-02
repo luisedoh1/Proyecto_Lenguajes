@@ -90,11 +90,11 @@ namespace BL
         }
 
         //Editar estado de orden a despachado
-        public async Task<int> EditOrderStatusToDispatched(int id)
+        public async Task<int> EnviarOrden(int id)
         {
             try
             {
-                return await _orderDa.EditOrderStatusToDispatched(id);
+                return await _orderDa.EnviarOrden(id);
             }
             catch (Exception error)
             {
