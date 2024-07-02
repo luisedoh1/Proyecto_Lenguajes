@@ -93,7 +93,7 @@ namespace DA
 
                         // Actualiza el stock revisando que existan suficientes unidades
                         if (item.IdProductoNavigation.Cantidad < item.Cantidad)
-                            throw new Exception("Cantidad insuficiente en stock");
+                            throw new Exception("Cantidad insuficiente en stock para producto" + item.IdProductoNavigation.Nombre);
 
                         item.IdProductoNavigation.Cantidad -= item.Cantidad;
                     }
@@ -107,7 +107,7 @@ namespace DA
                 }
                 catch (Exception error)
                 {
-                    transaction.Rollback();  // Revierte todas las operaciones en caso de error
+                    transaction.Rollback();  // Utilizamos Rollback para revertir todas las operaciones en caso de algún error
                     Console.WriteLine(error.Message);
                     throw new Exception("Error al procesar la compra", error);
                 }
