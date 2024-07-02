@@ -1,4 +1,3 @@
-
 .scroll-container {
     padding: 20px;
     display: flex;
@@ -24,7 +23,6 @@
     from {
         transform: translateY(-100%);
     }
-
     to {
         transform: translateY(0);
     }

@@ -9,6 +9,9 @@ import Navbar from './components/Navbar/Navbar';
 import ProductList from './components/Product/ProductList';
 import AdminNavbar from './components/Navbar/AdminNavbar';
 import Categories from './components/Categories/Categories';
+import { ReportPage } from './pages/ReportPage';
+import { ProductsPage } from './pages/ProductsPage';
+
 const App = () => {
   const location = useLocation();
   const showNavbar = location.pathname !== '/login'
@@ -20,10 +23,14 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/products/:id" element={<ProductDetail />} />
+          
           <Route path="/cart" element={<Cart />} />
           <Route path="/admin/list" element={<ProductList />} />
           <Route path="/admin/categories" element={<Categories />} />
+          <Route path="/admin/reports" element={<ReportPage />} />
+          <Route path="/products" element={<ProductsPage />} />
+
+
 
 
         </Routes>

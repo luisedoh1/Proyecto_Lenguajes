@@ -1,55 +1,41 @@
 import { useEffect, useState } from "react";
-import { fetchProducts } from "../Product/api";
-import { DeleteProduct } from "../Product/DeleteProduct";
-import EditProduct from "../Product/EditProduct";
+import { fetchCategories } from "../Product/api";
+import { DeleteCategory } from "./DeleteCategories";
+import EditCategories from "./EditCategories";
+import Addcategories from "./AddCategories";
 import "./Categories.css";
 
 const Categories = () => {
-    const [products, setProducts] = useState([]);
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const getProducts = async () => {
+        const getCategories = async () => {
             try {
-                const products = await fetchProducts();
-                setProducts(products);
+                const categories = await fetchCategories();
+                setCategories(categories);
             } catch (error) {
                 setError(error.message);
+            } finally {
+                setLoading(false);
             }
         };
 
-        getProducts();
+        getCategories();
     }, []);
-
-    useEffect(() => {
-        if (products.length > 0) {
-            const getCategories = async () => {
-                try {
-                    const categories = products.map(product => product.category);
-                    const uniqueCategories = [...new Set(categories)];
-                    setCategories(uniqueCategories);
-                } catch (error) {
-                    setError(error.message);
-                } finally {
-                    setLoading(false);
-                }
-            };
-
-            getCategories();
-        }
-    }, [products]);
+    
 
     return (
-        <div className="product-list-container">
-            <h1 className="product-list-title">Categorie List</h1>
+        <div className="category-list-container">
+            <h1 className="category-list-title">Categorie List</h1>
+            <Addcategories />
             {loading && (
                 <div className="modal-container">
                     <div className="modal">
                         <div className="spinner"></div>
                         <h2>Loading Categories...</h2>
-                        <p>Please wait while we load the products for you.</p>
+                        <p>Please wait while we load the categories for you.</p>
                     </div>
                 </div>
             )}
@@ -63,8 +49,8 @@ const Categories = () => {
                 </div>
             )}
             {!loading && !error && (
-                <div className="product-list-scroll">
-                    <table className="product-list-table">
+                <div className="category-list-scroll">
+                    <table className="category-list-table">
                         <thead>
                             <tr>
                                 <th>Category</th>
@@ -74,23 +60,13 @@ const Categories = () => {
                         </thead>
                         <tbody>
                             {categories.map((category, index) => (
-<<<<<<< Updated upstream
-                                <tr key={index} className="product-list-item">
+                                <tr key={index} className="category-list-item">
                                     <td>{category}</td>
                                     <td>
-                                        <DeleteProduct id={category.id} />
+                                        <DeleteCategory id={category.id} />
                                     </td>
                                     <td>
-                                        <EditProduct product={category} />
-=======
-                                <tr key={index} className="category-list-item">
-                                    <td>{category.nombre}</td>
-                                    <td>
-                                        <DeleteCategory id={category.idCategoria} />
-                                    </td>
-                                    <td>
-                                        <EditCategories category={category.idCategoria} />
->>>>>>> Stashed changes
+                                        <EditCategories category={category} />
                                     </td>
                                 </tr>
                             ))}

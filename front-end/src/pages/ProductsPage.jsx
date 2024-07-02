@@ -42,7 +42,7 @@ export const ProductsPage = () => {
             )}
             <div className="products-list">
                 {products.map(product => (
-                    <Product key={product.idProducto} id={product.idProducto} name={product.nombre} price={product.precio} image={product.imagen} />
+                    <Product key={product.id} id={product.id} name={product.title} price={product.price} image={product.image} />
                 ))}
             </div>
         </div>

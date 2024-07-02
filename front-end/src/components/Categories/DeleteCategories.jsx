@@ -2,30 +2,31 @@
 import { useState } from "react";
 import axios from "axios";
 import trasher from '../imgs/bote-de-basura.gif'
-import './DeleteProduct.css'
+import './DeleteCategories.css'
 
-export const DeleteProduct = ({id}) => {
+export const DeleteCategory = ({ id }) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
     const handleDelete = async () => {
         setLoading(true);
         try {
-            const response = await axios.delete(`https://localhost:7105/products/${id}`);
+            const response = await axios.delete(`https://fakestoreapi.com/categories/${id}`);
             if (response.status !== 200) {
-                throw new Error('Error deleting the product');
+                throw new Error('Error deleting the category');
             }
-            alert('Producto eliminado');
+            alert('Category has been deleted');
             window.location.reload();
         } catch (error) {
             setError(error.message);
+            alert(error)
         } finally {
             setLoading(false);
         }
     };
 
     return (
-        <div className="delete-product-container">
+        <div className="delete-category-container">
             <button className="delete-button" onClick={handleDelete} disabled={loading}>
                 {loading ? (
                     <div className="spinner"></div>

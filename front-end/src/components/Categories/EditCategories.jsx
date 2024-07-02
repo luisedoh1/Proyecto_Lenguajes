@@ -18,11 +18,11 @@ const EditCategories = ({ category }) => {
     const handleEdit = async () => {
         setLoading(true);
         try {
-            const response = await axios.put(`https://localhost:7105/categories/${id}`, categoryData);
+            const response = await axios.put(`https://fakestoreapi.com/categories/${category.id}`, categoryData);
             if (response.status !== 200) {
                 throw new Error('Error editing the category');
             }
-            alert('Categoria editada');
+            alert('Categoryo editado');
             window.location.reload();
         } catch (error) {
             setError(error.message);
@@ -46,16 +46,43 @@ const EditCategories = ({ category }) => {
                             Title:
                             <input
                                 type="text"
-                                name="nombre"
-                                value={categoryData.nombre}
+                                name="title"
+                                value={categoryData.title}
                                 onChange={handleInputChange}
                             />
                         </label>
                         <label>
                             Description:
                             <textarea
-                                name="descripcion"
-                                value={categoryData.descripcion}
+                                name="description"
+                                value={categoryData.description}
+                                onChange={handleInputChange}
+                            />
+                        </label>
+                        <label>
+                            Price:
+                            <input
+                                type="number"
+                                name="price"
+                                value={categoryData.price}
+                                onChange={handleInputChange}
+                            />
+                        </label>
+                        <label>
+                            Category:
+                            <input
+                                type="text"
+                                name="category"
+                                value={categoryData.category}
+                                onChange={handleInputChange}
+                            />
+                        </label>
+                        <label>
+                            Img URL:
+                            <input
+                                type="text"
+                                name="image"
+                                value={categoryData.image}
                                 onChange={handleInputChange}
                             />
                         </label>

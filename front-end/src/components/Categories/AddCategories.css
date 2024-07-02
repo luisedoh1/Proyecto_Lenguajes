@@ -1,4 +1,4 @@
-.add-product-container {
+.add-category-container {
     display: flex;
     align-items: center;
 }
@@ -10,8 +10,8 @@
 }
 
 .add-icon {
-    width: 50px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
 }
 
 .modal {

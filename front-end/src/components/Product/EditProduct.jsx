@@ -18,7 +18,7 @@ const EditProduct = ({ product }) => {
     const handleEdit = async () => {
         setLoading(true);
         try {
-            const response = await axios.put(`https://localhost:7105/products/${product.id}`, productData);
+            const response = await axios.put(`https://fakestoreapi.com/products/${product.id}`, productData);
             if (response.status !== 200) {
                 throw new Error('Error editing the product');
             }
@@ -46,16 +46,16 @@ const EditProduct = ({ product }) => {
                             Title:
                             <input
                                 type="text"
-                                name="nombre"
-                                value={productData.nombre}
+                                name="title"
+                                value={productData.title}
                                 onChange={handleInputChange}
                             />
                         </label>
                         <label>
                             Description:
                             <textarea
-                                name="descripcion"
-                                value={productData.descripcion}
+                                name="description"
+                                value={productData.description}
                                 onChange={handleInputChange}
                             />
                         </label>
@@ -63,8 +63,8 @@ const EditProduct = ({ product }) => {
                             Price:
                             <input
                                 type="number"
-                                name="precio"
-                                value={productData.precio}
+                                name="price"
+                                value={productData.price}
                                 onChange={handleInputChange}
                             />
                         </label>
@@ -72,8 +72,8 @@ const EditProduct = ({ product }) => {
                             Category:
                             <input
                                 type="text"
-                                name="categoriaId"
-                                value={productData.categoriaId}
+                                name="category"
+                                value={productData.category}
                                 onChange={handleInputChange}
                             />
                         </label>
@@ -81,8 +81,8 @@ const EditProduct = ({ product }) => {
                             Img URL:
                             <input
                                 type="text"
-                                name="imagen"
-                                value={productData.imagen}
+                                name="image"
+                                value={productData.image}
                                 onChange={handleInputChange}
                             />
                         </label>

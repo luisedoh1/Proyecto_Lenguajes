@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API_URL = 'https://localhost:7105/products'; 
-const API_URL2 = 'https://localhost:7105/categories/';
+const API_URL2 = 'https://localhost:7105/categories';
 
 export const fetchProducts = async () => {
     try {

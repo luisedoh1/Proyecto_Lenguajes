@@ -1,0 +1,9 @@
+.report-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}

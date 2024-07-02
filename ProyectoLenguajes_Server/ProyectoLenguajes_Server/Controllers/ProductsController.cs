@@ -87,7 +87,7 @@ namespace ProyectoLenguajes.Controllers
                     int numberOfAffectedRows = await productBL.createProduct(product, file);
                     if (numberOfAffectedRows > 0)
                     {
-                        return Created("api/products", new { id = product.IdProducto });
+                        return Created("/products", new { id = product.IdProducto });
                     }
 
                     return Conflict("El producto ya existe en la base de datos");
@@ -154,7 +154,7 @@ namespace ProyectoLenguajes.Controllers
                 }
 
                 await productBL.deleteProductById(id);
-                return NoContent();
+                return Ok();
             }
             catch (Exception error)
             {
