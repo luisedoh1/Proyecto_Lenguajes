@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../../store/authSlice';
-import logo from "../imgs/logo.svg";
+import logo from "../imgs/logo2.svg";
 const Navbar = () => {
     const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
     const dispatch = useDispatch();

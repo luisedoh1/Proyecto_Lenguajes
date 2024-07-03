@@ -2,7 +2,7 @@
 import { useState } from "react";
 import axios from "axios";
 import edit from '../imgs/editar.gif'
-import './EditCategories.css';
+
 
 const EditCategories = ({ category }) => {
     const [showModal, setShowModal] = useState(false);
@@ -18,7 +18,7 @@ const EditCategories = ({ category }) => {
     const handleEdit = async () => {
         setLoading(true);
         try {
-            const response = await axios.put(`https://localhost:7105/categories/${id}`, categoryData);
+            const response = await axios.put(`https://localhost:7105/categories/${category.idCategoria}`, categoryData);
             if (response.status !== 200) {
                 throw new Error('Error editing the category');
             }

@@ -1,27 +1,8 @@
-import { useState, useEffect } from 'react';
+
 import './ProductsPage.css';
-import { fetchProducts } from '../components/Product/api';
-import Product from '../components/Product/Product';
+import { ProductCatalog } from '../components/Product/ProductCatalog';
 
 export const ProductsPage = () => {
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-        const getProducts = async () => {
-            try {
-                const products = await fetchProducts();
-                setProducts(products);
-            } catch (error) {
-                setError(error.message);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        getProducts();
-    }, []);
 
     return (
         <div className="products-container">

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { fetchProducts } from "../Product/api";
-import { DeleteProduct } from "../Product/DeleteProduct";
-import EditProduct from "../Product/EditProduct";
+import DeleteCategories  from "./DeleteCategories";
+import EditCategories from "./EditCategories";
+import AddCategories from "./AddCategories";
 import "./Categories.css";
 
 const Categories = () => {
@@ -27,8 +28,10 @@ const Categories = () => {
         if (products.length > 0) {
             const getCategories = async () => {
                 try {
-                    const categories = products.map(product => product.category);
-                    const uniqueCategories = [...new Set(categories)];
+                    const categories = products.map(product => product.categoria);
+                    const uniqueCategories = [...new Set(categories.map(cat => cat.nombre))].map(name => {
+                        return categories.find(cat => cat.nombre === name);
+                    });
                     setCategories(uniqueCategories);
                 } catch (error) {
                     setError(error.message);
@@ -42,14 +45,15 @@ const Categories = () => {
     }, [products]);
 
     return (
-        <div className="product-list-container">
-            <h1 className="product-list-title">Categorie List</h1>
+        <div className="category-list-container">
+            <h1 className="category-list-title">Categories List</h1>
+            <AddCategories />
             {loading && (
                 <div className="modal-container">
                     <div className="modal">
                         <div className="spinner"></div>
                         <h2>Loading Categories...</h2>
-                        <p>Please wait while we load the products for you.</p>
+                        <p>Please wait while we load the categories for you.</p>
                     </div>
                 </div>
             )}
@@ -63,8 +67,8 @@ const Categories = () => {
                 </div>
             )}
             {!loading && !error && (
-                <div className="product-list-scroll">
-                    <table className="product-list-table">
+                <div className="category-list-scroll">
+                    <table className="category-list-table">
                         <thead>
                             <tr>
                                 <th>Category</th>
@@ -74,23 +78,13 @@ const Categories = () => {
                         </thead>
                         <tbody>
                             {categories.map((category, index) => (
-<<<<<<< Updated upstream
-                                <tr key={index} className="product-list-item">
-                                    <td>{category}</td>
-                                    <td>
-                                        <DeleteProduct id={category.id} />
-                                    </td>
-                                    <td>
-                                        <EditProduct product={category} />
-=======
                                 <tr key={index} className="category-list-item">
                                     <td>{category.nombre}</td>
                                     <td>
-                                        <DeleteCategory id={category.idCategoria} />
+                                        <DeleteCategories id={category.idCategoria} />
                                     </td>
                                     <td>
-                                        <EditCategories category={category.idCategoria} />
->>>>>>> Stashed changes
+                                        <EditCategories category={category} />
                                     </td>
                                 </tr>
                             ))}
@@ -103,3 +97,4 @@ const Categories = () => {
 };
 
 export default Categories;
+

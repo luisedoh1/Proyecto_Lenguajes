@@ -75,5 +75,7 @@ namespace ProyectoLenguajes.Controllers
             var reporte = await orderBl.GenerarReporteVentasAsync();
             return Ok(reporte);
         }
+
+
     }
 }

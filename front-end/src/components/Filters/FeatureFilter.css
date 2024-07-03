@@ -1,0 +1,34 @@
+.feature-filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.feature-filter select {
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.feature-filter h2 {
+    font-size: 1.5rem;
+    color: #364150;
+    margin-bottom: 10px;
+}
+
+.feature-filter button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.feature-filter button:hover {
+    background-color: #0056b3;
+}

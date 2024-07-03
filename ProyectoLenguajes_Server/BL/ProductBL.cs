@@ -68,9 +68,17 @@ namespace BL
         }
 
         // Agregar producto
-        public async Task<int> createProduct(Producto producto, IFormFile file)
+        public async Task<int> createProduct(Producto product)
         {
-            return await _productoDa.createProducto(producto, file);
+            try
+            {
+                return await _productoDa.createProduct(product);
+
+            }
+            catch (Exception error)
+            {
+                throw new Exception(error.Message);
+            }
         }
 
         // Editar producto
@@ -136,6 +144,12 @@ namespace BL
             {
                 throw new Exception(error.Message);
             }
+        }
+
+        // Obtener producto por popularidad
+        public async Task<List<Producto>> GetProductosMasVendidos()
+        {
+            return await _productoDa.GetProductosMasVendidos();
         }
     }
 }

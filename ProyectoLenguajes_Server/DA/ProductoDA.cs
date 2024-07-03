@@ -101,21 +101,32 @@ namespace DA
             }
         }
 
-        // Agregar producto
-        public async Task<int> createProducto(Producto producto, IFormFile file)
+        // Obtener producto por 
+        public async Task<List<Producto>> GetProductosMasVendidos()
         {
-            if (file != null && file.Length > 0)
-            {
-                var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "product/images", file.FileName);
-                using (var stream = new FileStream(imagePath, FileMode.Create))
-                {
-                    await file.CopyToAsync(stream);
-                }
-                producto.Imagen = imagePath;  // Guarda la ruta de la imagen en la propiedad Imagen
-            }
+            var productosMasVendidos = await _context.DetalleOrdens
+                .GroupBy(d => d.IdProducto)
+                .Select(g => new{ IdProducto = g.Key, CantidadVendida = g.Sum(d => d.Cantidad)})
+                .OrderByDescending(g => g.CantidadVendida)
+                .Join(_context.Productos, g => g.IdProducto, p => p.IdProducto, (g, p) => p)
+                .ToListAsync();
 
-            _context.Productos.Add(producto);
-            return await _context.SaveChangesAsync();
+            return productosMasVendidos;
+        }
+
+        // Agregar producto
+        public async Task<int> createProduct(Producto product)
+        {
+            try
+            {
+                _context.Productos.Add(product);
+                return await _context.SaveChangesAsync();
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error.Message);
+                throw new Exception("Error al intentar añadir el producto:" + product.ToString());
+            }
         }
 
         // Editar producto

@@ -2,7 +2,6 @@
 import { useContext } from 'react';
 import { CartContext } from '../Cart/CartContex';
 import { FaCartShopping } from "react-icons/fa6";
-import './Product.css';
 
 const Product = ({ id, name, price, image }) => {
   const { addToCart } = useContext(CartContext);
@@ -14,9 +13,9 @@ const Product = ({ id, name, price, image }) => {
 
   return (
     <div className="product">
-      <img src={image} alt={name} className="product__image" />
-      <h3 className="product__name">{name}</h3>
-      <p className="product__price">${price}</p>
+      <img src={image} alt={name} className="product-image" />
+      <h3 className="product-name">{name}</h3>
+      <p className="product-price">${price}</p>
       <button className="product__button" onClick={handleAddToCart}>
         <FaCartShopping size={40} />
       </button>

@@ -1,23 +1,35 @@
 import { useEffect, useState } from "react";
-import { fetchProducts } from "./api";
+import { fetchProducts, fetchCategories } from "./api";
 import { DeleteProduct } from "./DeleteProduct";
 import SearchBar from "../SearchBar/SearchBar";
 import EditProduct from "./EditProduct";
-import AddProduct from "./AddProduct"
+import AddProduct from "./AddProduct";
 import "./ProductList.css";
 
 const ProductList = () => {
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
+    const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const getProducts = async () => {
+        const getProductsAndCategories = async () => {
             try {
-                const products = await fetchProducts();
-                setProducts(products);
-                setFilteredProducts(products);
+                const [productsData, categoriesData] = await Promise.all([
+                    fetchProducts(),
+                    fetchCategories(),
+                ]);
+                const productsWithCategoryNames = productsData.map(product => {
+                    const category = categoriesData.find(cat => cat.idCategoria === product.categoriaId);
+                    return {
+                        ...product,
+                        categoriaNombre: category ? category.nombre : 'Unknown',
+                    };
+                });
+                setProducts(productsWithCategoryNames);
+                setFilteredProducts(productsWithCategoryNames);
+                setCategories(categoriesData);
             } catch (error) {
                 setError(error.message);
             } finally {
@@ -25,7 +37,7 @@ const ProductList = () => {
             }
         };
 
-        getProducts();
+        getProductsAndCategories();
     }, []);
 
     const handleSearchName = (query) => {
@@ -33,14 +45,14 @@ const ProductList = () => {
         setFilteredProducts(
             products.filter(
                 (product) =>
-                    product.title.toLowerCase().includes(lowerCaseQuery)
+                    product.nombre.toLowerCase().includes(lowerCaseQuery)
             )
         );
     };
 
     const handleSearchId = (query) => {
         setFilteredProducts(
-            products.filter((product) => product.id.toString() === query)
+            products.filter((product) => product.idProducto.toString() === query)
         );
     };
 
@@ -96,7 +108,7 @@ const ProductList = () => {
                                             />
                                         </td>
                                         <td>${product.precio}</td>
-                                        <td>{product.categoriaId}</td>
+                                        <td>{product.categoriaNombre}</td>
                                         <td>
                                             <DeleteProduct id={product.idProducto} />
                                         </td>
@@ -107,6 +119,7 @@ const ProductList = () => {
                                 ))
                                 : products.map((product) => (
                                     <tr key={product.idProducto} className="product-list-item">
+                                        <td>{product.codigo}</td>
                                         <td>{product.nombre}</td>
                                         <td>{product.descripcion}</td>
                                         <td>
@@ -117,7 +130,7 @@ const ProductList = () => {
                                             />
                                         </td>
                                         <td>${product.precio}</td>
-                                        <td>{product.categoriaId}</td>
+                                        <td>{product.categoriaNombre}</td>
                                         <td>
                                             <DeleteProduct id={product.idProducto} />
                                         </td>

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Models;
 
-namespace ProyectoLenguajes.Controllers
+namespace ProyectoLenguajes_Server.Controllers
 {
     [Route("[controller]")]
     [ApiController]
@@ -75,19 +75,33 @@ namespace ProyectoLenguajes.Controllers
             }
         }
 
+        // GET: Products/masvendidos
+        [HttpGet("masvendidos")]
+        public async Task<ActionResult<IEnumerable<Producto>>> GetProductosMasVendidos()
+        {
+            try
+            {
+                var productos = await productBL.GetProductosMasVendidos();
+                return Ok(productos);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
 
         //POST: Product/
         [HttpPost]
-        public async Task<ActionResult> Index([FromForm] Producto product, [FromForm] IFormFile file)
+        public async Task<ActionResult> Index([FromBody] Producto product)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    int numberOfAffectedRows = await productBL.createProduct(product, file);
+                    int numberOfAffectedRows = await productBL.createProduct(product);
                     if (numberOfAffectedRows > 0)
                     {
-                        return Created("api/products", new { id = product.IdProducto });
+                        return CreatedAtAction(nameof(Index), new { id = product.IdProducto }, product);
                     }
 
                     return Conflict("El producto ya existe en la base de datos");

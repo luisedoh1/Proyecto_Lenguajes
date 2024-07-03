@@ -7,7 +7,7 @@ namespace Models;
 
 public partial class Producto
 {
-    [JsonIgnore]
+    [JsonInclude]
     public int IdProducto { get; set; }
 
     [Required]

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './HorizontalScroll.css';
-import { fetchProducts } from '../Product/api';
+import { fetchPopularProducts } from '../Product/api';
 import Product from '../Product/Product';
 
 const HorizontalScroll = () => {
@@ -11,7 +11,7 @@ const HorizontalScroll = () => {
     useEffect(() => {
         const getProducts = async () => {
             try {
-                const products = await fetchProducts();
+                const products = await fetchPopularProducts();
                 setProducts(products);
             } catch (error) {
                 setError(error.message);
@@ -25,7 +25,7 @@ const HorizontalScroll = () => {
 
     return (
         <div className="scroll-container">
-            <h1 className="products-title">Products</h1>
+            <h1 className="products-title">Trending Products</h1>
             {loading && (
                 <div className="modal">
                     <div className="spinner"></div>
