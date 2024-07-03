@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import trasher from '../imgs/bote-de-basura.gif'
 
-export const DeleteCategory = ({ id }) => {
+const DeleteCategory = ({ id }) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -18,7 +18,7 @@ export const DeleteCategory = ({ id }) => {
             window.location.reload();
         } catch (error) {
             setError(error.message);
-            alert(error)
+            alert(error);
         } finally {
             setLoading(false);
         }
@@ -36,4 +36,6 @@ export const DeleteCategory = ({ id }) => {
             {error && <p className="error-message">{error}</p>}
         </div>
     );
-}
+};
+
+export default DeleteCategory;

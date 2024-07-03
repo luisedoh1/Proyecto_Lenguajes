@@ -85,6 +85,7 @@ const ProductList = () => {
                     <table className="product-list-table">
                         <thead>
                             <tr>
+                                <th>Code</th>
                                 <th>Name</th>
                                 <th>Description</th>
                                 <th>Image</th>
@@ -98,6 +99,7 @@ const ProductList = () => {
                             {filteredProducts.length > 0
                                 ? filteredProducts.map((product) => (
                                     <tr key={product.idProducto} className="product-list-item">
+                                        <td>{product.codigo}</td>
                                         <td>{product.nombre}</td>
                                         <td>{product.descripcion}</td>
                                         <td>

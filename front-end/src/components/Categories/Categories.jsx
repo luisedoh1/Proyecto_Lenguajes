@@ -1,48 +1,29 @@
 import { useEffect, useState } from "react";
-import { fetchProducts } from "../Product/api";
-import DeleteCategories  from "./DeleteCategories";
+import { fetchCategories } from "../Product/api";
+import DeleteCategories from "./DeleteCategories";
 import EditCategories from "./EditCategories";
 import AddCategories from "./AddCategories";
-import "./Categories.css";
+import './Categories.css'
 
 const Categories = () => {
-    const [products, setProducts] = useState([]);
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const getProducts = async () => {
+        const getCategories = async () => {
             try {
-                const products = await fetchProducts();
-                setProducts(products);
+                const categories = await fetchCategories();
+                setCategories(categories);
             } catch (error) {
                 setError(error.message);
+            } finally {
+                setLoading(false);
             }
         };
 
-        getProducts();
+        getCategories();
     }, []);
-
-    useEffect(() => {
-        if (products.length > 0) {
-            const getCategories = async () => {
-                try {
-                    const categories = products.map(product => product.categoria);
-                    const uniqueCategories = [...new Set(categories.map(cat => cat.nombre))].map(name => {
-                        return categories.find(cat => cat.nombre === name);
-                    });
-                    setCategories(uniqueCategories);
-                } catch (error) {
-                    setError(error.message);
-                } finally {
-                    setLoading(false);
-                }
-            };
-
-            getCategories();
-        }
-    }, [products]);
 
     return (
         <div className="category-list-container">
@@ -72,14 +53,16 @@ const Categories = () => {
                         <thead>
                             <tr>
                                 <th>Category</th>
+                                <th>Description</th>
                                 <th>Delete</th>
                                 <th>Edit</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {categories.map((category, index) => (
-                                <tr key={index} className="category-list-item">
+                            {categories.map((category) => (
+                                <tr key={category.idCategoria} className="category-list-item">
                                     <td>{category.nombre}</td>
+                                    <td>{category.descripcion}</td>
                                     <td>
                                         <DeleteCategories id={category.idCategoria} />
                                     </td>

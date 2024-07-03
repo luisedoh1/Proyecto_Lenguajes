@@ -2,7 +2,7 @@
 import { useState } from "react";
 import axios from "axios";
 import edit from '../imgs/editar.gif'
-
+import './EditCategories.css';
 
 const EditCategories = ({ category }) => {
     const [showModal, setShowModal] = useState(false);

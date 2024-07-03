@@ -127,7 +127,7 @@ export const ProductCatalog = () => {
                     ))}
                 </div>
             </div> 
-            <ProductModal id={selectedProduct.idProducto} name={selectedProduct.nombre} price={selectedProduct.precio} image={selectedProduct.imagen} description={selectedProduct.descripcion} onClose={closeProductModal}/>
+            
         </div>
     );
 };
