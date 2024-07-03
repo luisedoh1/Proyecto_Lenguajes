@@ -3,11 +3,11 @@ import { fetchProducts } from '../Product/api';
 import PriceRangeFilter from '../Filters/PriceRangeFilter';
 import CategoryFilter from '../Filters/CategoryFilter';
 import FeatureFilter from '../Filters/FeatureFilter';
+import SortFilter from '../Filters/SortFilter';
 import { ProductModal } from './ProductModal';
 
 export const ProductCatalog = () => {
     const [products, setProducts] = useState([]);
-    const [allProducts, setAllProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [priceRange, setPriceRange] = useState({ min: 0, max: 1000 });
@@ -15,13 +15,14 @@ export const ProductCatalog = () => {
     const [selectedFeature1, setSelectedFeature1] = useState('');
     const [selectedFeature2, setSelectedFeature2] = useState('');
     const [selectedProduct, setSelectedProduct] = useState(null);
+    const [orderBy, setOrderBy] = useState('');
+    const [orderType, setOrderType] = useState('');
 
     useEffect(() => {
         const getProducts = async () => {
             try {
-                const products = await fetchProducts();
+                const products = await fetchProducts(orderBy, orderType);
                 setProducts(products);
-                setAllProducts(products);
             } catch (error) {
                 setError(error.message);
             } finally {
@@ -30,15 +31,14 @@ export const ProductCatalog = () => {
         };
 
         getProducts();
-    }, []);
+    }, [orderBy, orderType]);
 
     useEffect(() => {
         applyFilters();
     }, [priceRange, selectedCategory, selectedFeature1, selectedFeature2]);
 
     const applyFilters = () => {
-        let filteredProducts = allProducts;
-
+        let filteredProducts = products;
         if (priceRange.min !== null && priceRange.max !== null) {
             filteredProducts = filteredProducts.filter(product =>
                 product.precio >= priceRange.min && product.precio <= priceRange.max
@@ -79,11 +79,18 @@ export const ProductCatalog = () => {
         setSelectedFeature2(featureId2);
     };
 
+    const handleSort = (orderBy, orderType) => {
+        setOrderBy(orderBy);
+        setOrderType(orderType);
+    };
+
     const resetFilters = () => {
         setPriceRange({ min: 0, max: 1000 });
         setSelectedCategory('');
         setSelectedFeature1('');
         setSelectedFeature2('');
+        setOrderBy('');
+        setOrderType('');
     };
 
     const openProductModal = (product) => {
@@ -99,6 +106,7 @@ export const ProductCatalog = () => {
                 <PriceRangeFilter onFilter={filterByPrice} />
                 <CategoryFilter onFilter={filterByCategory} />
                 <FeatureFilter onFilter={filterByFeature} />
+                <SortFilter onSort={handleSort} />
                 <button className="reset-button" onClick={resetFilters}>Reset Filters</button>
             </div>
             <div className="catalog-container">
@@ -126,8 +134,7 @@ export const ProductCatalog = () => {
                         </div>
                     ))}
                 </div>
-            </div> 
-            
+            </div>
         </div>
     );
 };
