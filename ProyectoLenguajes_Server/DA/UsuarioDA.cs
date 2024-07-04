@@ -18,7 +18,7 @@ namespace DA
         {
             try
             {
-                return await _context.Usuarios.Where(u => u.Email == email && u.Contraseña == contraseña).FirstOrDefaultAsync();
+                return await _context.Usuarios.Include(u => u.IdRolNavigation).FirstOrDefaultAsync(u => u.Email == email && u.Contraseña == contraseña);
             }
             catch (Exception error)
             {
@@ -75,6 +75,19 @@ namespace DA
             }
         }
 
-
+        // Obtener rol del usuario por email
+        public async Task<int> getUserRoleByEmail(string email)
+        {
+            try
+            {
+                var usuario = await _context.Usuarios.Include(u => u.IdRol).Where(u => u.Email == email).FirstOrDefaultAsync();
+                return usuario.IdRol;
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error.Message);
+                throw new Exception("Error al obtener el rol del usuario " + email);
+            }
+        }
     }
 }

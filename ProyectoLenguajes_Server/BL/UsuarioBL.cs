@@ -68,6 +68,18 @@ namespace BL
                 throw new Exception(error.Message);
             }
         }
-    }
 
+        // Obtener rol del usuario por email
+        public async Task<int> getUserRoleByEmail(string email)
+        {
+            try
+            {
+                return await usuarioDA.getUserRoleByEmail(email);
+            }
+            catch (Exception error)
+            {
+                throw new Exception(error.Message);
+            }
+        }
+    }
 }

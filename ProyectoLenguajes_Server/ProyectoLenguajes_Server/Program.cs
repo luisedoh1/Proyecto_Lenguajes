@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Models;
-
+using DA;
+using BL;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +19,12 @@ builder.Services.AddDbContext<ProyectoContext>(options =>
 
 builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
 
+// Register DA and BL services
+builder.Services.AddScoped<UsuarioDA>();
+builder.Services.AddScoped<UsuarioBL>();
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

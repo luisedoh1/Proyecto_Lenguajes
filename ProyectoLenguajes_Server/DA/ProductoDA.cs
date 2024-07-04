@@ -104,45 +104,62 @@ namespace DA
         // Obtener producto por más vendidos
         public async Task<List<Producto>> GetProductosMasVendidos()
         {
-            var productosMasVendidos = await _context.DetalleOrdens
-                .GroupBy(d => d.IdProducto)
-                .Select(g => new{ IdProducto = g.Key, CantidadVendida = g.Sum(d => d.Cantidad)})
-                .OrderByDescending(g => g.CantidadVendida)
-                .Join(_context.Productos, g => g.IdProducto, p => p.IdProducto, (g, p) => p)
-                .ToListAsync();
+            try
+            {
+                var productosMasVendidos = await _context.DetalleOrdens
+                    .GroupBy(d => d.IdProducto)
+                    .Select(g => new { IdProducto = g.Key, CantidadVendida = g.Sum(d => d.Cantidad) })
+                    .OrderByDescending(g => g.CantidadVendida)
+                    .Join(_context.Productos, g => g.IdProducto, p => p.IdProducto, (g, p) => p)
+                    .ToListAsync();
 
-            return productosMasVendidos;
+                return productosMasVendidos;
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error.Message);
+                throw;
+            }
         }
 
-        // Obtener producto ordenados por popularidad
+        // Obtener producto ordenados por popularidad(Incluyendo hasta los que no tienen ventas)
         public async Task<List<Producto>> getPopularProducts()
         {
-            var query = from od in _context.DetalleOrdens
-                group od by od.IdProducto into g
-                orderby g.Count() descending
-                select new { IdProducto = g.Key, Count = g.Count() };
-
-            var popularProductIds = await query.ToListAsync();
-
-            var allProducts = await _context.Productos.ToListAsync();
-
-            var popularProducts = allProducts.Select(p => new Producto
+            try
             {
-                IdProducto = p.IdProducto,
-                Codigo = p.Codigo,
-                Nombre = p.Nombre,
-                Descripcion = p.Descripcion,
-                Cantidad = p.Cantidad,
-                CategoriaId = p.CategoriaId,
-                Imagen = p.Imagen,
-                Precio = p.Precio,
-                CaracteristicaId1 = p.CaracteristicaId1,
-                CaracteristicaId2 = p.CaracteristicaId2,
-                FechaAñadido = p.FechaAñadido,
-                Popularity = popularProductIds.FirstOrDefault(pp => pp.IdProducto == p.IdProducto)?.Count ?? 0
-            }).ToList();
+                var query = from od in _context.DetalleOrdens
+                    group od by od.IdProducto
+                    into g
+                    orderby g.Count() descending
+                    select new { IdProducto = g.Key, Count = g.Count() };
 
-            return popularProducts.OrderByDescending(p => p.Popularity).ToList();
+                var popularProductIds = await query.ToListAsync();
+
+                var allProducts = await _context.Productos.ToListAsync();
+
+                var popularProducts = allProducts.Select(p => new Producto
+                {
+                    IdProducto = p.IdProducto,
+                    Codigo = p.Codigo,
+                    Nombre = p.Nombre,
+                    Descripcion = p.Descripcion,
+                    Cantidad = p.Cantidad,
+                    CategoriaId = p.CategoriaId,
+                    Imagen = p.Imagen,
+                    Precio = p.Precio,
+                    CaracteristicaId1 = p.CaracteristicaId1,
+                    CaracteristicaId2 = p.CaracteristicaId2,
+                    FechaAñadido = p.FechaAñadido,
+                    Popularity = popularProductIds.FirstOrDefault(pp => pp.IdProducto == p.IdProducto)?.Count ?? 0
+                }).ToList();
+
+                return popularProducts.OrderByDescending(p => p.Popularity).ToList();
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error.Message);
+                throw;
+            }
         }
 
         // Agregar producto

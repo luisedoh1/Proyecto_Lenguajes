@@ -61,10 +61,7 @@ namespace DA
         {
             try
             {
-                return await _context.Ordens
-                    .Where(o => o.Estado == status)
-                    .OrderBy(orderBy)
-                    .ToListAsync();
+                return await _context.Ordens.Where(o => o.Estado == status).OrderBy(orderBy).ToListAsync();
             }
             catch (Exception error)
             {
@@ -132,7 +129,7 @@ namespace DA
             }
         }
 
-        //Obtener todas las ordenes con sus detalles(Se utiliza para el reporte de ventas)
+        //Obtener todas las ordenes con sus detalles(Se utiliza para el reporte de ventas con filtro de fecha)
         public async Task<List<Orden>> ObtenerOrdenesAsync(DateTime? startDate, DateTime? endDate)
         {
             var query = _context.Ordens.AsQueryable();

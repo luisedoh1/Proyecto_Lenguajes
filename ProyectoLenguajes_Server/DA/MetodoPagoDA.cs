@@ -1,5 +1,6 @@
 ﻿using Models;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Dynamic.Core;
 
 public class MetodoPagoDA
 {
@@ -10,27 +11,82 @@ public class MetodoPagoDA
         _context = context;
     }
 
-    //Agragar metodo de pago
-    public async Task<bool> AddMetodoPago(MetodoPago metodoPago)
-    {
-        _context.MetodoPagos.Add(metodoPago);
-        return await _context.SaveChangesAsync() > 0;
-    }
-
-    //Eliminar el metodo de pago
-    public async Task<bool> DeleteMetodoPago(int idMetodo)
-    {
-        var metodoPago = await _context.MetodoPagos.FindAsync(idMetodo);
-        if (metodoPago == null) return false;
-
-        _context.MetodoPagos.Remove(metodoPago);
-        return await _context.SaveChangesAsync() > 0;
-    }
-    
     //Get Metodos de pago por medio del usuario
-    public async Task<IEnumerable<MetodoPago>> GetMetodosPagoByUsuarioId(int idUsuario)
+    public async Task<List<MetodoPago>> GetAllMetodosByUser(int idUsuario, string orderBy)
     {
-        return await _context.MetodoPagos.Where(mp => mp.IdUsuario == idUsuario)
-            .ToListAsync();
+        try
+        {
+            return await _context.MetodoPagos.Where(m => m.IdUsuario == idUsuario).OrderBy(orderBy).ToListAsync();
+        }
+        catch (Exception error)
+        {
+            Console.WriteLine(error.Message);
+            throw new Exception("Error al intentar obtener las ordenes por usuario");
+        }
+    }
+
+    // Obtener metodo específico por id
+    public async Task<MetodoPago> getMetodoById(int idMetodo)
+    {
+
+        try
+        {
+            return await _context.MetodoPagos.Where(m => m.IdMetodo == idMetodo).FirstOrDefaultAsync();
+        }
+        catch (Exception error)
+        {
+            Console.WriteLine(error.Message);
+            throw new Exception("Error al buscar el producto " + idMetodo);
+        }
+    }
+
+    // Agregar metodo
+    public async Task<int> createMetodo(MetodoPago metodo)
+    {
+        try
+        {
+            _context.MetodoPagos.Add(metodo);
+            return await _context.SaveChangesAsync();
+        }
+        catch (Exception error)
+        {
+            Console.WriteLine(error.Message);
+            throw new Exception("Error al intentar añadir el producto:" + metodo.ToString());
+        }
+    }
+
+    // Editar metodod
+    public async Task<int> editMetodo(int productID, MetodoPago metodo)
+    {
+        try
+        {
+            MetodoPago existingMetodo = await getMetodoById(productID);
+            existingMetodo.IdMetodo = metodo.IdMetodo;
+            existingMetodo.IdTipo = metodo.IdTipo;
+            existingMetodo.IdUsuario = metodo.IdUsuario;
+            existingMetodo.Token = metodo.Token;
+            return await _context.SaveChangesAsync();
+        }
+        catch (Exception error)
+        {
+            Console.WriteLine(error.Message);
+            throw new Exception("Error encontrado al intentar actualizar el metodo de pago:" + productID);
+        }
+    }
+
+    // Eliminar metodo
+    public async Task<int> deleteMetodoById(int id)
+    {
+        try
+        {
+            MetodoPago existingMetodo = await getMetodoById(id);
+            _context.MetodoPagos.Remove(existingMetodo);
+            return await _context.SaveChangesAsync();
+        }
+        catch (Exception error)
+        {
+            Console.WriteLine(error.Message);
+            throw new Exception("Error al intentar eliminar el metodo de pago " + id);
+        }
     }
 }
