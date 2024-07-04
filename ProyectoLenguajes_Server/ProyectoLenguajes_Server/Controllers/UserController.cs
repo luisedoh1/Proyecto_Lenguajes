@@ -16,6 +16,7 @@ namespace ProyectoLenguajes_Server.Controllers
             _userBl = userBl;
         }
 
+        // POST: /login
         [HttpPost("login")]
         public async Task<IActionResult> Login(string email, string contraseña)
 

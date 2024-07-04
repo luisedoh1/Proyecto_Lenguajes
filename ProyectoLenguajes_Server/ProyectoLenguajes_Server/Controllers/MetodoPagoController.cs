@@ -15,6 +15,7 @@ namespace ProyectoLenguajes_Server.Controllers
             _metodoPagoBL = metodoPagoBL;
         }
 
+        // POST: /metodoPago
         [HttpPost]
         public async Task<IActionResult> AddMetodoPago([FromBody] MetodoPago metodoPago)
         {
@@ -23,38 +24,60 @@ namespace ProyectoLenguajes_Server.Controllers
                 return BadRequest(ModelState);
             }
 
-            var result = await _metodoPagoBL.AddMetodoPago(metodoPago);
-            if (result)
+            try
             {
-                return Created();
-            }
+                var result = await _metodoPagoBL.AddMetodoPago(metodoPago);
+                if (result)
+                {
+                    return Created("", metodoPago);
+                }
 
-            return StatusCode(500, "No se pudo añadir el método de pago");
+                return Conflict("No se pudo añadir el método de pago");
+            }
+            catch (Exception error)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, error.Message);
+            }
         }
 
+        // DELETE: /metodoPago/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMetodoPago(int id)
         {
-            var result = await _metodoPagoBL.DeleteMetodoPago(id);
-            if (result)
+            try
             {
-                return NoContent();
-            }
+                var result = await _metodoPagoBL.DeleteMetodoPago(id);
+                if (result)
+                {
+                    return NoContent();
+                }
 
-            return NotFound();
+                return NotFound("Método de pago no encontrado");
+            }
+            catch (Exception error)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, error.Message);
+            }
         }
 
-        //GET:
+        // GET: /metodoPago/{idUsuario}
         [HttpGet("{idUsuario}")]
         public async Task<IActionResult> GetMetodosPagoByUsuarioId(int idUsuario)
         {
-            var metodosPago = await _metodoPagoBL.GetMetodosPagoByUsuarioId(idUsuario);
-            if (metodosPago == null || !metodosPago.Any())
+            try
             {
-                return NotFound();
-            }
+                var metodosPago = await _metodoPagoBL.GetMetodosPagoByUsuarioId(idUsuario);
+                if (metodosPago == null || !metodosPago.Any())
+                {
+                    return NotFound("No se encontraron métodos de pago para el usuario");
+                }
 
-            return Ok(metodosPago);
+                return Ok(metodosPago);
+            }
+            catch (Exception error)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, error.Message);
+            }
         }
     }
 }

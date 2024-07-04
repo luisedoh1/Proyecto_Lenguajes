@@ -18,7 +18,7 @@ namespace ProyectoLenguajes.Controllers
             orderBl = new OrderBL(apiContext);
         }
 
-        //GET: Orders/
+        //GET: /orders
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Orden>>> Index(
             [FromQuery] string orderBy,
@@ -36,7 +36,7 @@ namespace ProyectoLenguajes.Controllers
         }
 
 
-        //PUT: Orders/
+        //PUT: /orders
         [HttpPut("{id:int}")]
         public async Task<IActionResult> Dispatch(int id)
         {
@@ -68,7 +68,7 @@ namespace ProyectoLenguajes.Controllers
             }
         }
 
-        // GET: Orders/reporte-ventas
+        // GET: /orders/reporte-ventas
         [HttpGet("reporte-ventas")]
         public async Task<ActionResult> ReporteVentas(DateTime? startDate, DateTime? endDate)
         {
