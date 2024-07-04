@@ -22,6 +22,8 @@ builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttri
 // Register DA and BL services
 builder.Services.AddScoped<UsuarioDA>();
 builder.Services.AddScoped<UsuarioBL>();
+builder.Services.AddScoped<MetodoPagoBL>();
+builder.Services.AddScoped<MetodoPagoDA>();
 
 var app = builder.Build();
 

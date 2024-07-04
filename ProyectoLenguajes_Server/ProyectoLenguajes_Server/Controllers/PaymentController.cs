@@ -1,4 +1,5 @@
 ﻿using BL;
+using DA;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Models;
@@ -7,16 +8,16 @@ namespace ProyectoLenguajes_Server.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class MetodoPagoController : ControllerBase
+    public class PaymentController : ControllerBase
     {
         private readonly MetodoPagoBL _metodoPagoBL;
 
-        public MetodoPagoController(MetodoPagoBL metodoPagoBL)
+        public PaymentController(MetodoPagoBL metodoPagoBL)
         {
             _metodoPagoBL = metodoPagoBL;
         }
 
-        //POST: /metodopago
+        //POST: /payment
         [HttpPost]
         public async Task<ActionResult> Index([FromBody] MetodoPago metodo)
         {
@@ -43,7 +44,24 @@ namespace ProyectoLenguajes_Server.Controllers
             }
         }
 
-        // PUT: /metodopago/1
+        //GET: /payment/1
+        [HttpGet("{id}")]
+        public async Task<ActionResult<IEnumerable<MetodoPago>>> Index(
+            int id,
+            [FromQuery] string orderBy
+        )
+        {
+            try
+            {
+                return await _metodoPagoBL.getAllMethodsById(id, orderBy);
+            }
+            catch (Exception error)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, error.Message);
+            }
+        }
+
+        // PUT: /payment/1
         [HttpPut("{id:int}")]
         public async Task<IActionResult> Index(int id, MetodoPago metodo)
         {
@@ -80,7 +98,7 @@ namespace ProyectoLenguajes_Server.Controllers
             }
         }
 
-        // Delete: /metodopago/1
+        // Delete: /payment/1
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> Delete(int id)
         {

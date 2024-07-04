@@ -68,7 +68,13 @@ public class MetodoPagoBL
     {
         try
         {
-            return await _metodoPagoDA.GetAllMetodosByUser(metodoId, orderBy);
+            string orderByQuery = "IdMetodo";
+            if (orderBy != null)
+            {
+                orderByQuery = orderBy;
+            }
+
+            return await _metodoPagoDA.GetAllMetodosByUser(metodoId, orderByQuery);
         }
         catch (Exception error)
         {

@@ -27,7 +27,7 @@ namespace ProyectoLenguajes.Controllers
         {
             try
             {
-                return await orderBl.GetOrdersByDate(orderBy, orderType);
+                return await orderBl.getAllOrders(orderBy, orderType);
             }
             catch (Exception error)
             {
@@ -35,6 +35,23 @@ namespace ProyectoLenguajes.Controllers
             }
         }
 
+        //GET: /orders/1
+        [HttpGet("{id}")]
+        public async Task<ActionResult<IEnumerable<Orden>>> Index(
+            int id,
+            [FromQuery] string orderBy,
+            [FromQuery] string orderType
+        )
+        {
+            try
+            {
+                return await orderBl.GetAllOrdersByUser(id, orderBy, orderType);
+            }
+            catch (Exception error)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, error.Message);
+            }
+        }
 
         //PUT: /orders
         [HttpPut("{id:int}")]

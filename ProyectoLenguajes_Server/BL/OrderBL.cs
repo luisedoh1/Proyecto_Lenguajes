@@ -54,7 +54,7 @@ namespace BL
         }
 
         //Obtener ventas por fecha
-        public async Task<List<Orden>> GetOrdersByDate(string orderBy, string orderType)
+        public async Task<List<Orden>> GetALlOrders(string orderBy, string orderType)
         {
             try
             {
@@ -117,11 +117,21 @@ namespace BL
         }
 
         // Obtener ordenes por usuario
-        public async Task<List<Orden>> GetAllOrdersByUser(int userId, string orderBy)
+        public async Task<List<Orden>> GetAllOrdersByUser(int userId, string orderBy, string orderType)
         {
             try
             {
-                return await _orderDa.GetAllOrdersByUser(userId, orderBy);
+                string orderByQuery = "IdOrden";
+                if (orderBy != null)
+                {
+                    orderByQuery = orderBy;
+                }
+                string orderTypeQuery = "desc";
+                if (orderType != null)
+                {
+                    orderTypeQuery = orderType;
+                }
+                return await _orderDa.GetAllOrdersByUser(userId, orderByQuery + " " + orderTypeQuery);
             }
             catch (Exception error)
             {

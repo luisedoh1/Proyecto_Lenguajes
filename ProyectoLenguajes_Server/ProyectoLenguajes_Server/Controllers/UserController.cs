@@ -29,7 +29,8 @@ namespace ProyectoLenguajes_Server.Controllers
                 }
 
                 var role = user.IdRolNavigation.Nombre;
-                return Ok(new { role });
+                var userid = user.IdUsuario;
+                return Ok(new { role , userid });
             }
             catch (Exception ex)
             {
