@@ -41,7 +41,13 @@ namespace BL
             }
         }
 
-        // Obtener producto específico por id
+        // Obtener productos por popularidad
+        public async Task<List<Producto>> getPopularProducts()
+        {
+            return await _productoDa.getPopularProducts();
+        }
+
+        // Obtener producto específico por Id
         public async Task<Producto> getProductById(int id)
         {
             try
@@ -54,7 +60,7 @@ namespace BL
             }
         }
 
-        // Obtener producto específico por nombre
+        // Obtener producto específico por Nombre
         public async Task<Producto> getProductByName(string name)
         {
             try

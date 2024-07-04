@@ -8,13 +8,26 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    internal class UsuarioBL
+    public class UsuarioBL
     {
         private UsuarioDA usuarioDA;
 
         public UsuarioBL(ProyectoContext context)
         {
             usuarioDA = new UsuarioDA(context);
+        }
+
+        public async Task<Usuario> AuthenticateUser(string email, string password)
+        {
+            try
+            {
+                return await usuarioDA.AuthenticateUser(email, password);
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+                throw;
+            }
         }
 
         // Obtener usuario por email

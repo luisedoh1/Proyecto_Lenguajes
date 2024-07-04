@@ -219,3 +219,10 @@ INSERT INTO Detalle_Orden
            ,2
            ,(SELECT Precio FROM Producto WHERE ID_Producto = 4));
 GO
+
+INSERT INTO Tipo_Metodo_Pago
+           ([Descripcion])
+     VALUES
+           (N'Debito'),
+		   (N'Credito')
+GO

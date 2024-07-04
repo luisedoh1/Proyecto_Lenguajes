@@ -13,12 +13,26 @@ namespace DA
             _context = context;
         }
 
+        //Autenticar usuario
+        public async Task<Usuario> AuthenticateUser(string email, string contraseña)
+        {
+            try
+            {
+                return await _context.Usuarios.Where(u => u.Email == email && u.Contraseña == contraseña).FirstOrDefaultAsync();
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error.Message);
+                throw new Exception("Email o Contraseña incorrectos");
+            };
+        }
+
         // Obtener usuario por email
         public async Task<Usuario> getUserByEmail(string email)
         {
             try
             {
-                return await _context.Usuarios.Where(u => u.Nombre == email).FirstOrDefaultAsync();
+                return await _context.Usuarios.Where(u => u.Email == email).FirstOrDefaultAsync();
             }
             catch (Exception error)
             {
@@ -60,5 +74,7 @@ namespace DA
                 throw new Exception("Error encontrado al intentar actualizar el usuario:" + email);
             }
         }
+
+
     }
 }

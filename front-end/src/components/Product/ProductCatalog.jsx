@@ -7,6 +7,7 @@ import SortFilter from '../Filters/SortFilter';
 import { ProductModal } from './ProductModal';
 
 export const ProductCatalog = () => {
+    const [allProducts, setAllProducts] = useState([]);
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -23,6 +24,7 @@ export const ProductCatalog = () => {
             try {
                 const products = await fetchProducts(orderBy, orderType);
                 setProducts(products);
+                setAllProducts(products);
             } catch (error) {
                 setError(error.message);
             } finally {
@@ -38,7 +40,8 @@ export const ProductCatalog = () => {
     }, [priceRange, selectedCategory, selectedFeature1, selectedFeature2]);
 
     const applyFilters = () => {
-        let filteredProducts = products;
+        let filteredProducts = allProducts;
+
         if (priceRange.min !== null && priceRange.max !== null) {
             filteredProducts = filteredProducts.filter(product =>
                 product.precio >= priceRange.min && product.precio <= priceRange.max
@@ -47,7 +50,7 @@ export const ProductCatalog = () => {
 
         if (selectedCategory) {
             filteredProducts = filteredProducts.filter(product =>
-                product.categoriaId === selectedCategory
+                product.categoriaId === parseInt(selectedCategory)
             );
         }
 
@@ -91,14 +94,16 @@ export const ProductCatalog = () => {
         setSelectedFeature2('');
         setOrderBy('');
         setOrderType('');
+        setProducts(allProducts);
     };
 
     const openProductModal = (product) => {
-        setSelectedProduct(product)
-    }
-    const closeProductModal = () =>{
-        setSelectedProduct(null)
-    }
+        setSelectedProduct(product);
+    };
+
+    const closeProductModal = () => {
+        setSelectedProduct(null);
+    };
 
     return (
         <div className="products-page">
@@ -135,6 +140,9 @@ export const ProductCatalog = () => {
                     ))}
                 </div>
             </div>
+            {selectedProduct && (
+                <ProductModal product={selectedProduct} onClose={closeProductModal} />
+            )}
         </div>
     );
 };

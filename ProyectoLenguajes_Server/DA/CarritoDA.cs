@@ -18,23 +18,27 @@ namespace DA
             _context = context;
         }
 
+        //Obtener carrito por medio del usuario
         public async Task<CarritoCompra> ObtenerCarritoPorUsuario(int userId)
         {
             return await _context.CarritoCompras.FirstOrDefaultAsync(c => c.IdUsuario == userId);
         }
-
+        
+        //Crear carrito
         public async Task<int> CrearCarrito(CarritoCompra carrito)
         {
             _context.CarritoCompras.Add(carrito);
             return await _context.SaveChangesAsync();
         }
 
+        //Agregar producto al carrito
         public async Task<int> AgregarProductoACarrito(DetalleCarrito detalle)
         {
             _context.DetalleCarritos.Add(detalle);
             return await _context.SaveChangesAsync();
         }
 
+        //Eliminar producto del carrito
         public async Task<int> EliminarProductoDelCarrito(int detalleCarritoId)
         {
             var detalle = await _context.DetalleCarritos.FindAsync(detalleCarritoId);
@@ -46,6 +50,7 @@ namespace DA
             return 0;
         }
 
+        //Actualizar cantidad de un producto en el carrito
         public async Task<int> ActualizarCantidadProductoCarrito(int detalleCarritoId, int nuevaCantidad)
         {
             var detalle = await _context.DetalleCarritos.FindAsync(detalleCarritoId);
@@ -57,6 +62,7 @@ namespace DA
             return 0;
         }
 
+        //Procesar compra
         public async Task<bool> ProcesarCompra(int carritoId)
         {
             using (var transaction = _context.Database.BeginTransaction())

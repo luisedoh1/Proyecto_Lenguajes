@@ -133,11 +133,22 @@ namespace DA
         }
 
         //Obtener todas las ordenes con sus detalles(Se utiliza para el reporte de ventas)
-        public async Task<List<Orden>> ObtenerOrdenesAsync()
+        public async Task<List<Orden>> ObtenerOrdenesAsync(DateTime? startDate, DateTime? endDate)
         {
-            return await _context.Ordens.Include(o => o.DetalleOrdens).ToListAsync();
-        }
+            var query = _context.Ordens.AsQueryable();
 
+            if (startDate.HasValue)
+            {
+                query = query.Where(o => o.Fecha >= startDate.Value);
+            }
+
+            if (endDate.HasValue)
+            {
+                query = query.Where(o => o.Fecha <= endDate.Value);
+            }
+
+            return await query.Include(o => o.DetalleOrdens).ToListAsync();
+        }
 
     }
 }

@@ -25,7 +25,16 @@ namespace ProyectoLenguajes_Server.Controllers
         {
             try
             {
-                return await productBL.getAllProducts(orderBy, orderType);
+                if (orderBy == "popularidad")
+                {
+                    var popularProducts = await productBL.getPopularProducts();
+                    return popularProducts.OrderByDescending(p => p.Popularity).ToList(); // Ordenar por popularidad
+                }
+                else
+                {
+                    var products = await productBL.getAllProducts(orderBy, orderType);
+                    return products;
+                }
             }
             catch (Exception error)
             {

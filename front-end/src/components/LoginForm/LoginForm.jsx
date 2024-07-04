@@ -22,9 +22,14 @@ const LoginForm = () => {
     event.preventDefault();
     if (!username && !password) {
       return alert("Please enter username and password");
-    } else if (username === 'test@gmail.com' && password === 'user123') {
+    } else if (username === 'admin@example.com' && password === 'admin123') {
       dispatch(logIn({ role: 'admin' }));
       navigate('/admin/list');
+    } else if (username === 'sales@example.com' && password === 'sales123') {
+      dispatch(logIn({ role: 'sales' }));
+      navigate('/sales/dashboard');
+    } else {
+      alert('Invalid username or password');
     }
   };
 

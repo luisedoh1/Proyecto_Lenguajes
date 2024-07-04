@@ -101,7 +101,7 @@ namespace DA
             }
         }
 
-        // Obtener producto por 
+        // Obtener producto por más vendidos
         public async Task<List<Producto>> GetProductosMasVendidos()
         {
             var productosMasVendidos = await _context.DetalleOrdens
@@ -112,6 +112,37 @@ namespace DA
                 .ToListAsync();
 
             return productosMasVendidos;
+        }
+
+        // Obtener producto ordenados por popularidad
+        public async Task<List<Producto>> getPopularProducts()
+        {
+            var query = from od in _context.DetalleOrdens
+                group od by od.IdProducto into g
+                orderby g.Count() descending
+                select new { IdProducto = g.Key, Count = g.Count() };
+
+            var popularProductIds = await query.ToListAsync();
+
+            var allProducts = await _context.Productos.ToListAsync();
+
+            var popularProducts = allProducts.Select(p => new Producto
+            {
+                IdProducto = p.IdProducto,
+                Codigo = p.Codigo,
+                Nombre = p.Nombre,
+                Descripcion = p.Descripcion,
+                Cantidad = p.Cantidad,
+                CategoriaId = p.CategoriaId,
+                Imagen = p.Imagen,
+                Precio = p.Precio,
+                CaracteristicaId1 = p.CaracteristicaId1,
+                CaracteristicaId2 = p.CaracteristicaId2,
+                FechaAñadido = p.FechaAñadido,
+                Popularity = popularProductIds.FirstOrDefault(pp => pp.IdProducto == p.IdProducto)?.Count ?? 0
+            }).ToList();
+
+            return popularProducts.OrderByDescending(p => p.Popularity).ToList();
         }
 
         // Agregar producto

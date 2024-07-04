@@ -40,7 +40,7 @@ namespace BL
             }
         }
 
-        // Obtener orden especifica
+        // Obtener orden especifica por Id
         public async Task<Orden> GetOrderById(int id)
         {
             try
@@ -89,7 +89,7 @@ namespace BL
             }
         }
 
-        //Editar estado de orden a despachado
+        //Editar estado de orden a enviado
         public async Task<int> EnviarOrden(int id)
         {
             try
@@ -142,9 +142,9 @@ namespace BL
             }
         }
 
-        public async Task<ReporteVentasDto> GenerarReporteVentasAsync()
+        public async Task<ReporteVentasDto> GenerarReporteVentasAsync(DateTime? startDate, DateTime? endDate)
         {
-            var ordenes = await _orderDa.ObtenerOrdenesAsync();
+            var ordenes = await _orderDa.ObtenerOrdenesAsync(startDate, endDate);
             var reporte = new ReporteVentasDto();
 
             foreach (var orden in ordenes)

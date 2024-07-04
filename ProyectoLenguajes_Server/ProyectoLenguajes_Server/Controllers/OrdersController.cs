@@ -68,12 +68,19 @@ namespace ProyectoLenguajes.Controllers
             }
         }
 
-        //GET: Orders/
+        // GET: Orders/reporte-ventas
         [HttpGet("reporte-ventas")]
-        public async Task<IActionResult> ObtenerReporteVentas()
+        public async Task<ActionResult> ReporteVentas(DateTime? startDate, DateTime? endDate)
         {
-            var reporte = await orderBl.GenerarReporteVentasAsync();
-            return Ok(reporte);
+            try
+            {
+                var report = await orderBl.GenerarReporteVentasAsync(startDate, endDate);
+                return Ok(report);
+            }
+            catch (Exception error)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, error.Message);
+            }
         }
 
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
 namespace Models;
@@ -37,6 +38,9 @@ public partial class Producto
     public int CaracteristicaId1 { get; set; }
 
     public int? CaracteristicaId2 { get; set; }
+
+    [NotMapped]
+    public int Popularity { get; set; }
 
     [JsonIgnore]
     public virtual Caracteristica CaracteristicaId1Navigation { get; set; } = null!;

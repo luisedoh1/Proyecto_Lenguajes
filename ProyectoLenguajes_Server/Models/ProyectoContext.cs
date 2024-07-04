@@ -197,12 +197,8 @@ public partial class ProyectoContext : DbContext
             entity.ToTable("Metodo_Pago");
 
             entity.Property(e => e.IdMetodo).HasColumnName("ID_Metodo");
-            entity.Property(e => e.FechaExpiracion).HasColumnName("Fecha_Expiracion");
             entity.Property(e => e.IdTipo).HasColumnName("ID_Tipo");
             entity.Property(e => e.IdUsuario).HasColumnName("ID_Usuario");
-            entity.Property(e => e.NumeroTarjeta)
-                .HasMaxLength(20)
-                .HasColumnName("Numero_Tarjeta");
             entity.Property(e => e.Token).HasMaxLength(255);
 
             entity.HasOne(d => d.IdTipoNavigation).WithMany(p => p.MetodoPagos)

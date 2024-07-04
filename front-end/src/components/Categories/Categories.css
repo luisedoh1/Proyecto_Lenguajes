@@ -5,7 +5,6 @@
     align-items: center;
     width: 80%;
     margin: 0 auto;
-    /* Centering the container */
 }
 
 .category-list-title {
@@ -31,27 +30,22 @@
     width: 100%;
     border-collapse: collapse;
     margin: 0 auto;
-    /* Centering the table */
 }
 
 .category-list-table th,
 .category-list-table td {
     padding: 5px;
-    /* Adjusting padding for narrower columns */
     border: 1px solid #ddd;
     text-align: left;
     white-space: nowrap;
-    /* Prevents text from wrapping */
 }
 
 .category-list-table th {
     width: 20%;
-    /* Adjusting column width */
 }
 
 .category-list-table td {
-    width: 20%;
-    /* Adjusting column width */
+    width: 20%; 
 }
 
 .category-list-image {
