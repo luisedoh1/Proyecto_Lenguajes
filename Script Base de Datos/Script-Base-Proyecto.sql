@@ -119,8 +119,6 @@ CREATE TABLE Metodo_Pago (
     ID_Metodo INT IDENTITY(1,1)
     ,ID_Usuario INT NOT NULL
 	,ID_Tipo INT NOT NULL
-    ,Numero_Tarjeta NVARCHAR(20) NOT NULL
-    ,Fecha_Expiracion DATE NOT NULL
     ,Token NVARCHAR(255) NOT NULL
 	,CONSTRAINT PK_Metodo PRIMARY KEY (ID_Metodo)
     ,CONSTRAINT FK_ID_Usuario_Tarjeta FOREIGN KEY (ID_Usuario) REFERENCES Usuario(ID_Usuario)
@@ -154,6 +152,7 @@ INSERT INTO Categoria (Nombre, Descripcion) VALUES ('Accesorios Electrónicos', '
 
 INSERT INTO Tipo_Caracteristica(Nombre) VALUES ('Color');
 INSERT INTO Tipo_Caracteristica(Nombre) VALUES ('Almacenamiento');
+INSERT INTO Tipo_Caracteristica(Nombre) VALUES ('Tamaño Monitor');
 
 INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('Negro', 1);
 INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('Blanco', 1);
@@ -164,6 +163,11 @@ INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('64 GB', 2);
 INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('128 GB', 2);
 INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('256 GB', 2);
 INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('512 GB', 2);
+
+INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('20"', 3);
+INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('22"', 3);
+INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('24"', 3);
+INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('27"', 3);
 
 
 
@@ -181,8 +185,8 @@ INSERT INTO Usuario
            ,[ID_Rol])
      VALUES
            (N'Luis Hodgson'
-           ,N'test@mail.com'
-           ,N'Test'
+           ,N'admin@mail.com'
+           ,N'user123'
            ,1);
 GO
 
@@ -192,9 +196,21 @@ INSERT INTO Usuario
            ,[Contraseña]
            ,[ID_Rol])
      VALUES
+           (N'Ventas'
+           ,N'ventas@mail.com'
+           ,N'user123'
+           ,2);
+GO
+
+INSERT INTO Usuario
+           ([Nombre]
+           ,[Email]
+           ,[Contraseña]
+           ,[ID_Rol])
+     VALUES
            (N'Comprador'
-           ,N'testcomprador@mail.com'
-           ,N'test'
+           ,N'ventas@mail.com'
+           ,N'user123'
            ,3);
 GO
 
