@@ -16,7 +16,7 @@ namespace ProyectoLenguajes_Server.Controllers
             productBL = new ProductBL(apiContext);
         }
 
-        //GET: Products/
+        //GET: /products
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Producto>>> Index(
             [FromQuery] string orderBy,
@@ -28,7 +28,7 @@ namespace ProyectoLenguajes_Server.Controllers
                 if (orderBy == "popularidad")
                 {
                     var popularProducts = await productBL.getPopularProducts();
-                    return popularProducts.OrderByDescending(p => p.Popularity).ToList(); // Ordenar por popularidad
+                    return popularProducts.OrderByDescending(p => p.Popularity).ToList();
                 }
                 else
                 {
@@ -42,7 +42,7 @@ namespace ProyectoLenguajes_Server.Controllers
             }
         }
 
-        //GET: Products/1
+        //GET: /products/1
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Producto>> GetProductById(int id)
         {
@@ -63,7 +63,7 @@ namespace ProyectoLenguajes_Server.Controllers
             }
         }
 
-        //GET: Products/{name}
+        //GET: /products/{name}
         [HttpGet("{name}")]
         public async Task<ActionResult<Producto>> GetProductByName(string name)
         {
@@ -84,7 +84,7 @@ namespace ProyectoLenguajes_Server.Controllers
             }
         }
 
-        // GET: Products/masvendidos
+        // GET: /products/masvendidos
         [HttpGet("masvendidos")]
         public async Task<ActionResult<IEnumerable<Producto>>> GetProductosMasVendidos()
         {
@@ -99,7 +99,7 @@ namespace ProyectoLenguajes_Server.Controllers
             }
         }
 
-        //POST: Product/
+        //POST: /product
         [HttpPost]
         public async Task<ActionResult> Index([FromBody] Producto product)
         {
@@ -126,7 +126,7 @@ namespace ProyectoLenguajes_Server.Controllers
             }
         }
 
-        // PUT: Products/1
+        // PUT: /products/1
         [HttpPut("{id:int}")]
         public async Task<IActionResult> Index(int id, Producto product)
         {
@@ -164,7 +164,7 @@ namespace ProyectoLenguajes_Server.Controllers
         }
 
 
-        // Delete: Products/1
+        // Delete: /products/1
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> Delete(int id)
         {

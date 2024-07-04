@@ -16,6 +16,7 @@ namespace ProyectoLenguajes_Server.Controllers
             _carritoBl = new CarritoBL(apiContext);
         }
 
+        // POST: /{userId}/add
         [HttpPost("/{userId}/add")]
         public async Task<IActionResult> AddProductToCart(int userId, [FromBody] DetalleCarrito detalle)
         {
@@ -24,37 +25,65 @@ namespace ProyectoLenguajes_Server.Controllers
                 return BadRequest(ModelState);
             }
 
-            bool isAdded = await _carritoBl.AñadirProductoAlCarrito(userId, detalle);
-            if (isAdded)
+            try
             {
-                return NoContent();
+                bool isAdded = await _carritoBl.AñadirProductoAlCarrito(userId, detalle);
+                if (isAdded)
+                {
+                    return NoContent();
+                }
+                return Conflict("El producto no se pudo añadir al carrito");
             }
-
-            return StatusCode(StatusCodes.Status500InternalServerError, "Error adding product to cart");
+            catch (Exception error)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, error.Message);
+            }
         }
 
+        // DELETE: /detalle/{detalleCarritoId}
         [HttpDelete("/detalle/{detalleCarritoId}")]
         public async Task<IActionResult> EliminarProductoDelCarrito(int detalleCarritoId)
         {
-            bool isDeleted = await _carritoBl.EliminarProductoDelCarrito(detalleCarritoId);
-            if (isDeleted)
+            try
             {
-                return NoContent();
+                bool isDeleted = await _carritoBl.EliminarProductoDelCarrito(detalleCarritoId);
+                if (isDeleted)
+                {
+                    return NoContent();
+                }
+                return NotFound("Producto no encontrado en el carrito");
             }
-            return NotFound();
+            catch (Exception error)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, error.Message);
+            }
         }
 
+        // PUT: /detalle/{detalleCarritoId}
         [HttpPut("/detalle/{detalleCarritoId}")]
         public async Task<IActionResult> ActualizarCantidadProducto(int detalleCarritoId, [FromBody] int nuevaCantidad)
         {
-            bool isUpdated = await _carritoBl.ActualizarCantidadProductoCarrito(detalleCarritoId, nuevaCantidad);
-            if (isUpdated)
+            if (!ModelState.IsValid)
             {
-                return Ok();
+                return BadRequest(ModelState);
             }
-            return BadRequest("Unable to update quantity");
+
+            try
+            {
+                bool isUpdated = await _carritoBl.ActualizarCantidadProductoCarrito(detalleCarritoId, nuevaCantidad);
+                if (isUpdated)
+                {
+                    return Ok("Cantidad actualizada correctamente");
+                }
+                return BadRequest("No se pudo actualizar la cantidad");
+            }
+            catch (Exception error)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, error.Message);
+            }
         }
 
+        // POST: /{carritoId}/procesar-compra
         [HttpPost("/{carritoId}/procesar-compra")]
         public async Task<IActionResult> FinalizarCompra(int carritoId)
         {
@@ -62,9 +91,10 @@ namespace ProyectoLenguajes_Server.Controllers
             {
                 bool success = await _carritoBl.ProcesarCompra(carritoId);
                 if (success)
+                {
                     return Ok("Compra finalizada y stock actualizado correctamente");
-                else
-                    return BadRequest("No se pudo completar la compra");
+                }
+                return BadRequest("No se pudo completar la compra");
             }
             catch (Exception ex)
             {

@@ -17,7 +17,7 @@ namespace ProyectoLenguajes_Server.Controllers
             caracteristicaBL = new CaracteristicaBL(apiContext);
         }
 
-        //GET: Caracteristicas/
+        //GET: /caracteristicas
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Caracteristica>>> Index(
             [FromQuery] string orderBy,

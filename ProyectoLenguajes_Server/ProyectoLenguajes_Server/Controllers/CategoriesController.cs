@@ -16,7 +16,7 @@ namespace ProyectoLenguajes.Controllers
             categoriaBL = new CategoriaBL(apiContext);
         }
 
-        //GET: Categories/
+        //GET: /categories
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Categoria>>> Index(
             [FromQuery] string orderBy,
@@ -33,7 +33,7 @@ namespace ProyectoLenguajes.Controllers
             }
         }
 
-        //GET: Categories/1
+        //GET: /categories/1
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Categoria>> GetCategoria(int id)
         {
@@ -54,7 +54,7 @@ namespace ProyectoLenguajes.Controllers
             }
         }
 
-        //POST: Categories/
+        //POST: /categories
         [HttpPost]
         public async Task<ActionResult> CreateCategoria([FromBody] Categoria category)
         {
@@ -82,7 +82,7 @@ namespace ProyectoLenguajes.Controllers
         }
 
 
-        // PUT: Products/1
+        // PUT: /products/1
         [HttpPut("{id:int}")]
         public async Task<IActionResult> Editar(int id, Categoria category)
         {
@@ -121,7 +121,7 @@ namespace ProyectoLenguajes.Controllers
         }
 
 
-        // Delete: Products/1
+        // Delete: /products/1
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> Delete(int id)
         {
