@@ -7,7 +7,6 @@ import SortFilter from '../Filters/SortFilter';
 import { ProductModal } from './ProductModal';
 
 export const ProductCatalog = () => {
-    const [allProducts, setAllProducts] = useState([]);
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -24,7 +23,6 @@ export const ProductCatalog = () => {
             try {
                 const products = await fetchProducts(orderBy, orderType);
                 setProducts(products);
-                setAllProducts(products);
             } catch (error) {
                 setError(error.message);
             } finally {
@@ -40,8 +38,7 @@ export const ProductCatalog = () => {
     }, [priceRange, selectedCategory, selectedFeature1, selectedFeature2]);
 
     const applyFilters = () => {
-        let filteredProducts = allProducts;
-
+        let filteredProducts = products;
         if (priceRange.min !== null && priceRange.max !== null) {
             filteredProducts = filteredProducts.filter(product =>
                 product.precio >= priceRange.min && product.precio <= priceRange.max
@@ -50,7 +47,7 @@ export const ProductCatalog = () => {
 
         if (selectedCategory) {
             filteredProducts = filteredProducts.filter(product =>
-                product.categoriaId === parseInt(selectedCategory)
+                product.categoriaId === selectedCategory
             );
         }
 
@@ -94,16 +91,14 @@ export const ProductCatalog = () => {
         setSelectedFeature2('');
         setOrderBy('');
         setOrderType('');
-        setProducts(allProducts);
     };
 
     const openProductModal = (product) => {
-        setSelectedProduct(product);
-    };
-
+        setSelectedProduct(product)
+    }
     const closeProductModal = () => {
-        setSelectedProduct(null);
-    };
+        setSelectedProduct(null)
+    }
 
     return (
         <div className="products-page">
@@ -140,9 +135,7 @@ export const ProductCatalog = () => {
                     ))}
                 </div>
             </div>
-            {selectedProduct && (
-                <ProductModal product={selectedProduct} onClose={closeProductModal} />
-            )}
+            {selectedProduct && <ProductModal id={selectedProduct.idProducto} name={selectedProduct.nombre} price={selectedProduct.precio} image={selectedProduct.imagen} description={selectedProduct.descripcion} categorie={selectedProduct.categoriaId} onClose={closeProductModal} />}
         </div>
     );
 };

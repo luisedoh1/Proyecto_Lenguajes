@@ -21,3 +21,21 @@ C:\Users\luise\Desktop\UCR\Lenguajes\Proyecto Lenguajes\Proyecto_Lenguajes\Proye
 C:\Users\luise\Desktop\UCR\Lenguajes\Proyecto Lenguajes\Proyecto_Lenguajes\ProyectoLenguajes_Server\DA\obj\Debug\net8.0\DA.pdb
 C:\Users\luise\Desktop\UCR\Lenguajes\Proyecto Lenguajes\Proyecto_Lenguajes\ProyectoLenguajes_Server\DA\obj\Debug\net8.0\DA.genruntimeconfig.cache
 C:\Users\luise\Desktop\UCR\Lenguajes\Proyecto Lenguajes\Proyecto_Lenguajes\ProyectoLenguajes_Server\DA\obj\Debug\net8.0\ref\DA.dll
+C:\Users\Dylan_bt27\Downloads\proyectoVUsuarios\Proyecto_Lenguajes\ProyectoLenguajes_Server\DA\bin\Debug\net8.0\DA.deps.json
+C:\Users\Dylan_bt27\Downloads\proyectoVUsuarios\Proyecto_Lenguajes\ProyectoLenguajes_Server\DA\bin\Debug\net8.0\DA.runtimeconfig.json
+C:\Users\Dylan_bt27\Downloads\proyectoVUsuarios\Proyecto_Lenguajes\ProyectoLenguajes_Server\DA\bin\Debug\net8.0\DA.dll
+C:\Users\Dylan_bt27\Downloads\proyectoVUsuarios\Proyecto_Lenguajes\ProyectoLenguajes_Server\DA\bin\Debug\net8.0\DA.pdb
+C:\Users\Dylan_bt27\Downloads\proyectoVUsuarios\Proyecto_Lenguajes\ProyectoLenguajes_Server\DA\bin\Debug\net8.0\Models.dll
+C:\Users\Dylan_bt27\Downloads\proyectoVUsuarios\Proyecto_Lenguajes\ProyectoLenguajes_Server\DA\bin\Debug\net8.0\Models.pdb
+C:\Users\Dylan_bt27\Downloads\proyectoVUsuarios\Proyecto_Lenguajes\ProyectoLenguajes_Server\DA\obj\Debug\net8.0\DA.csproj.AssemblyReference.cache
+C:\Users\Dylan_bt27\Downloads\proyectoVUsuarios\Proyecto_Lenguajes\ProyectoLenguajes_Server\DA\obj\Debug\net8.0\DA.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dylan_bt27\Downloads\proyectoVUsuarios\Proyecto_Lenguajes\ProyectoLenguajes_Server\DA\obj\Debug\net8.0\DA.AssemblyInfoInputs.cache
+C:\Users\Dylan_bt27\Downloads\proyectoVUsuarios\Proyecto_Lenguajes\ProyectoLenguajes_Server\DA\obj\Debug\net8.0\DA.AssemblyInfo.cs
+C:\Users\Dylan_bt27\Downloads\proyectoVUsuarios\Proyecto_Lenguajes\ProyectoLenguajes_Server\DA\obj\Debug\net8.0\DA.csproj.CoreCompileInputs.cache
+C:\Users\Dylan_bt27\Downloads\proyectoVUsuarios\Proyecto_Lenguajes\ProyectoLenguajes_Server\DA\obj\Debug\net8.0\DA.sourcelink.json
+C:\Users\Dylan_bt27\Downloads\proyectoVUsuarios\Proyecto_Lenguajes\ProyectoLenguajes_Server\DA\obj\Debug\net8.0\DA.csproj.Up2Date
+C:\Users\Dylan_bt27\Downloads\proyectoVUsuarios\Proyecto_Lenguajes\ProyectoLenguajes_Server\DA\obj\Debug\net8.0\DA.dll
+C:\Users\Dylan_bt27\Downloads\proyectoVUsuarios\Proyecto_Lenguajes\ProyectoLenguajes_Server\DA\obj\Debug\net8.0\refint\DA.dll
+C:\Users\Dylan_bt27\Downloads\proyectoVUsuarios\Proyecto_Lenguajes\ProyectoLenguajes_Server\DA\obj\Debug\net8.0\DA.pdb
+C:\Users\Dylan_bt27\Downloads\proyectoVUsuarios\Proyecto_Lenguajes\ProyectoLenguajes_Server\DA\obj\Debug\net8.0\DA.genruntimeconfig.cache
+C:\Users\Dylan_bt27\Downloads\proyectoVUsuarios\Proyecto_Lenguajes\ProyectoLenguajes_Server\DA\obj\Debug\net8.0\ref\DA.dll
