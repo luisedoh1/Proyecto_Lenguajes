@@ -1,0 +1,138 @@
+.custom-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    animation: custom-fadeIn 0.5s forwards;
+}
+
+@keyframes custom-fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.custom-modal-content {
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: scale(0.5);
+    animation: custom-scaleIn 0.5s forwards;
+}
+
+@keyframes custom-scaleIn {
+    to {
+        transform: scale(1);
+    }
+}
+
+.custom-close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.3s;
+}
+
+.custom-close-button:hover {
+    color: #333;
+}
+
+.custom-modal-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.custom-modal-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin-right: 30px;
+    transition: transform 0.3s;
+}
+
+.custom-modal-image:hover {
+    transform: scale(1.05);
+}
+
+.custom-modal-details {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.custom-modal-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.custom-modal-price {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #e67e22;
+    font-weight: bold;
+}
+
+.custom-modal-description {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.custom-modal-category {
+    font-size: 1.2rem;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.custom-add-to-cart-button {
+    padding: 15px 30px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.custom-add-to-cart-button:hover {
+    background-color: #c0392b;
+    transform: translateY(-3px);
+}
+
+.custom-error-message {
+    color: red;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}

@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import store from './store/index';
 import App from './App.jsx';
 import './index.css';
-import CartProvider from './components/Cart/CartContex';
+import {CartProvider} from './components/Cart/CartContex';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

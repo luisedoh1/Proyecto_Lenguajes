@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\BL\\BL.csproj": {}
+    "C:\\Users\\Dylan_bt27\\Downloads\\proyectoVUsuarios\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\BL\\BL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\BL\\BL.csproj": {
+    "C:\\Users\\Dylan_bt27\\Downloads\\proyectoVUsuarios\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\BL\\BL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\BL\\BL.csproj",
+        "projectUniqueName": "C:\\Users\\Dylan_bt27\\Downloads\\proyectoVUsuarios\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\BL\\BL.csproj",
         "projectName": "BL",
-        "projectPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\BL\\BL.csproj",
-        "packagesPath": "C:\\Users\\luise\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\BL\\obj\\",
+        "projectPath": "C:\\Users\\Dylan_bt27\\Downloads\\proyectoVUsuarios\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\BL\\BL.csproj",
+        "packagesPath": "C:\\Users\\Dylan_bt27\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dylan_bt27\\Downloads\\proyectoVUsuarios\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\BL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\luise\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dylan_bt27\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,17 +22,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\DA\\DA.csproj": {
-                "projectPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\DA\\DA.csproj"
+              "C:\\Users\\Dylan_bt27\\Downloads\\proyectoVUsuarios\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\DA\\DA.csproj": {
+                "projectPath": "C:\\Users\\Dylan_bt27\\Downloads\\proyectoVUsuarios\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\DA\\DA.csproj"
               },
-              "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\Models\\Models.csproj": {
-                "projectPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\Models\\Models.csproj"
+              "C:\\Users\\Dylan_bt27\\Downloads\\proyectoVUsuarios\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\Dylan_bt27\\Downloads\\proyectoVUsuarios\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\Models\\Models.csproj"
               }
             }
           }
@@ -83,21 +84,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\DA\\DA.csproj": {
+    "C:\\Users\\Dylan_bt27\\Downloads\\proyectoVUsuarios\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\DA\\DA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\DA\\DA.csproj",
+        "projectUniqueName": "C:\\Users\\Dylan_bt27\\Downloads\\proyectoVUsuarios\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\DA\\DA.csproj",
         "projectName": "DA",
-        "projectPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\DA\\DA.csproj",
-        "packagesPath": "C:\\Users\\luise\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\DA\\obj\\",
+        "projectPath": "C:\\Users\\Dylan_bt27\\Downloads\\proyectoVUsuarios\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\DA\\DA.csproj",
+        "packagesPath": "C:\\Users\\Dylan_bt27\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dylan_bt27\\Downloads\\proyectoVUsuarios\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\DA\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\luise\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dylan_bt27\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -105,14 +106,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\Models\\Models.csproj": {
-                "projectPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\Models\\Models.csproj"
+              "C:\\Users\\Dylan_bt27\\Downloads\\proyectoVUsuarios\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\Dylan_bt27\\Downloads\\proyectoVUsuarios\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\Models\\Models.csproj"
               }
             }
           }
@@ -171,21 +173,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\Models\\Models.csproj": {
+    "C:\\Users\\Dylan_bt27\\Downloads\\proyectoVUsuarios\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\Models\\Models.csproj",
+        "projectUniqueName": "C:\\Users\\Dylan_bt27\\Downloads\\proyectoVUsuarios\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\Models\\Models.csproj",
-        "packagesPath": "C:\\Users\\luise\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\luise\\Desktop\\UCR\\Lenguajes\\Proyecto Lenguajes\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\Models\\obj\\",
+        "projectPath": "C:\\Users\\Dylan_bt27\\Downloads\\proyectoVUsuarios\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\Models\\Models.csproj",
+        "packagesPath": "C:\\Users\\Dylan_bt27\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dylan_bt27\\Downloads\\proyectoVUsuarios\\Proyecto_Lenguajes\\ProyectoLenguajes_Server\\Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\luise\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dylan_bt27\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -193,6 +195,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -247,7 +250,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

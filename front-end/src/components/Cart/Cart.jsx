@@ -2,14 +2,20 @@ import { useContext } from 'react';
 import './Cart.css';
 import { CartContext } from './CartContex';
 
-const Cart = () => {
-  const { cartItems, removeFromCart } = useContext(CartContext);
+export const Cart = () => {
+  const { cartItems, removeFromCart, updateQuantity } = useContext(CartContext);
 
   const handleRemoveFromCart = (productId) => {
     removeFromCart(productId);
   };
 
-  const total = cartItems.reduce((acc, item) => acc + item.price, 0).toFixed(2);
+  const handleQuantityChange = (productId, quantity) => {
+    if (quantity > 0) {
+      updateQuantity(productId, quantity);
+    }
+  };
+
+  const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2);
 
   return (
     <div className="cart">
@@ -24,7 +30,12 @@ const Cart = () => {
               <div className="cart-item__details">
                 <h3>{item.name}</h3>
                 <p>${item.price}</p>
-                <button onClick={() => handleRemoveFromCart(item.id)}>Remove</button>
+                <div className="quantity-control">
+                  <button onClick={() => handleQuantityChange(item.id, item.quantity - 1)}>-</button>
+                  <span>{item.quantity}</span>
+                  <button onClick={() => handleQuantityChange(item.id, item.quantity + 1)}>+</button>
+                </div>
+                <button className="cart-item__remove" onClick={() => handleRemoveFromCart(item.id)}>Remove</button>
               </div>
             </div>
           ))}
@@ -38,4 +49,3 @@ const Cart = () => {
   );
 };
 
-export default Cart;
