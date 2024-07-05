@@ -45,7 +45,7 @@ const SignUp = () => {
         <div className="signup-form-container">
             <h2 className="signup-header">Sign Up</h2>
             <form onSubmit={formik.handleSubmit}>
-                <label htmlFor="nombre">Name</label>
+                <label htmlFor="nombre">Username</label>
                 <input
                     type="text"
                     id="nombre"
