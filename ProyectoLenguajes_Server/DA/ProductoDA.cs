@@ -97,7 +97,7 @@ namespace DA
             catch (Exception error)
             {
                 Console.WriteLine(error.Message);
-                throw new Exception("Error al intentar obtener los productos por caracteristica");
+                throw new Exception("Error al intentar obtener los productos por sus caracteristicas");
             }
         }
 

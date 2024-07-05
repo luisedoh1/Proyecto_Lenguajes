@@ -17,6 +17,7 @@ namespace BL
             usuarioDA = new UsuarioDA(context);
         }
 
+        //Autentica el usuario
         public async Task<Usuario> AuthenticateUser(string email, string password)
         {
             try

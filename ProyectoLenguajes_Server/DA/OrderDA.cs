@@ -13,7 +13,7 @@ namespace DA
             _context = context;
         }
 
-        // Obtener productos
+        // Obtener ordenes
         public async Task<List<Orden>> getAllOrders(string orderBy)
         {
             try
@@ -23,7 +23,7 @@ namespace DA
             catch (Exception error)
             {
                 Console.WriteLine(error.Message);
-                throw new Exception("Error encontrado al intentar obtener los productos");
+                throw new Exception("Error encontrado al intentar obtener las ordenes");
             }
         }
 
@@ -53,7 +53,7 @@ namespace DA
             catch (Exception error)
             {
                 Console.WriteLine(error.Message);
-                throw new Exception("Error al intentar obtener las ordenes por usuario");
+                throw new Exception("Error al intentar obtener las ordenes del usuario");
             }
         }
 

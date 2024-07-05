@@ -48,12 +48,13 @@ namespace ProyectoLenguajes_Server.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<IEnumerable<MetodoPago>>> Index(
             int id,
-            [FromQuery] string orderBy
+            [FromQuery] string orderBy,
+            [FromQuery] string orderType
         )
         {
             try
             {
-                return await _metodoPagoBL.getAllMethodsById(id, orderBy);
+                return await _metodoPagoBL.getAllMethodsById(id, orderBy, orderType);
             }
             catch (Exception error)
             {

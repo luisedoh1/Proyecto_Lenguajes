@@ -24,6 +24,8 @@ builder.Services.AddScoped<UsuarioDA>();
 builder.Services.AddScoped<UsuarioBL>();
 builder.Services.AddScoped<MetodoPagoBL>();
 builder.Services.AddScoped<MetodoPagoDA>();
+builder.Services.AddScoped<AddressBL>();
+builder.Services.AddScoped<AddressDA>();
 
 var app = builder.Build();
 

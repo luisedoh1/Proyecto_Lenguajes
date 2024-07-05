@@ -21,7 +21,7 @@ public class MetodoPagoDA
         catch (Exception error)
         {
             Console.WriteLine(error.Message);
-            throw new Exception("Error al intentar obtener las ordenes por usuario");
+            throw new Exception("Error al intentar obtener metodos de pago del usuario");
         }
     }
 
@@ -36,11 +36,11 @@ public class MetodoPagoDA
         catch (Exception error)
         {
             Console.WriteLine(error.Message);
-            throw new Exception("Error al buscar el producto " + idMetodo);
+            throw new Exception("Error al buscar el metodo de pago " + idMetodo);
         }
     }
 
-    // Agregar metodo
+    // Agregar metodo de pago
     public async Task<int> createMetodo(MetodoPago metodo)
     {
         try
@@ -51,11 +51,11 @@ public class MetodoPagoDA
         catch (Exception error)
         {
             Console.WriteLine(error.Message);
-            throw new Exception("Error al intentar añadir el producto:" + metodo.ToString());
+            throw new Exception("Error al intentar añadir el metodo de pago:" + metodo.ToString());
         }
     }
 
-    // Editar metodod
+    // Editar metodo de pago
     public async Task<int> editMetodo(int productID, MetodoPago metodo)
     {
         try

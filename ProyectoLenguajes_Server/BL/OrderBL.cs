@@ -17,7 +17,7 @@ namespace BL
             _orderDa = new OrderDA(context);
         }
 
-        // Obtener productos
+        // Obtener ordenes
         public async Task<List<Orden>> getAllOrders(string orderBy, string orderType)
         {
             try
@@ -53,7 +53,7 @@ namespace BL
             }
         }
 
-        //Obtener ventas por fecha
+        //Obtener ordenes por fecha
         public async Task<List<Orden>> GetALlOrders(string orderBy, string orderType)
         {
             try

@@ -27,7 +27,7 @@ namespace DA
             }
         }
 
-        // Obtener categoria especifica
+        // Obtener categoria especifica por Id
         public async Task<Categoria> getCategoriaById(int idCategoria)
         {
 

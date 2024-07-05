@@ -24,7 +24,7 @@ public class MetodoPagoBL
         }
     }
 
-    // Editar producto
+    // Editar metodo
     public async Task<int> editMetodo(int id, MetodoPago metodo)
     {
         try
@@ -50,7 +50,7 @@ public class MetodoPagoBL
         }
     }
 
-    // Obtener producto específico por Id
+    // Obtener metodo específico por Id
     public async Task<MetodoPago> getMethodById(int id)
     {
         try
@@ -63,8 +63,8 @@ public class MetodoPagoBL
         }
     }
 
-    //Obtener metodos de pago por Id
-    public async Task<List<MetodoPago>> getAllMethodsById(int metodoId, string orderBy)
+    //Obtener metodos de pago
+    public async Task<List<MetodoPago>> getAllMethodsById(int metodoId, string orderBy, string orderType)
     {
         try
         {
@@ -73,8 +73,12 @@ public class MetodoPagoBL
             {
                 orderByQuery = orderBy;
             }
-
-            return await _metodoPagoDA.GetAllMetodosByUser(metodoId, orderByQuery);
+            string orderTypeQuery = "desc";
+            if (orderType != null)
+            {
+                orderTypeQuery = orderType;
+            }
+            return await _metodoPagoDA.GetAllMetodosByUser(metodoId, orderByQuery+ " " + orderTypeQuery);
         }
         catch (Exception error)
         {

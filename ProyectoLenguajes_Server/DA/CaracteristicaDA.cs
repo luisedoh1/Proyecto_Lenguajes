@@ -13,7 +13,7 @@ namespace DA
             _context = context;
         }
 
-        // Obtener todas las categorias
+        // Obtener todas las caracteristicas
         public async Task<List<Caracteristica>> getAllCaracteristicas(string orderBy)
         {
             try
@@ -23,7 +23,7 @@ namespace DA
             catch (Exception error)
             {
                 Console.WriteLine(error.Message);
-                throw new Exception("Error encontrado al intentar obtener las categorias");
+                throw new Exception("Error encontrado al intentar obtener las caracteristicas");
             }
         }
 

@@ -12,7 +12,7 @@ namespace BL
             caracteristicaDA = new CaracteristicaDA(context);
         }
 
-        // Obtener categorias
+        // Obtener característica
         public async Task<List<Caracteristica>> getAllCaracteristicas(string orderBy, string orderType)
         {
             try
