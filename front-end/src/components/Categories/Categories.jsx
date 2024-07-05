@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchCategories } from "../Product/api";
-import DeleteCategories from "./DeleteCategories";
+import DeleteCategories  from "./DeleteCategories";
 import EditCategories from "./EditCategories";
 import AddCategories from "./AddCategories";
 import './Categories.css'

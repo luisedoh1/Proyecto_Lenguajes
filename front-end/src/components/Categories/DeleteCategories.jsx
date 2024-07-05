@@ -37,4 +37,6 @@ export const DeleteCategory = ({ id }) => {
             {error && <p className="error-message">{error}</p>}
         </div>
     );
-}
+};
+
+export default DeleteCategory;
