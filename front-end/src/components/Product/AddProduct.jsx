@@ -61,7 +61,7 @@ const AddProduct = () => {
     const handleAdd = async () => {
         setLoading(true);
         try {
-            const response = await axios.post('https://localhost:7105/products', productData, {
+            const response = await axios.post('https://luisedoh1-001-site1.etempurl.com/products', productData, {
                 headers: {
                     'Content-Type': 'application/json',
                 }

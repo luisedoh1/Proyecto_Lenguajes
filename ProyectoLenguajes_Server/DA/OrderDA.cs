@@ -18,7 +18,8 @@ namespace DA
         {
             try
             {
-                return await _context.Ordens.OrderBy(orderBy).ToListAsync();
+
+                return await _context.Ordens.Include(o => o.IdUsuarioNavigation).Include(o => o.DetalleOrdens).OrderBy(orderBy).ToListAsync();
             }
             catch (Exception error)
             {

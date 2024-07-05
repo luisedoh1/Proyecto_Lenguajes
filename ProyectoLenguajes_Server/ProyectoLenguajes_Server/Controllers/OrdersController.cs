@@ -20,7 +20,7 @@ namespace ProyectoLenguajes.Controllers
 
         //GET: /orders
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Orden>>> Index(
+        public async Task<ActionResult<IEnumerable<OrdenDto>>> Index(
             [FromQuery] string orderBy,
             [FromQuery] string orderType
         )
@@ -37,6 +37,27 @@ namespace ProyectoLenguajes.Controllers
 
         //GET: /orders/1
         [HttpGet("{id}")]
+        public async Task<ActionResult<IEnumerable<Orden>>> Index(int id)
+            
+        {
+            try
+            {
+                Orden existingOrder = await orderBl.GetOrderById(id);
+                if (existingOrder == null)
+                {
+                    return NotFound("La orden no existe");
+                }
+
+                return Ok(existingOrder);
+            }
+            catch (Exception error)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, error.Message);
+            }
+        }
+
+        //GET: /orders/all/1
+        [HttpGet("/all/{id}")]
         public async Task<ActionResult<IEnumerable<Orden>>> Index(
             int id,
             [FromQuery] string orderBy,

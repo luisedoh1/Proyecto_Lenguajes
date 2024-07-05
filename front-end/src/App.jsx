@@ -3,6 +3,7 @@ import { Provider, useSelector } from 'react-redux';
 import store from './store/index';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
+import { SalesPage } from './pages/SalesPage';
 import { ProductsPage } from './pages/ProductsPage';
 import {Cart} from './components/Cart/Cart';
 import Navbar from './components/Navbar/Navbar';
@@ -22,7 +23,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LoginPage />} />
-          
+          <Route path="/sales/orders" element={<SalesPage />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/admin/list" element={<ProductList />} />
           <Route path="/admin/categories" element={<Categories />} />

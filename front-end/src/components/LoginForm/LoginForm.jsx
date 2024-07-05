@@ -29,7 +29,7 @@ const LoginForm = () => {
     }
 
     try {
-      const response = await axios.get('https://localhost:7105/User/authenticate', {
+      const response = await axios.get('https://luisedoh1-001-site1.etempurl.com/User/authenticate', {
         params: {
           email: username,
           password: password
@@ -41,7 +41,9 @@ const LoginForm = () => {
         dispatch(logIn({ role: userRole }));
         if (userRole === 'admin') {
           navigate('/admin/list');
-        } else if (userRole === 'cliente') {
+        } else if (userRole === 'sales') {
+          navigate('/sales/orders');
+        } else if (userRole === 'client') {
           navigate('/');
         } else {
           setError('Unknown role. Please contact support.');

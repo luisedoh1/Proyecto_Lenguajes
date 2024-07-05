@@ -1,5 +1,4 @@
-/* eslint-disable react/prop-types */
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './SearchBar.css';
 
 const SearchBar = ({ onSearch, title }) => {
@@ -17,12 +16,14 @@ const SearchBar = ({ onSearch, title }) => {
         <div className="search-bar">
             <input
                 type="text"
-                placeholder={title}
+                className="search-bar__input"
                 value={query}
                 onChange={handleInputChange}
-                className="search-bar__input"
+                placeholder={title}
             />
-            <button onClick={handleSearch} className="search-bar__button">Search</button>
+            <button className="search-bar__button" onClick={handleSearch}>
+                Search
+            </button>
         </div>
     );
 };

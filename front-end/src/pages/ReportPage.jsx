@@ -14,7 +14,7 @@ export const ReportPage = () => {
     const fetchSalesData = async (startDate, endDate) => {
         setLoading(true);
         try {
-            const response = await axios.get('https://localhost:7105/Orders/reporte-ventas', {
+            const response = await axios.get('https://luisedoh1-001-site1.etempurl.com/Orders/reporte-ventas', {
                 params: {
                     startDate,
                     endDate

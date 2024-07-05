@@ -75,7 +75,7 @@ namespace BL
         {
             try
             {
-                string orderByQuery = "IdMetodo";
+                string orderByQuery = "IdDireccion";
                 if (orderBy != null)
                 {
                     orderByQuery = orderBy;

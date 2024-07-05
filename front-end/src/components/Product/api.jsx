@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const API_URL = 'https://localhost:7105/products'; 
-const API_URL2 = 'https://localhost:7105/categories';
-const API_URL3 = 'https://localhost:7105/Caracteristica';
-const API_URL4 = 'https://localhost:7105/Products/masvendidos';
+const API_URL = 'https://luisedoh1-001-site1.etempurl.com/products'; 
+const API_URL2 = 'https://luisedoh1-001-site1.etempurl.com/categories';
+const API_URL3 = 'https://luisedoh1-001-site1.etempurl.com/Caracteristica';
+const API_URL4 = 'https://luisedoh1-001-site1.etempurl.com/Products/masvendidos';
 
 export const fetchProducts = async (orderBy = '', orderType = '') => {
     const params = {};

@@ -11,7 +11,7 @@ export const DeleteProduct = ({ id }) => {
     const handleDelete = async () => {
         setLoading(true);
         try {
-            const response = await axios.delete(`https://fakestoreapi.com/products/${id}`);
+            const response = await axios.delete(`https://luisedoh1-001-site1.etempurl.com/products/${id}`);
             if (response.status !== 200) {
                 throw new Error('Error deleting the product');
             }

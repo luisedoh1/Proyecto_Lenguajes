@@ -18,11 +18,11 @@ namespace BL
         }
 
         // Obtener ordenes
-        public async Task<List<Orden>> getAllOrders(string orderBy, string orderType)
+        public async Task<List<OrdenDto>> getAllOrders(string orderBy, string orderType)
         {
             try
             {
-                string orderByQuery = "IdOrden";
+                string orderByQuery = "Fecha";
                 if (orderBy != null)
                 {
                     orderByQuery = orderBy;
@@ -32,7 +32,21 @@ namespace BL
                 {
                     orderTypeQuery = orderType;
                 }
-                return await _orderDa.getAllOrders(orderByQuery + " " + orderTypeQuery);
+
+                var orders = await _orderDa.getAllOrders(orderByQuery + " " + orderTypeQuery);
+                return orders.Select(o => new OrdenDto
+                {
+                    IdOrden = o.IdOrden,
+                    IdUsuario = o.IdUsuario,
+                    Fecha = o.Fecha,
+                    Estado = o.Estado,
+                    IdUsuarioNavigation = o.IdUsuarioNavigation,
+                    DetalleOrdens = o.DetalleOrdens,
+                    Total = o.DetalleOrdens.Sum(d => d.Cantidad * d.PrecioUnitario)
+                }).ToList();
+
+
+
             }
             catch (Exception error)
             {
@@ -53,28 +67,6 @@ namespace BL
             }
         }
 
-        //Obtener ordenes por fecha
-        public async Task<List<Orden>> GetALlOrders(string orderBy, string orderType)
-        {
-            try
-            {
-                string orderByQuery = "Fecha";
-                if (orderBy != null)
-                {
-                    orderByQuery = orderBy;
-                }
-                string orderTypeQuery = "asc";
-                if (orderType != null)
-                {
-                    orderTypeQuery = orderType;
-                }
-                return await _orderDa.getAllOrders(orderByQuery + " " + orderTypeQuery);
-            }
-            catch (Exception error)
-            {
-                throw new Exception(error.Message);
-            }
-        }
 
         // Agregar orden
         public async Task<int> CreateOrder(Orden orden)
@@ -152,6 +144,7 @@ namespace BL
             }
         }
 
+        //Se genera el reporte de ventas
         public async Task<ReporteVentasDto> GenerarReporteVentasAsync(DateTime? startDate, DateTime? endDate)
         {
             var ordenes = await _orderDa.ObtenerOrdenesAsync(startDate, endDate);
@@ -171,6 +164,17 @@ namespace BL
 
             return reporte;
         }
+    }
+
+    public class OrdenDto
+    {
+        public int IdOrden { get; set; }
+        public int IdUsuario { get; set; }
+        public DateTime Fecha { get; set; }
+        public string Estado { get; set; }
+        public Usuario IdUsuarioNavigation { get; set; }
+        public ICollection<DetalleOrden> DetalleOrdens { get; set; }
+        public decimal Total { get; set; }
     }
 
     public class ReporteVentasDto

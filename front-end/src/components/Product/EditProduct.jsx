@@ -21,7 +21,7 @@ const EditProduct = ({ product }) => {
     const handleEdit = async () => {
         setLoading(true);
         try {
-            const response = await axios.put(`https://localhost:7105/products/${product.idProducto}`, productData);
+            const response = await axios.put(`https://luisedoh1-001-site1.etempurl.com/products/${product.idProducto}`, productData);
             if (response.status !== 204) {
                 throw new Error('Error editing the product');
             }
