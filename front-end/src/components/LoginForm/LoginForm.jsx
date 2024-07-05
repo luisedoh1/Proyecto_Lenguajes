@@ -42,7 +42,7 @@ const LoginForm = () => {
         if (userRole === 'admin') {
           navigate('/admin/list');
         } else if (userRole === 'sales') {
-          navigate('/sales/orders');
+          navigate('/sales/dashboard');
         } else if (userRole === 'client') {
           navigate('/');
         } else {

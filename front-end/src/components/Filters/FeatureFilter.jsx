@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './FeatureFilter.css'; // Asegúrate de importar el CSS
+import './FeatureFilter.css'; 
 import { fetchCharacteristics } from '../Product/api';
 
-const FeatureFilter = ({ onFilter }) => {
+const FeatureFilter = ({ onFilter, reset }) => {
     const [characteristics, setCharacteristics] = useState([]);
     const [selectedFeature1, setSelectedFeature1] = useState('');
     const [selectedFeature2, setSelectedFeature2] = useState('');
@@ -21,14 +21,28 @@ const FeatureFilter = ({ onFilter }) => {
         getCharacteristics();
     }, []);
 
-    const handleFilter = () => {
-        onFilter(selectedFeature1, selectedFeature2);
+    useEffect(() => {
+        setSelectedFeature1('');
+        setSelectedFeature2('');
+        onFilter('', '');
+    }, [reset, onFilter]);
+
+    const handleChange1 = (e) => {
+        const featureId = e.target.value;
+        setSelectedFeature1(featureId);
+        onFilter(featureId, selectedFeature2);
+    };
+
+    const handleChange2 = (e) => {
+        const featureId = e.target.value;
+        setSelectedFeature2(featureId);
+        onFilter(selectedFeature1, featureId);
     };
 
     return (
         <div className="feature-filter">
             <h2>Filter by Feature</h2>
-            <select value={selectedFeature1} onChange={(e) => setSelectedFeature1(e.target.value)}>
+            <select value={selectedFeature1} onChange={handleChange1}>
                 <option value="">Select first feature</option>
                 {characteristics.map((feature) => (
                     <option key={feature.idCaracteristica} value={feature.idCaracteristica}>
@@ -36,7 +50,7 @@ const FeatureFilter = ({ onFilter }) => {
                     </option>
                 ))}
             </select>
-            <select value={selectedFeature2} onChange={(e) => setSelectedFeature2(e.target.value)}>
+            <select value={selectedFeature2} onChange={handleChange2}>
                 <option value="">Select second feature</option>
                 {characteristics.map((feature) => (
                     <option key={feature.idCaracteristica} value={feature.idCaracteristica}>
@@ -44,7 +58,6 @@ const FeatureFilter = ({ onFilter }) => {
                     </option>
                 ))}
             </select>
-            <button onClick={handleFilter}>Filter</button>
         </div>
     );
 };

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { fetchProducts } from '../Product/api';
 import PriceRangeFilter from '../Filters/PriceRangeFilter';
 import CategoryFilter from '../Filters/CategoryFilter';
@@ -8,6 +8,7 @@ import { ProductModal } from './ProductModal';
 
 export const ProductCatalog = () => {
     const [products, setProducts] = useState([]);
+    const [originalProducts, setOriginalProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [priceRange, setPriceRange] = useState({ min: 0, max: 1000 });
@@ -17,12 +18,14 @@ export const ProductCatalog = () => {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [orderBy, setOrderBy] = useState('');
     const [orderType, setOrderType] = useState('');
+    const [reset, setReset] = useState(false);
 
     useEffect(() => {
         const getProducts = async () => {
             try {
                 const products = await fetchProducts(orderBy, orderType);
                 setProducts(products);
+                setOriginalProducts(products);
             } catch (error) {
                 setError(error.message);
             } finally {
@@ -38,7 +41,8 @@ export const ProductCatalog = () => {
     }, [priceRange, selectedCategory, selectedFeature1, selectedFeature2]);
 
     const applyFilters = () => {
-        let filteredProducts = products;
+        let filteredProducts = [...originalProducts];
+
         if (priceRange.min !== null && priceRange.max !== null) {
             filteredProducts = filteredProducts.filter(product =>
                 product.precio >= priceRange.min && product.precio <= priceRange.max
@@ -66,23 +70,27 @@ export const ProductCatalog = () => {
         setProducts(filteredProducts);
     };
 
-    const filterByPrice = (minPrice, maxPrice) => {
+    const filterByPrice = useCallback((minPrice, maxPrice) => {
         setPriceRange({ min: minPrice, max: maxPrice });
-    };
+    }, []);
 
-    const filterByCategory = (categoryId) => {
+    const filterByCategory = useCallback((categoryId) => {
         setSelectedCategory(categoryId);
-    };
+    }, []);
 
-    const filterByFeature = (featureId1, featureId2) => {
-        setSelectedFeature1(featureId1);
-        setSelectedFeature2(featureId2);
-    };
+    const filterByFeature = useCallback((featureId1, featureId2) => {
+        if (featureId1 !== null) {
+            setSelectedFeature1(featureId1);
+        }
+        if (featureId2 !== null) {
+            setSelectedFeature2(featureId2);
+        }
+    }, []);
 
-    const handleSort = (orderBy, orderType) => {
+    const handleSort = useCallback((orderBy, orderType) => {
         setOrderBy(orderBy);
         setOrderType(orderType);
-    };
+    }, []);
 
     const resetFilters = () => {
         setPriceRange({ min: 0, max: 1000 });
@@ -91,22 +99,25 @@ export const ProductCatalog = () => {
         setSelectedFeature2('');
         setOrderBy('');
         setOrderType('');
+        setProducts(originalProducts);
+        setReset(prev => !prev); // Cambiar el estado de reset para desencadenar los efectos en los filtros
     };
 
     const openProductModal = (product) => {
-        setSelectedProduct(product)
-    }
+        setSelectedProduct(product);
+    };
+
     const closeProductModal = () => {
-        setSelectedProduct(null)
-    }
+        setSelectedProduct(null);
+    };
 
     return (
         <div className="products-page">
             <div className="filters-container">
-                <PriceRangeFilter onFilter={filterByPrice} />
-                <CategoryFilter onFilter={filterByCategory} />
-                <FeatureFilter onFilter={filterByFeature} />
-                <SortFilter onSort={handleSort} />
+                <PriceRangeFilter onFilter={filterByPrice} reset={reset} />
+                <CategoryFilter onFilter={filterByCategory} reset={reset} />
+                <FeatureFilter onFilter={filterByFeature} reset={reset} />
+                <SortFilter onSort={handleSort} reset={reset} />
                 <button className="reset-button" onClick={resetFilters}>Reset Filters</button>
             </div>
             <div className="catalog-container">

@@ -153,6 +153,7 @@ INSERT INTO Categoria (Nombre, Descripcion) VALUES ('Accesorios Electrónicos', '
 INSERT INTO Tipo_Caracteristica(Nombre) VALUES ('Color');
 INSERT INTO Tipo_Caracteristica(Nombre) VALUES ('Almacenamiento');
 INSERT INTO Tipo_Caracteristica(Nombre) VALUES ('Tamaño Monitor');
+INSERT INTO Tipo_Caracteristica(Nombre) VALUES ('Marca');
 
 INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('Negro', 1);
 INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('Blanco', 1);
@@ -168,6 +169,9 @@ INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('20"', 3);
 INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('22"', 3);
 INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('24"', 3);
 INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('27"', 3);
+
+INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('Intel', 4);
+INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('AMD', 4);
 
 
 

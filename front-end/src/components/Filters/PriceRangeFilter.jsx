@@ -1,14 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './PriceRangeFilter.css';
 
-const PriceRangeFilter = ({ onFilter }) => {
+const PriceRangeFilter = ({ onFilter, reset }) => {
     const [minPrice, setMinPrice] = useState(0);
     const [maxPrice, setMaxPrice] = useState(1000);
     const [currentMin, setCurrentMin] = useState(0);
     const [currentMax, setCurrentMax] = useState(1000);
 
-    const handleFilter = () => {
-        onFilter(Number(currentMin), Number(currentMax));
+    useEffect(() => {
+        setCurrentMin(minPrice);
+        setCurrentMax(maxPrice);
+        onFilter(minPrice, maxPrice);
+    }, [reset, minPrice, maxPrice, onFilter]);
+
+    const handleChangeMin = (e) => {
+        const value = Number(e.target.value);
+        setCurrentMin(value);
+        onFilter(value, currentMax);
+    };
+
+    const handleChangeMax = (e) => {
+        const value = Number(e.target.value);
+        setCurrentMax(value);
+        onFilter(currentMin, value);
     };
 
     return (
@@ -22,7 +36,7 @@ const PriceRangeFilter = ({ onFilter }) => {
                         min={minPrice}
                         max={maxPrice}
                         value={currentMin}
-                        onChange={(e) => setCurrentMin(e.target.value)}
+                        onChange={handleChangeMin}
                     />
                 </div>
                 <div>
@@ -32,15 +46,12 @@ const PriceRangeFilter = ({ onFilter }) => {
                         min={minPrice}
                         max={maxPrice}
                         value={currentMax}
-                        onChange={(e) => setCurrentMax(e.target.value)}
+                        onChange={handleChangeMax}
                     />
                 </div>
             </div>
-            <button onClick={handleFilter}>Filter</button>
         </div>
     );
 };
-
-
 
 export default PriceRangeFilter;

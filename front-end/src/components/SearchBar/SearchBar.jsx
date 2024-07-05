@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import search from '../imgs/search.png'
 import './SearchBar.css';
 
 const SearchBar = ({ onSearch, title }) => {
@@ -22,7 +23,7 @@ const SearchBar = ({ onSearch, title }) => {
                 placeholder={title}
             />
             <button className="search-bar__button" onClick={handleSearch}>
-                Search
+                <img className= "search-bar__button-image" src= {search} alt="" />
             </button>
         </div>
     );

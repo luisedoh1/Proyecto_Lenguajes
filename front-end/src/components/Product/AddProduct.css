@@ -7,11 +7,13 @@
     background: none;
     border: none;
     cursor: pointer;
+    padding: 0; 
 }
 
 .add-icon {
-    width: 50px;
-    height: 30px;
+    width: 60px !important;
+    height: 38px !important;
+    object-fit: contain; 
 }
 
 .modal {

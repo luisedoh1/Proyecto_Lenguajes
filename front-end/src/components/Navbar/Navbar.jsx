@@ -17,10 +17,14 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <Link to="/"><img src={logo} alt="Logo" className='icon logo' /></Link>
+        <Link to="/">
+          <img src={logo} alt="Logo" className='icon Logo' />
+          <span className="navbar-text">Guardian Tech</span>
+        </Link>
       </div>
       <ul>
         <li className="navbar__link"><Link to="/">Home</Link></li>
+        <li><Link to="/search-order">Search Order</Link></li>
         <li className="navbar__link"><Link to="/products">Products</Link></li>
         <li className="navbar__link"><Link to="/cart">Cart</Link></li>
         {isLoggedIn ? (

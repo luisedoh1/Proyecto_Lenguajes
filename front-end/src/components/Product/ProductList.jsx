@@ -51,8 +51,11 @@ const ProductList = () => {
     };
 
     const handleSearchId = (query) => {
+        const lowerCaseQuery = query.toLowerCase();
         setFilteredProducts(
-            products.filter((product) => product.idProducto.toString() === query)
+            products.filter((product) => 
+                product.codigo.toLowerCase().includes(lowerCaseQuery)
+            )
         );
     };
 
@@ -60,7 +63,7 @@ const ProductList = () => {
         <div className="product-list-container">
             <h1 className="product-list-title">Product List</h1>
             <SearchBar onSearch={handleSearchName} title={"Buscar por nombre"} />
-            <SearchBar onSearch={handleSearchId} title={"Buscar por Id"} />
+            <SearchBar onSearch={handleSearchId} title={"Buscar por codigo"} />
             <AddProduct />
             {loading && (
                 <div className="modal-container">

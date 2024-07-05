@@ -72,7 +72,7 @@ const OrderList = () => {
                             <th>User Email</th>
                             <th>Total Amount</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            <th>Send Order</th>
                         </tr>
                     </thead>
                     <tbody>

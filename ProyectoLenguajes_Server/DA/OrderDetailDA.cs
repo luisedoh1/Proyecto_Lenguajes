@@ -14,11 +14,11 @@ namespace DA
         }
 
         // Obtener detalles de las ordenes por usuario
-        public async Task<List<Orden>> getAllOrderDetailsByOid(int idOrden, string orderBy)
+        public async Task<List<DetalleOrden>> getAllOrderDetailsByOid(int idOrden)
         {
             try
             {
-                return await _context.Ordens.Where(o => o.IdOrden == idOrden).OrderBy(orderBy).ToListAsync();
+                return await _context.DetalleOrdens.Where(o => o.IdOrden == idOrden).ToListAsync();
             }
             catch (Exception error)
             {
