@@ -1,14 +1,13 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 1rem;
   background-color: #364150;
 }
 
 .logoImage {
-  width: 50px;
-  height: auto;
+  width: 518px;
+  height: 80px;
 }
 
 .navbar-logo {
@@ -18,7 +17,10 @@
 }
 
 .navbar-text {
-  margin-left: 10px;
+  position: relative;
+  top: -15px;
+  max-height: 10px;
+  margin-left: 12px;
   font-size: 1.5rem;
   color: #e4e0e0;
 }
@@ -111,7 +113,6 @@
 .icon img {
   height: 100%;
   width: auto;
-  display: block;
   object-fit: contain; 
 }
 
