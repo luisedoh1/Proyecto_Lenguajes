@@ -110,6 +110,8 @@ input[type="password"]:focus {
     background-color: #ffe6e6;
     color: #ff0000;
     font-size: 0.875em;
+    text-align: left;
+    margin-left: 0;  
 }
 
 .submitButton {

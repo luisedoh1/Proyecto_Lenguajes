@@ -14,29 +14,42 @@ import Categories from './components/Categories/Categories';
 import { ReportPage } from './pages/ReportPage';
 import SignUp from './components/SignUp/SignUp';
 import SearchOrderPage from './pages/SearchOrderPage';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Unauthorized from './pages/Unauthorized';
 
 const App = () => {
   const location = useLocation();
-  const showNavbar = location.pathname !== '/login'
-  const role = useSelector((state) => state.auth.role)
+  const showNavbar = location.pathname !== '/login';
+  const role = useSelector((state) => state.auth.role);
+
   return (
     <Provider store={store}>
-
-      {showNavbar && (role === 'admin' ? <AdminNavbar /> : role === 'sales' ? <SalesNavbar /> :<Navbar /> )}
+      {showNavbar && (role === 'admin' ? <AdminNavbar /> : role === 'sales' ? <SalesNavbar /> : <Navbar />)}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/admin/list" element={<ProductList />} />
-        <Route path="/admin/categories" element={<Categories />} />
-        <Route path="/admin/reports" element={<ReportPage />} />
-        <Route path="/sales/dashboard" element={<SalesPage />} />
-        <Route path="/products" element={<ProductsPage />} />
-        <Route path="/search-order" element={<SearchOrderPage />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/unauthorized" element={<Unauthorized />} />
+        <Route path="/search-order" element={<SearchOrderPage />} />
+        <Route path="/products" element={<ProductsPage />} />
+        <Route path="/cart" element={<Cart />} />
+
+        <Route element={<PrivateRoute roles={['admin']} />}>
+          <Route path="/admin/list" element={<ProductList />} />
+          <Route path="/admin/categories" element={<Categories />} />
+          <Route path="/admin/reports" element={<ReportPage />} />
+        </Route>
+
+        <Route element={<PrivateRoute roles={['sales']} />}>
+          <Route path="/sales/dashboard" element={<SalesPage />} />
+        </Route>
+
+        <Route element={<PrivateRoute roles={['client', 'admin']} />}>
+          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/cart" element={<Cart />} />
+        </Route>
       </Routes>
     </Provider>
-
   );
 };
 

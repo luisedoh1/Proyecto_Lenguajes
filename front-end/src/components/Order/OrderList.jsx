@@ -86,8 +86,7 @@ const OrderList = () => {
                                 <td>
                                     <button
                                         onClick={() => handleStatusUpdate(order.idOrden)}
-                                        disabled={order.estado === 'Enviado'}
-                                    >
+                                        disabled={order.estado === 'Enviado'}>
                                         Mark as Sent
                                     </button>
                                 </td>
