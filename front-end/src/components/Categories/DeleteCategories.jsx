@@ -2,8 +2,9 @@
 import { useState } from "react";
 import axios from "axios";
 import trasher from '../imgs/bote-de-basura.gif'
+import './DeleteCategories.css'
 
-const DeleteCategory = ({ id }) => {
+export const DeleteCategory = ({ id }) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -36,6 +37,4 @@ const DeleteCategory = ({ id }) => {
             {error && <p className="error-message">{error}</p>}
         </div>
     );
-};
-
-export default DeleteCategory;
+}

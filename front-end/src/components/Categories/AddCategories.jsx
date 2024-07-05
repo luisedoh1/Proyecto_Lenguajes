@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import add from '../imgs/mas.gif';
+import './AddCategories.css';
 
 const Addcategories = () => {
     const [showModal, setShowModal] = useState(false);

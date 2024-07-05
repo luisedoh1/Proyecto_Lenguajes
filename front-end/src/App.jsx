@@ -10,6 +10,7 @@ import ProductList from './components/Product/ProductList';
 import AdminNavbar from './components/Navbar/AdminNavbar';
 import Categories from './components/Categories/Categories';
 import { ReportPage } from './pages/ReportPage';
+
 const App = () => {
   const location = useLocation();
   const showNavbar = location.pathname !== '/login'
