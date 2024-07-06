@@ -97,7 +97,7 @@
 }
 
 .product__button:hover {
-    background-color: #0056b3;
+    background-color: rgb(95, 20, 153);
     transform: translateY(-3px);
 }
 

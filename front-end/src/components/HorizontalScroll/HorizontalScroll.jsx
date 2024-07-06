@@ -2,11 +2,12 @@ import { useState, useEffect } from 'react';
 import './HorizontalScroll.css';
 import { fetchPopularProducts } from '../Product/api';
 import Product from '../Product/Product';
-
+import ProductModal from '../Product/ProductModal'; 
 const HorizontalScroll = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [selectedProduct, setSelectedProduct] = useState(null);
 
     useEffect(() => {
         const getProducts = async () => {
@@ -22,6 +23,14 @@ const HorizontalScroll = () => {
 
         getProducts();
     }, []);
+
+    const openProductModal = (product) => {
+        setSelectedProduct(product);
+    }
+
+    const closeProductModal = () => {
+        setSelectedProduct(null);
+    }
 
     return (
         <div className="scroll-container">
@@ -42,9 +51,22 @@ const HorizontalScroll = () => {
             )}
             <div className="scroll-list">
                 {products.map(product => (
-                    <Product key={product.idProducto} id={product.idProducto} name={product.nombre} price={product.precio} image={product.imagen} />
+                    <div key={product.idProducto} onClick={() => openProductModal(product)}>
+                        <Product product={product} />
+                    </div>
                 ))}
             </div>
+            {selectedProduct && (
+                <ProductModal
+                    id={selectedProduct.idProducto}
+                    name={selectedProduct.nombre}
+                    price={selectedProduct.precio}
+                    image={selectedProduct.imagen}
+                    description={selectedProduct.descripcion}
+                    categorie={selectedProduct.categoriaId}
+                    onClose={closeProductModal}
+                />
+            )}
         </div>
     );
 };

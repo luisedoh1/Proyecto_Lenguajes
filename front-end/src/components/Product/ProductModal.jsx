@@ -1,19 +1,57 @@
-/* eslint-disable react/prop-types */
-import React, { useState, useEffect, useContext, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { fetchCategories } from './api';
-import { CartContext } from '../Cart/CartContex';
+import { useDispatch, useSelector } from 'react-redux';
+import { increaseProductQuantity } from '../../store/cartSlice';
+import axios from 'axios';
 import './ProductModal.css';
 
 export const ProductModal = ({ id, name, price, image, description, categorie, onClose }) => {
     const [foundCategory, setFoundCategory] = useState(null);
     const [error, setError] = useState(null);
     const [categories, setCategories] = useState([]);
-    const { addToCart } = useContext(CartContext);
+    const [quantity, setQuantity] = useState(1);
+    const [showLoginMessage, setShowLoginMessage] = useState(false);
+    const dispatch = useDispatch();
+    const isAuthenticated = useSelector(state => state.auth.isLoggedIn);
 
-    const handleAddToCart = () => {
-        addToCart({ id, name, price, image });
+    const handleAddToCart = async () => {
+        if (!isAuthenticated) {
+            setShowLoginMessage(true);
+            return;
+        }
+
+        dispatch(increaseProductQuantity({ product: { id, name, price, image, quantity } }));
         alert(`${name} añadido al carrito`);
+        console.log(quantity);
+
+        const cartData = {
+            idProducto: id,
+            cantidad: quantity
+        };
+
+        const iduser = localStorage.getItem('idUsuario');
+        if (!iduser) {
+            console.error('No se encontró idUsuario en el local storage');
+            return;
+        }
+        try {
+            await axios.post(`https://luisedoh1-001-site1.etempurl.com/${iduser}/add`, cartData, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
+    const handleIncreaseQuantity = () => {
+        setQuantity(prevQuantity => prevQuantity + 1);
+    };
+
+    const handleDecreaseQuantity = () => {
+        setQuantity(prevQuantity => (prevQuantity > 1 ? prevQuantity - 1 : 1));
     };
 
     const product = useMemo(() => ({
@@ -55,7 +93,17 @@ export const ProductModal = ({ id, name, price, image, description, categorie, o
                         <p className="custom-modal-price">${price}</p>
                         <p className="custom-modal-description">{description}</p>
                         <p className="custom-modal-category">Category: {foundCategory ? foundCategory.nombre : 'Loading...'}</p>
+                        <div className="quantity-control">
+                            <button onClick={handleDecreaseQuantity}>-</button>
+                            <span>{quantity}</span>
+                            <button onClick={handleIncreaseQuantity}>+</button>
+                        </div>
                         <button className="custom-add-to-cart-button" onClick={handleAddToCart}>Add to Cart</button>
+                        {showLoginMessage && (
+                            <div className="login-message">
+                                To add items to the cart, first you have to login or sign up.
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
@@ -74,4 +122,5 @@ ProductModal.propTypes = {
 };
 
 export default ProductModal;
+
 

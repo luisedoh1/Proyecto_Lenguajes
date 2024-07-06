@@ -11,7 +11,7 @@ export const DeleteCategory = ({ id }) => {
     const handleDelete = async () => {
         setLoading(true);
         try {
-            const response = await axios.delete(`https://localhost:7105/categories/${id}`);
+            const response = await axios.delete(`https://luisedoh1-001-site1.etempurl.com/categories/${id}`);
             if (response.status !== 204) {
                 throw new Error('Error deleting the category');
             }

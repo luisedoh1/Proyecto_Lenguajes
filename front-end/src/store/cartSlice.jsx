@@ -4,37 +4,46 @@ const initialState = {
     products: {},
 };
 
-export const cartSlice = createSlice(
-    {
-        name: 'cart',
-        initialState,
-        reducers: {
-            increaseProductQuantity: (state, action) => {
-                const product = action.payload.product;
+export const cartSlice = createSlice({
+    name: 'cart',
+    initialState,
+    reducers: {
+        increaseProductQuantity: (state, action) => {
+            const product = action.payload.product;
 
-                if (state.products[product.id]) {
-                    state.products[product.id].quantity++;
+            if (state.products[product.id]) {
+                state.products[product.id].quantity++;
+            } else {
+                state.products[product.id] = {
+                    quantity: 1,
+                    data: product,
+                };
+            }
+        },
+        decreaseProductQuantity: (state, action) => {
+            const productId = action.payload.productId;
+
+            if (state.products[productId]) {
+                if (state.products[productId].quantity > 1) {
+                    state.products[productId].quantity--;
                 } else {
-                    state.products[product.id] = {
-                        quantity: 1,
-                        data: product,
-                    }
+                    delete state.products[productId];
                 }
-            },
-            decreaseProductQuantity: (state, action) => {
+            }
+        },
+        removeProductFromCart: (state, action) => {
+            const productId = action.payload.productId;
+            if (state.products[productId]) {
+                delete state.products[productId];
+            }
+        },
+    },
+});
 
-            },
-            removeProductFromCart: (state, action) => {
-
-            },
-        }
-    }
-);
-
-export const { 
-    increaseProductQuantity, 
-    decreaseProductQuantity, 
-    removeProductFromCart 
+export const {
+    increaseProductQuantity,
+    decreaseProductQuantity,
+    removeProductFromCart,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

@@ -21,12 +21,12 @@ const Addcategories = () => {
     const handleAdd = async () => {
         setLoading(true);
         const formData = new FormData();
-        formData.append("nombre", categoriesData.name);
-        formData.append("descripcion", categoriesData.description);
+        formData.append("nombre", categoriesData.nombre);
+        formData.append("descripcion", categoriesData.descripcion);
         
 
         try {
-            const response = await axios.post(`https://localhost:7105/categories/`, formData, {
+            const response = await axios.post(`https://luisedoh1-001-site1.etempurl.com/categories/`, formData, {
                 headers: {
                     'Content-Type': 'application/json',
                 }
@@ -59,16 +59,16 @@ const Addcategories = () => {
                             Name:
                             <input
                                 type="text"
-                                name="name"
-                                value={categoriesData.name}
+                                name="nombre"
+                                value={categoriesData.nombre}
                                 onChange={handleInputChange}
                             />
                         </label>
                         <label>
                             Description:
                             <textarea
-                                name="description"
-                                value={categoriesData.description}
+                                name="descripcion"
+                                value={categoriesData.descripcion}
                                 onChange={handleInputChange}
                             />
                         </label>

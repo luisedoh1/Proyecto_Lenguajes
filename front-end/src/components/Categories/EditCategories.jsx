@@ -18,7 +18,7 @@ const EditCategories = ({ category }) => {
     const handleEdit = async () => {
         setLoading(true);
         try {
-            const response = await axios.put(`https://localhost:7105/categories/${category.idCategoria}`, categoryData);
+            const response = await axios.put(`https://luisedoh1-001-site1.etempurl.com/categories/${category.idCategoria}`, categoryData);
             if (response.status !== 200) {
                 throw new Error('Error editing the category');
             }

@@ -11,7 +11,7 @@ export const ProductCatalog = () => {
     const [originalProducts, setOriginalProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [priceRange, setPriceRange] = useState({ min: 0, max: 1000 });
+    const [priceRange, setPriceRange] = useState({ min: 0, max: 10000 });
     const [selectedCategory, setSelectedCategory] = useState('');
     const [selectedFeature1, setSelectedFeature1] = useState('');
     const [selectedFeature2, setSelectedFeature2] = useState('');
@@ -93,14 +93,14 @@ export const ProductCatalog = () => {
     }, []);
 
     const resetFilters = () => {
-        setPriceRange({ min: 0, max: 1000 });
+        setPriceRange({ min: 0, max: 10000 });
         setSelectedCategory('');
         setSelectedFeature1('');
         setSelectedFeature2('');
         setOrderBy('');
         setOrderType('');
         setProducts(originalProducts);
-        setReset(prev => !prev); // Cambiar el estado de reset para desencadenar los efectos en los filtros
+        setReset(prev => !prev); 
     };
 
     const openProductModal = (product) => {

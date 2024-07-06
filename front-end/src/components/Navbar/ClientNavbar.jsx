@@ -24,16 +24,20 @@ const Navbar = () => {
       </div>
       <ul>
         <li className="navbar__link"><Link to="/">Home</Link></li>
-        <li><Link to="/search-order">Search Order</Link></li>
         <li className="navbar__link"><Link to="/products">Products</Link></li>
         <li className="navbar__link"><Link to="/cart">Cart</Link></li>
-        <li className="navbar__link"><Link to="/profile">Profile</Link></li>
         {isLoggedIn ? (
-          <li className="navbar__link"><button onClick={handleLogout} className="navbar__link">Logout</button></li>
+            <>
+            <li className="navbar__link"><Link to="/profile">Profile</Link></li>
+            <li className="navbar__link"><button onClick={handleLogout} className="navbar__link">Logout</button></li>
+            </>
         ) : (
-          <li className="navbar__link"><Link to="/login">Login</Link></li>
-        )}
-
+            <>
+            <li className="navbar__link"><Link to="/search-order">Search Order</Link></li>
+            <li className="navbar__link"><Link to="/login">Login</Link></li>
+            <li className="navbar__link"><Link to="/SignUp">SignUp</Link></li>
+            </>   
+        )}           
       </ul>
     </nav>
   );

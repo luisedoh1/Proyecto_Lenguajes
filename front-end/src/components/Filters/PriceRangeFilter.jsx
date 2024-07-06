@@ -3,9 +3,9 @@ import './PriceRangeFilter.css';
 
 const PriceRangeFilter = ({ onFilter, reset }) => {
     const [minPrice, setMinPrice] = useState(0);
-    const [maxPrice, setMaxPrice] = useState(1000);
+    const [maxPrice, setMaxPrice] = useState(10000);
     const [currentMin, setCurrentMin] = useState(0);
-    const [currentMax, setCurrentMax] = useState(1000);
+    const [currentMax, setCurrentMax] = useState(10000);
 
     useEffect(() => {
         setCurrentMin(minPrice);

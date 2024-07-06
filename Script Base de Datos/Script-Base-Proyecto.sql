@@ -172,6 +172,7 @@ INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('27"', 3);
 
 INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('Intel', 4);
 INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('AMD', 4);
+INSERT INTO Caracteristica(Nombre,ID_Tipo) VALUES ('Nvidia', 4);
 
 
 

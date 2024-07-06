@@ -47,7 +47,7 @@ const LoginForm = () => {
         if (userRole === 'admin') {
           navigate('/admin/list');
         } else if (userRole === 'sales') {
-          navigate('/sales/orders');
+          navigate('/sales/dashboard');
         } else if (userRole === 'client') {
           navigate('/');
         } else {
@@ -67,7 +67,7 @@ const LoginForm = () => {
       <h1 className="login-header">Login Page</h1>
       <form onSubmit={handleSubmit}>
         <label>
-          Username:
+          Email:
           <input type="text" value={username} onChange={handleUsernameChange} />
         </label>
         <br />
