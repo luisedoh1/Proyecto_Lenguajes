@@ -79,6 +79,7 @@ export const Cart = () => {
         });
       }
       alert("Compra procesada");
+      fetchCartProducts();
       setShowPaymentModal(false);
     } catch (error) {
       console.error('Error:', error);
