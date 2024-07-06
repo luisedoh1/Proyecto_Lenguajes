@@ -16,7 +16,27 @@ namespace ProyectoLenguajes_Server.Controllers
             _userBl = userBl;
         }
 
+        // GET: /usuarios/{id}
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<Usuario>> GetUserById(int id)
+        {
+            try
+            {
+                Usuario usuario = await _userBl.getUserById(id);
 
+                if (usuario == null)
+                {
+                    return NotFound("Usuario no encontrado para el id");
+                }
+                return Ok(usuario);
+            }
+            catch (Exception error)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, error.Message);
+            }
+        }
+
+        // GET: /usuarios/authenticate
         [HttpGet("authenticate")]
         public async Task<IActionResult> AuthenticateUser(string email, string password)
         {

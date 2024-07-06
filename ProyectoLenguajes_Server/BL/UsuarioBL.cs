@@ -31,6 +31,19 @@ namespace BL
             }
         }
 
+        // Obtener usuario por Id
+        public async Task<Usuario> getUserById(int userId)
+        {
+            try
+            {
+                return await usuarioDA.getUserById(userId);
+            }
+            catch (Exception error)
+            {
+                throw new Exception(error.Message);
+            }
+        }
+
         // Obtener usuario por email
         public async Task<Usuario> getUserByEmail(string email)
         {

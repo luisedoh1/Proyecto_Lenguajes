@@ -6,7 +6,7 @@ namespace Models;
 
 public partial class DetalleCarrito
 {
-    [JsonIgnore]
+    
     public int IdDetalleCarrito { get; set; }
 
     public int IdCarrito { get; set; }

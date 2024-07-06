@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import CustomModal from './CustomModal'; // Import the custom modal component
 import './UserProfile.css';
 
 const UserAddress = () => {
     const [addresses, setAddresses] = useState([]);
-    const [newAddress, setNewAddress] = useState({
-        direccion: '',
-        ciudad: '',
-        pais: '',
-        codigoPostal: ''
-    });
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isEditMode, setIsEditMode] = useState(false);
+    const [currentAddress, setCurrentAddress] = useState(null);
     const userId = localStorage.getItem('idUsuario');
 
     useEffect(() => {
@@ -29,45 +29,68 @@ const UserAddress = () => {
         fetchUserAddresses();
     }, [userId]);
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setNewAddress({ ...newAddress, [name]: value });
-    };
+    const formik = useFormik({
+        initialValues: {
+            direccion: '',
+            ciudad: '',
+            pais: '',
+            codigoPostal: ''
+        },
+        validationSchema: Yup.object({
+            direccion: Yup.string().required('Address is required'),
+            ciudad: Yup.string().required('City is required'),
+            pais: Yup.string().required('Country is required'),
+            codigoPostal: Yup.string().required('Postal Code is required')
+        }),
+        onSubmit: async (values, { resetForm }) => {
+            const payload = {
+                ...values,
+                idUsuario: userId,
+                idDireccion: isEditMode ? currentAddress.idDireccion : 0
+            };
 
-    const handleAddAddress = async () => {
-        try {
-            const response = await axios.post('https://luisedoh1-001-site1.etempurl.com/address', {
-                ...newAddress,
-                idUsuario: userId
-            });
-            setAddresses([...addresses, response.data]);
-            setNewAddress({
-                direccion: '',
-                ciudad: '',
-                pais: '',
-                codigoPostal: ''
-            });
-        } catch (err) {
-            setError(err.message);
+            if (isEditMode) {
+                try {
+                    const response = await axios.put(`https://luisedoh1-001-site1.etempurl.com/address/${currentAddress.idDireccion}`, payload);
+                    setAddresses(addresses.map(address => (address.idDireccion === currentAddress.idDireccion ? response.data : address)));
+                    resetForm();
+                    setIsModalOpen(false);
+                    setIsEditMode(false);
+                    setCurrentAddress(null);
+                } catch (err) {
+                    setError(err.message);
+                    console.error('Error updating address:', err.response || err.message);
+                }
+            } else {
+                try {
+                    const response = await axios.post('https://luisedoh1-001-site1.etempurl.com/address', payload);
+                    setAddresses([...addresses, response.data]);
+                    resetForm();
+                    setIsModalOpen(false);
+                } catch (err) {
+                    setError(err.message);
+                    console.error('Error adding address:', err.response || err.message);
+                }
+            }
         }
+    });
+
+    const handleEditAddress = (address) => {
+        setCurrentAddress(address);
+        formik.setValues({
+            direccion: address.direccion,
+            ciudad: address.ciudad,
+            pais: address.pais,
+            codigoPostal: address.codigoPostal
+        });
+        setIsEditMode(true);
+        setIsModalOpen(true);
     };
 
-    const handleDeleteAddress = async (id) => {
+    const handleDeleteAddress = async (idDireccion) => {
         try {
-            await axios.delete(`https://luisedoh1-001-site1.etempurl.com/address/${id}`);
-            setAddresses(addresses.filter(address => address.id !== id));
-        } catch (err) {
-            setError(err.message);
-        }
-    };
-
-    const handleUpdateAddress = async (id, updatedAddress) => {
-        try {
-            const response = await axios.put(`https://luisedoh1-001-site1.etempurl.com/address/${id}`, {
-                ...updatedAddress,
-                idUsuario: userId
-            });
-            setAddresses(addresses.map(address => (address.id === id ? response.data : address)));
+            await axios.delete(`https://luisedoh1-001-site1.etempurl.com/address/${idDireccion}`);
+            setAddresses(addresses.filter(address => address.idDireccion !== idDireccion));
         } catch (err) {
             setError(err.message);
         }
@@ -77,51 +100,92 @@ const UserAddress = () => {
     if (error) return <p>Error: {error}</p>;
 
     return (
-        <div className="user-addresses">
-            <h2>Addresses</h2>
-            <input
-                type="text"
-                name="direccion"
-                value={newAddress.direccion}
-                onChange={handleInputChange}
-                placeholder="Address"
-            />
-            <input
-                type="text"
-                name="ciudad"
-                value={newAddress.ciudad}
-                onChange={handleInputChange}
-                placeholder="City"
-            />
-            <input
-                type="text"
-                name="pais"
-                value={newAddress.pais}
-                onChange={handleInputChange}
-                placeholder="Country"
-            />
-            <input
-                type="text"
-                name="codigoPostal"
-                value={newAddress.codigoPostal}
-                onChange={handleInputChange}
-                placeholder="Postal Code"
-            />
-            <button onClick={handleAddAddress}>Add Address</button>
-            <ul>
-                {addresses.map(address => (
-                    <li key={address.id}>
-                        <p>{address.direccion}, {address.ciudad}, {address.pais}, {address.codigoPostal}</p>
-                        <button onClick={() => handleDeleteAddress(address.id)}>Delete</button>
-                        <button onClick={() => handleUpdateAddress(address.id, {
-                            direccion: prompt('New Address:', address.direccion) || address.direccion,
-                            ciudad: prompt('New City:', address.ciudad) || address.ciudad,
-                            pais: prompt('New Country:', address.pais) || address.pais,
-                            codigoPostal: prompt('New Postal Code:', address.codigoPostal) || address.codigoPostal
-                        })}>Edit</button>
-                    </li>
-                ))}
-            </ul>
+        <div className="user-profile-container">
+            <button onClick={() => {
+                setIsEditMode(false);
+                setIsModalOpen(true);
+            }}>Add Address</button>
+            <table className="user-profile-table">
+                <thead>
+                    <tr>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>Country</th>
+                        <th>Postal Code</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {addresses.length > 0 ? (
+                        addresses.map(address => (
+                            <tr key={address.idDireccion}>
+                                <td>{address.direccion}</td>
+                                <td>{address.ciudad}</td>
+                                <td>{address.pais}</td>
+                                <td>{address.codigoPostal}</td>
+                                <td>
+                                    <button onClick={() => handleEditAddress(address)}>Edit</button>
+                                    <button onClick={() => handleDeleteAddress(address.idDireccion)}>Delete</button>
+                                </td>
+                            </tr>
+                        ))
+                    ) : (
+                        <tr>
+                            <td colSpan="5">No addresses associated with this user.</td>
+                        </tr>
+                    )}
+                </tbody>
+            </table>
+            <CustomModal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)}>
+                <h2>{isEditMode ? 'Edit Address' : 'Add New Address'}</h2>
+                <form onSubmit={formik.handleSubmit}>
+                    <input
+                        type="text"
+                        name="direccion"
+                        value={formik.values.direccion}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        placeholder="Address"
+                    />
+                    {formik.touched.direccion && formik.errors.direccion ? (
+                        <div className="error">{formik.errors.direccion}</div>
+                    ) : null}
+                    <input
+                        type="text"
+                        name="ciudad"
+                        value={formik.values.ciudad}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        placeholder="City"
+                    />
+                    {formik.touched.ciudad && formik.errors.ciudad ? (
+                        <div className="error">{formik.errors.ciudad}</div>
+                    ) : null}
+                    <input
+                        type="text"
+                        name="pais"
+                        value={formik.values.pais}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        placeholder="Country"
+                    />
+                    {formik.touched.pais && formik.errors.pais ? (
+                        <div className="error">{formik.errors.pais}</div>
+                    ) : null}
+                    <input
+                        type="text"
+                        name="codigoPostal"
+                        value={formik.values.codigoPostal}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        placeholder="Postal Code"
+                    />
+                    {formik.touched.codigoPostal && formik.errors.codigoPostal ? (
+                        <div className="error">{formik.errors.codigoPostal}</div>
+                    ) : null}
+                    <button type="submit">{isEditMode ? 'Update Address' : 'Add Address'}</button>
+                </form>
+            </CustomModal>
         </div>
     );
 };

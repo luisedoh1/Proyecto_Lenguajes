@@ -13,7 +13,7 @@ body {
 }
 
 .navbar li {
-  display: inline-block;
+  display: inline-block;  
   margin-right: 10px;
 }
 
@@ -22,7 +22,7 @@ body {
   text-decoration: none;
 }
 
-/* Home page styles */
+
 .home {
   display: flex;
   flex-wrap: wrap;
@@ -124,3 +124,5 @@ body {
   padding: 10px;
   text-align: center;
 }
+
+
