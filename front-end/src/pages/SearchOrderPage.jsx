@@ -18,7 +18,7 @@ const SearchOrderPage = () => {
         try {
             const response = await axios.get(`https://luisedoh1-001-site1.etempurl.com/orders/${query}`);
             setOrder(response.data);
-            calculateOrderTotal(response.data.idOrden); // Calculate order total
+            calculateOrderTotal(response.data.idOrden);
         } catch (err) {
             setError(err.message);
         } finally {

@@ -102,7 +102,6 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin: 0 5px;
-  /* Ajusta este valor para más o menos espacio */
 }
 
 .quantity-control button:hover {
@@ -118,7 +117,6 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-top: 10px;
-  /* Ajusta este valor para más o menos espacio */
 }
 
 .cart-item__remove:hover {

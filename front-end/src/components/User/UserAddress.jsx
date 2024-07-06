@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import CustomModal from './CustomModal'; // Import the custom modal component
+import CustomModal from './CustomModal';
 import './UserProfile.css';
 
-const UserAddress = () => {
+const UserAddress = ({ onUpdate }) => {
     const [addresses, setAddresses] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -57,6 +57,7 @@ const UserAddress = () => {
                     setIsModalOpen(false);
                     setIsEditMode(false);
                     setCurrentAddress(null);
+                    onUpdate();
                 } catch (err) {
                     setError(err.message);
                     console.error('Error updating address:', err.response || err.message);

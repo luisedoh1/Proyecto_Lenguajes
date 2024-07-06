@@ -18,6 +18,7 @@ import SearchOrderPage from './pages/SearchOrderPage';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Unauthorized from './pages/Unauthorized';
 import UserProfilePage from './pages/UserProfilePage';
+import OrderClientPage from './pages/OrderClientPage';
 
 
 const App = () => {
@@ -48,6 +49,7 @@ const App = () => {
         </Route>
 
         <Route element={<PrivateRoute roles={['client', 'admin']} />}>
+          <Route path="/user/orders" element={<OrderClientPage />} />
           <Route path="/profile" element={<UserProfilePage />} />
         </Route>
       </Routes>

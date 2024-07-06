@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
-import search from '../imgs/search.png'
+import React, { useState, useEffect } from 'react';
+import search from '../imgs/search.png';
 import './SearchBar.css';
 
-const SearchBar = ({ onSearch, title }) => {
-    const [query, setQuery] = useState('');
+const SearchBar = ({ onSearch, title, value }) => {
+    const [query, setQuery] = useState(value);
+
+    useEffect(() => {
+        setQuery(value);
+    }, [value]);
 
     const handleInputChange = (e) => {
         setQuery(e.target.value);
-    };
-
-    const handleSearch = () => {
-        onSearch(query);
+        onSearch(e.target.value);
     };
 
     return (
@@ -18,13 +19,10 @@ const SearchBar = ({ onSearch, title }) => {
             <input
                 type="text"
                 className="search-bar__input"
-                value={query}
-                onChange={handleInputChange}
+                value={value}
+                onChange={(e) => onSearch(e.target.value)}
                 placeholder={title}
             />
-            <button className="search-bar__button" onClick={handleSearch}>
-                <img className= "search-bar__button-image" src= {search} alt="" />
-            </button>
         </div>
     );
 };

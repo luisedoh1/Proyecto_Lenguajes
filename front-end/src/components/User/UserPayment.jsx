@@ -6,7 +6,7 @@ import CryptoJS from 'crypto-js';
 import CustomModal from './CustomModal';
 import './UserProfile.css';
 
-const UserPayment = () => {
+const UserPayment = ({ onUpdate }) => {
     const [payments, setPayments] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -14,7 +14,7 @@ const UserPayment = () => {
     const [isEditMode, setIsEditMode] = useState(false);
     const [currentPayment, setCurrentPayment] = useState(null);
     const userId = localStorage.getItem('idUsuario');
-    const secretKey = 'secret key 123'; 
+    const secretKey = 'secret key 123';
 
     useEffect(() => {
         const fetchUserPayments = async () => {
@@ -40,6 +40,11 @@ const UserPayment = () => {
         return cardNumberRegex.test(cardNumber);
     };
 
+    const validateCVV = (cvv) => {
+        const cvvRegex = /^\d{3}$/;
+        return cvvRegex.test(cvv);
+    };
+
     const formik = useFormik({
         initialValues: {
             cardNumber: '',
@@ -54,11 +59,13 @@ const UserPayment = () => {
                 .test('isValidCardNumber', 'Invalid card number format', validateCardNumber),
             expiryMonth: Yup.string().required('Expiry month is required'),
             expiryYear: Yup.string().required('Expiry year is required'),
-            cvv: Yup.string().required('CVV is required').max(3, 'CVV cannot exceed 3 characters'),
+            cvv: Yup.string()
+                .required('CVV is required')
+                .test('isValidCVV', 'Invalid CVV. Must be 3 digits.', validateCVV),
             idTipo: Yup.string().oneOf(['1', '2'], 'Invalid card type').required('Card type is required')
         }),
         onSubmit: async (values, { resetForm }) => {
-            const cardDetails = `${values.cardNumber.replace(/ /g, '')}|${values.expiryMonth}/${values.expiryYear}|${values.cvv}`;
+            const cardDetails = `${values.cardNumber.replace(/ /g, '')}|${values.cvv}|${values.expiryMonth}|${values.expiryYear}`;
             const encryptedToken = CryptoJS.AES.encrypt(cardDetails, secretKey).toString();
 
             const payload = {
@@ -76,6 +83,7 @@ const UserPayment = () => {
                     setIsModalOpen(false);
                     setIsEditMode(false);
                     setCurrentPayment(null);
+                    onUpdate();
                 } catch (err) {
                     setError(err.message);
                     console.error('Error updating payment:', err.response || err.message);
@@ -86,6 +94,7 @@ const UserPayment = () => {
                     setPayments([...payments, response.data]);
                     resetForm();
                     setIsModalOpen(false);
+                    onUpdate();
                 } catch (err) {
                     setError(err.message);
                     console.error('Error adding payment:', err.response || err.message);
@@ -95,26 +104,34 @@ const UserPayment = () => {
     });
 
     const handleEditPayment = (payment) => {
-        const decryptedToken = CryptoJS.AES.decrypt(payment.token, secretKey).toString(CryptoJS.enc.Utf8);
-        const [cardNumber, expiryDate, cvv] = decryptedToken.split('|');
-        const [expiryMonth, expiryYear] = expiryDate.split('/');
-        
-        setCurrentPayment(payment);
-        formik.setValues({
-            cardNumber: formatCardNumber(cardNumber),
-            expiryMonth,
-            expiryYear,
-            cvv,
-            idTipo: payment.idTipo.toString()
-        });
-        setIsEditMode(true);
-        setIsModalOpen(true);
+        try {
+            const decryptedToken = CryptoJS.AES.decrypt(payment.token, secretKey).toString(CryptoJS.enc.Utf8);
+            if (!decryptedToken) {
+                throw new Error('Failed to decrypt token');
+            }
+
+            const [cardNumber, cvv, expiryMonth, expiryYear] = decryptedToken.split('|');
+            
+            setCurrentPayment(payment);
+            formik.setValues({
+                cardNumber: formatCardNumber(cardNumber),
+                expiryMonth,
+                expiryYear,
+                cvv,
+                idTipo: payment.idTipo.toString()
+            });
+            setIsEditMode(true);
+            setIsModalOpen(true);
+        } catch (error) {
+            console.error('Error decrypting token:', error);
+        }
     };
 
     const handleDeletePayment = async (idMetodo) => {
         try {
             await axios.delete(`https://luisedoh1-001-site1.etempurl.com/payment/${idMetodo}`);
             setPayments(payments.filter(payment => payment.idMetodo !== idMetodo));
+            onUpdate();
         } catch (err) {
             setError(err.message);
         }
@@ -140,17 +157,23 @@ const UserPayment = () => {
                 </thead>
                 <tbody>
                     {payments.length > 0 ? (
-                        payments.map(payment => (
-                            <tr key={payment.idMetodo}>
-                                <td>**** **** **** {CryptoJS.AES.decrypt(payment.token, secretKey).toString(CryptoJS.enc.Utf8).split('|')[0].slice(-4)}</td>
-                                <td>{CryptoJS.AES.decrypt(payment.token, secretKey).toString(CryptoJS.enc.Utf8).split('|')[1]}</td>
-                                <td>{payment.idTipo === 1 ? 'Debit' : 'Credit'}</td>
-                                <td>
-                                    <button onClick={() => handleEditPayment(payment)}>Edit</button>
-                                    <button onClick={() => handleDeletePayment(payment.idMetodo)}>Delete</button>
-                                </td>
-                            </tr>
-                        ))
+                        payments.map(payment => {
+                            const decryptedToken = CryptoJS.AES.decrypt(payment.token, secretKey).toString(CryptoJS.enc.Utf8).split('|');
+                            const cardNumber = decryptedToken[0];
+                            const expiryMonth = decryptedToken[2];
+                            const expiryYear = decryptedToken[3];
+                            return (
+                                <tr key={payment.idMetodo}>
+                                    <td>**** **** **** {cardNumber.slice(-4)}</td>
+                                    <td>{`${expiryMonth}/${expiryYear}`}</td>
+                                    <td>{payment.idTipo === 1 ? 'Debit' : 'Credit'}</td>
+                                    <td>
+                                        <button onClick={() => handleEditPayment(payment)}>Edit</button>
+                                        <button onClick={() => handleDeletePayment(payment.idMetodo)}>Delete</button>
+                                    </td>
+                                </tr>
+                            )
+                        })
                     ) : (
                         <tr>
                             <td colSpan="4">No payment methods associated with this user.</td>

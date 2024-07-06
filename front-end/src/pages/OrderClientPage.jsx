@@ -1,20 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import OrderDetailModal from './OrderDetailModal';
-import './OrderList.css';
+import OrderDetailsModal from '../components/Order/OrderDetailModal';
+import '../components/Order/OrderList.css';
 
-const OrderClient = () => {
+const OrderClientPage = () => {
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [selectedOrder, setSelectedOrder] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const [orderTotals, setOrderTotals] = useState({});
     const userId = localStorage.getItem('idUsuario');
 
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const response = await axios.get(`https://luisedoh1-001-site1.etempurl.com/orders/user/${userId}`);
-                setOrders(response.data);
+                if (userId) {
+                    const response = await axios.get(`https://luisedoh1-001-site1.etempurl.com/all/${userId}`);
+                    setOrders(response.data);
+                    response.data.forEach(order => calculateOrderTotal(order.idOrden));
+                } else {
+                    throw new Error('User ID not found');
+                }
             } catch (err) {
                 setError(err.message);
             } finally {
@@ -25,12 +32,25 @@ const OrderClient = () => {
         fetchOrders();
     }, [userId]);
 
+    const calculateOrderTotal = async (orderId) => {
+        try {
+            const response = await axios.get(`https://luisedoh1-001-site1.etempurl.com/orderdetails/${orderId}`);
+            const details = response.data;
+            const total = details.reduce((sum, detail) => sum + detail.cantidad * detail.precioUnitario, 0);
+            setOrderTotals(prevTotals => ({ ...prevTotals, [orderId]: total }));
+        } catch (err) {
+            console.error('Error calculating order total:', err.message);
+        }
+    };
+
     const handleOpenModal = (order) => {
         setSelectedOrder(order);
+        setShowModal(true);
     };
 
     const handleCloseModal = () => {
         setSelectedOrder(null);
+        setShowModal(false);
     };
 
     if (loading) return <p>Loading...</p>;
@@ -56,9 +76,9 @@ const OrderClient = () => {
                                 <td>{order.idOrden}</td>
                                 <td>{order.fecha}</td>
                                 <td>{order.estado}</td>
-                                <td>${order.total}</td>
+                                <td>${orderTotals[order.idOrden]?.toFixed(2) || 'Calculating...'}</td>
                                 <td>
-                                    <button onClick={() => handleOpenModal(order)}>View Details</button>
+                                    <button className="open-modal-button" onClick={() => handleOpenModal(order)}>View Order Details</button>
                                 </td>
                             </tr>
                         ))
@@ -69,11 +89,11 @@ const OrderClient = () => {
                     )}
                 </tbody>
             </table>
-            {selectedOrder && (
-                <OrderDetailModal order={selectedOrder} onClose={handleCloseModal} />
+            {showModal && selectedOrder && (
+                <OrderDetailsModal orderId={selectedOrder.idOrden} onClose={handleCloseModal} />
             )}
         </div>
     );
 };
 
-export default OrderClient;
+export default OrderClientPage;

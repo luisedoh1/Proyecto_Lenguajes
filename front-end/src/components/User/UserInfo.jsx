@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import CustomModal from './CustomModal';
 import './UserProfile.css';
 
-const UserInfo = () => {
+const UserInfo = ({ onUpdate }) => {
     const [userDetails, setUserDetails] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -44,6 +44,7 @@ const UserInfo = () => {
                 setUserDetails(response.data);
                 resetForm();
                 setIsModalOpen(false);
+                onUpdate();
             } catch (err) {
                 setError(err.message);
             }

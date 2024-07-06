@@ -28,6 +28,7 @@ const Navbar = () => {
         <li className="navbar__link"><Link to="/cart">Cart</Link></li>
         {isLoggedIn ? (
             <>
+            <li className="navbar__link"><Link to="/user/orders">Orders</Link></li>
             <li className="navbar__link"><Link to="/profile">Profile</Link></li>
             <li className="navbar__link"><button onClick={handleLogout} className="navbar__link">Logout</button></li>
             </>
