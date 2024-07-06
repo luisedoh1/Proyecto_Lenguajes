@@ -17,12 +17,25 @@ namespace BL
             _carritoDA = new CarritoDA(context);
         }
 
-        public async Task<bool> AñadirProductoAlCarrito(int userId, DetalleCarrito detalle) 
+        // Obtener carrito por usuario
+        public async Task<CarritoCompra> ObtenerCarritoPorUsuario(int userId)
         {
-            var carrito = await _carritoDA.ObtenerCarritoPorUsuario(userId); // Obtener carrito del usuario
+            try
+            {
+                return await _carritoDA.ObtenerCarritoPorUsuario(userId);
+            }
+            catch (Exception error)
+            {
+                throw new Exception(error.Message);
+            }
+        }
+
+    // Agregar producto del carrito
+    public async Task<bool> AñadirProductoAlCarrito(int userId, DetalleCarrito detalle) 
+        {
+            var carrito = await _carritoDA.ObtenerCarritoPorUsuario(userId);
             if (carrito == null)
             {
-                // Crear carrito en base de datos
                 carrito = new CarritoCompra()
                 {
                     IdUsuario = userId,
@@ -30,8 +43,6 @@ namespace BL
                 };
                 await _carritoDA.CrearCarrito(carrito);  
             }
-
-            // Agregar producto al carrito
             detalle.IdCarrito = carrito.IdCarrito;
             var result = await _carritoDA.AgregarProductoACarrito(detalle);
             return result > 0;

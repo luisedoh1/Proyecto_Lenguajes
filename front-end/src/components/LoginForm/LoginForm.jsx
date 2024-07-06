@@ -38,11 +38,16 @@ const LoginForm = () => {
 
       if (response.data) {
         const userRole = response.data.role;
+        const idUsuario = response.data.userid
+        console.log(idUsuario)
+        localStorage.setItem('idUsuario', idUsuario)
+        const userid = localStorage.getItem('idUsuario')
+        console.log(userid)
         dispatch(logIn({ role: userRole }));
         if (userRole === 'admin') {
           navigate('/admin/list');
         } else if (userRole === 'sales') {
-          navigate('/sales/dashboard');
+          navigate('/sales/orders');
         } else if (userRole === 'client') {
           navigate('/');
         } else {
@@ -78,4 +83,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default LoginForm;

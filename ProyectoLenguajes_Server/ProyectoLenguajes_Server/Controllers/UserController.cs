@@ -63,9 +63,9 @@ namespace ProyectoLenguajes_Server.Controllers
             }
         }
 
-        // PUT: User/email/{email}
-        [HttpPut("email/{email}")]
-        public async Task<IActionResult> EditUser(string email, [FromBody] Usuario user)
+        // PUT: User/idUsuario/{idUsuario}
+        [HttpPut("idUsuario/{userId}")]
+        public async Task<IActionResult> EditUser(int userId, [FromBody] Usuario user)
         {
             if (!ModelState.IsValid)
             {
@@ -74,7 +74,7 @@ namespace ProyectoLenguajes_Server.Controllers
 
             try
             {
-                var result = await _userBl.editUser(email, user);
+                var result = await _userBl.editUser(userId, user);
                 if (result > 0)
                 {
                     return NoContent();

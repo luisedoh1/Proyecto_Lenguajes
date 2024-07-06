@@ -10,12 +10,15 @@ import Navbar from './components/Navbar/Navbar';
 import ProductList from './components/Product/ProductList';
 import AdminNavbar from './components/Navbar/AdminNavbar';
 import SalesNavbar from './components/Navbar/SalesNavbar';
+import ClientNavbar from './components/Navbar/ClientNavbar';
 import Categories from './components/Categories/Categories';
 import { ReportPage } from './pages/ReportPage';
 import SignUp from './components/SignUp/SignUp';
 import SearchOrderPage from './pages/SearchOrderPage';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Unauthorized from './pages/Unauthorized';
+import UserProfilePage from './pages/UserProfilePage';
+
 
 const App = () => {
   const location = useLocation();
@@ -24,7 +27,7 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      {showNavbar && (role === 'admin' ? <AdminNavbar /> : role === 'sales' ? <SalesNavbar /> : <Navbar />)}
+      {showNavbar && (role === 'admin' ? <AdminNavbar /> : role === 'sales' ? <SalesNavbar /> : role === 'client' ? <ClientNavbar /> : <Navbar />)}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<LoginPage />} />
@@ -45,8 +48,7 @@ const App = () => {
         </Route>
 
         <Route element={<PrivateRoute roles={['client', 'admin']} />}>
-          <Route path="/products" element={<ProductsPage />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/profile" element={<UserProfilePage />} />
         </Route>
       </Routes>
     </Provider>

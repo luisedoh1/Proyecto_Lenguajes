@@ -16,6 +16,25 @@ namespace ProyectoLenguajes_Server.Controllers
             _carritoBl = new CarritoBL(apiContext);
         }
 
+        // GET: /carrito/usuario/{userId}
+        [HttpGet("usuario/{userId:int}")]
+        public async Task<ActionResult<CarritoCompra>> ObtenerCarritoPorUsuario(int userId)
+        {
+            try
+            {
+                var carrito = await _carritoBl.ObtenerCarritoPorUsuario(userId);
+                if (carrito == null)
+                {
+                    return NotFound("Carrito no encontrado para el usuario");
+                }
+                return Ok(carrito);
+            }
+            catch (Exception error)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, error.Message);
+            }
+        }
+
         // POST: /{userId}/add
         [HttpPost("/{userId}/add")]
         public async Task<IActionResult> AddProductToCart(int userId, [FromBody] DetalleCarrito detalle)

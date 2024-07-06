@@ -21,7 +21,7 @@ namespace DA
         //Obtener carrito por medio del usuario
         public async Task<CarritoCompra> ObtenerCarritoPorUsuario(int userId)
         {
-            return await _context.CarritoCompras.FirstOrDefaultAsync(c => c.IdUsuario == userId);
+            return await _context.CarritoCompras.Include(dc => dc.DetalleCarritos).FirstOrDefaultAsync(c => c.IdUsuario == userId);
         }
         
         //Crear carrito

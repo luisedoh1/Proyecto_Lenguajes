@@ -58,11 +58,11 @@ namespace BL
         }
 
         // Editar usuario
-        public async Task<int> editUser(string email, Usuario user)
+        public async Task<int> editUser(int userId, Usuario user)
         {
             try
             {
-                return await usuarioDA.editUser(email, user);
+                return await usuarioDA.editUser(userId, user);
             }
             catch (Exception error)
             {

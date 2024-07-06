@@ -41,6 +41,20 @@ namespace DA
             }
         }
 
+        // Obtener usuario por Id
+        public async Task<Usuario> getUserById(int userId)
+        {
+            try
+            {
+                return await _context.Usuarios.Where(u => u.IdUsuario == userId).FirstOrDefaultAsync();
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error.Message);
+                throw new Exception("Error al buscar al usuario " + userId);
+            }
+        }
+
         // Agregar usuario
         public async Task<int> createUser(Usuario usuario)
         {
@@ -57,11 +71,11 @@ namespace DA
         }
 
         // Editar usuario
-        public async Task<int> editUser(string email, Usuario user)
+        public async Task<int> editUser(int userId, Usuario user)
         {
             try
             {
-                Usuario existingUser = await getUserByEmail(email);
+                Usuario existingUser = await getUserById(userId);
                 existingUser.Nombre = user.Nombre;
                 existingUser.Contraseña = user.Contraseña;
 
@@ -71,7 +85,7 @@ namespace DA
             catch (Exception error)
             {
                 Console.WriteLine(error.Message);
-                throw new Exception("Error encontrado al intentar actualizar el usuario:" + email);
+                throw new Exception("Error encontrado al intentar actualizar el usuario:" + userId);
             }
         }
 
